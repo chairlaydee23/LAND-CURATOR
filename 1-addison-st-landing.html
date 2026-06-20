@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>0.22 Acre Lot – 1 Addison St, Horizon City, El Paso | LandCurator</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sand: #F5F0E8;
+    --sand-dark: #E8E0D0;
+    --ink: #1A1814;
+    --ink-mid: #3D3A34;
+    --ink-light: #6B6660;
+    --accent: #B85C2A;
+    --accent-light: #F2E8E0;
+    --accent-hover: #9A4A20;
+    --green: #2E5C3A;
+    --green-light: #E8F0EA;
+    --border: rgba(26,24,20,0.12);
+    --border-strong: rgba(26,24,20,0.22);
+    --white: #FFFFFF;
+    --radius: 4px;
+    --radius-lg: 8px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--sand);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-phone {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .nav-phone:hover { color: var(--accent-hover); }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    color: var(--white);
+    padding: 64px 5% 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_19_at_14_55_50_48f01303aa.png') center/cover no-repeat;
+    opacity: 0.18;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 760px;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(184,92,42,0.15);
+    border: 1px solid rgba(184,92,42,0.3);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.8vw, 44px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+    color: var(--white);
+  }
+  .hero-address {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 28px;
+    letter-spacing: 0.3px;
+  }
+  .hero-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .hero-price {
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: -1px;
+  }
+  .hero-price-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+  }
+  .hero-finance-note {
+    font-size: 13px;
+    color: rgba(255,255,255,0.62);
+    margin-bottom: 28px;
+    padding: 10px 14px;
+    border-left: 2px solid var(--accent);
+    background: rgba(184,92,42,0.08);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    max-width: 520px;
+  }
+  .hero-bullets {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+    margin-bottom: 36px;
+  }
+  .hero-bullets li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.78);
+    padding-left: 18px;
+    position: relative;
+  }
+  .hero-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.3px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--accent-hover); }
+  .hero-tel {
+    color: rgba(255,255,255,0.65);
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .hero-tel:hover { color: var(--white); }
+
+  /* ALERT BANNER */
+  .alert-bar {
+    background: #FFF8EC;
+    border-top: 3px solid #D97706;
+    border-bottom: 1px solid #F5D9A0;
+    padding: 14px 5%;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .alert-text {
+    font-size: 14px;
+    color: #78350F;
+    line-height: 1.55;
+  }
+  .alert-text strong { font-weight: 600; }
+
+  /* TRUST STRIP */
+  .trust-strip {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.2px;
+  }
+  .trust-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+
+  /* MAIN LAYOUT */
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 5%;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* GALLERY */
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+  .gallery-main {
+    grid-column: 1 / -1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+  .gallery-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery-thumb {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 16/10;
+  }
+  .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* CONTENT SECTIONS */
+  .section { margin-bottom: 40px; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+  .section p {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.72;
+    margin-bottom: 14px;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 36px 0;
+  }
+
+  /* KEY ADVANTAGES */
+  .advantage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .advantage-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .advantage-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .advantage-card p {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  /* FINANCING CALLOUT */
+  .financing-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    padding: 18px 20px;
+    margin-top: 18px;
+  }
+  .financing-box .fin-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .financing-box .fin-monthly {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .financing-box .fin-detail {
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+  .financing-box .fin-reserve {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--ink-mid);
+    font-weight: 500;
+  }
+
+  /* NEARBY LIST */
+  .nearby-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .nearby-list li {
+    font-size: 14px;
+    color: var(--ink-mid);
+    padding: 10px 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.45;
+  }
+  .nearby-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* SPECS TABLE */
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .specs-table tr { border-bottom: 1px solid var(--border); }
+  .specs-table tr:last-child { border-bottom: none; }
+  .specs-table td {
+    padding: 12px 0;
+    font-size: 14px;
+    vertical-align: top;
+  }
+  .specs-table td:first-child {
+    color: var(--ink-light);
+    font-weight: 500;
+    width: 42%;
+  }
+  .specs-table td:last-child { color: var(--ink); font-weight: 500; }
+
+  /* MAP */
+  .map-embed {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-top: 8px;
+  }
+  .map-embed iframe {
+    width: 100%;
+    height: 260px;
+    border: none;
+    display: block;
+  }
+  .map-coords {
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 8px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  /* SIDEBAR */
+  .sidebar { position: sticky; top: 76px; }
+
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(26,24,20,0.06);
+  }
+  .form-card-head {
+    background: var(--ink);
+    color: var(--white);
+    padding: 20px 24px;
+  }
+  .form-card-head .price-tag {
+    font-size: 28px;
+    font-weight: 600;
+    display: block;
+    letter-spacing: -0.5px;
+  }
+  .form-card-head .monthly-tag {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+    display: block;
+  }
+  .form-card-head p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 8px;
+  }
+  .form-card-body { padding: 20px 24px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .form-group { margin-bottom: 12px; }
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    margin-bottom: 5px;
+    letter-spacing: 0.2px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    padding: 9px 12px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.15s;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { resize: vertical; min-height: 70px; }
+
+  .radio-group { display: flex; gap: 8px; flex-wrap: wrap; }
+  .radio-option input[type="radio"] { display: none; }
+  .radio-option label {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink-mid);
+    transition: all 0.15s;
+    margin-bottom: 0;
+  }
+  .radio-option input:checked + label {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+  }
+
+  .form-guarantee {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    background: var(--green-light);
+    border: 1px solid rgba(46,92,58,0.15);
+    border-radius: var(--radius);
+    font-size: 12px;
+    color: var(--green);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .form-guarantee-icon { flex-shrink: 0; margin-top: 1px; }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .btn-submit:hover { background: var(--accent-hover); }
+
+  .form-fine {
+    font-size: 11px;
+    color: var(--ink-light);
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  .call-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .call-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .call-card-icon svg { width: 18px; height: 18px; fill: var(--accent); }
+  .call-card-text { font-size: 13px; color: var(--ink-mid); }
+  .call-card-text a {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 1px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.45);
+    padding: 28px 5%;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.8;
+  }
+  footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+
+  /* SUCCESS STATE */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 28px 20px;
+  }
+  .form-success-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--green-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+  }
+  .form-success-icon svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 2.5; }
+  .form-success h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .form-success p { font-size: 14px; color: var(--ink-mid); }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .page-wrap { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .hero-bullets { grid-template-columns: 1fr; }
+    .nearby-list { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .advantage-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .trust-strip { gap: 14px; }
+    .gallery { grid-template-columns: 1fr; }
+    .gallery-main { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Land<span>Curator</span></div>
+  <a class="nav-phone" href="tel:18005200534">1 (800) 520-0534</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Available Now · Horizon City, El Paso</span>
+    <h1>0.22 Acre Lot Near N Ascension St, Horizon City</h1>
+    <p class="hero-address">1 Addison St, El Paso, Texas 79938 · Structured subdivision with mapped lots &amp; dirt road access</p>
+    <div class="hero-price-row">
+      <span class="hero-price">$15,950</span>
+      <span class="hero-price-label">Total · Owner Financing Available</span>
+    </div>
+    <div class="hero-finance-note">
+      Monthly payments of $313.27 over 5 years at 8% interest. Can close through a title company. $500 reserves your spot.
+    </div>
+    <ul class="hero-bullets">
+      <li>0.22 acres — 9,583 sq ft</li>
+      <li>Immediate proximity to N Ascension St (dirt road access)</li>
+      <li>Structured subdivision, mapped lots</li>
+      <li>Growing residential pocket, active development nearby</li>
+      <li>No bank approval, no credit check</li>
+      <li>Buyer responsible for closing costs</li>
+    </ul>
+    <div class="hero-cta-group">
+      <a class="btn-primary" href="#lead-form">Reserve This Lot</a>
+      <a class="hero-tel" href="tel:18005200534">or call 1 (800) 520-0534</a>
+    </div>
+  </div>
+</div>
+
+<!-- ALERT -->
+<div class="alert-bar">
+  <span style="font-size:18px;margin-top:2px;flex-shrink:0;color:#B45309;">⚠</span>
+  <div class="alert-text">
+    <strong>Lots this close to major roads and infrastructure are always in demand.</strong> Your $500 reservation goes directly toward closing costs — full refund if you decide not to proceed. Close in as little as 2 weeks.
+    <br>
+    <span style="font-size:13px;opacity:0.8;">Reservation → Closing Costs &nbsp;·&nbsp; Full Refund if You Cancel &nbsp;·&nbsp; No Credit Check</span>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <span class="trust-item"><span class="trust-dot"></span> BBB A+ Accredited Since 2018</span>
+  <span class="trust-item"><span class="trust-dot"></span> No Credit Check</span>
+  <span class="trust-item"><span class="trust-dot"></span> Deed in 2–4 Weeks</span>
+  <span class="trust-item"><span class="trust-dot"></span> Owner Financing Available</span>
+  <span class="trust-item"><span class="trust-dot"></span> No Agent Fees</span>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-wrap">
+
+  <!-- LEFT COLUMN -->
+  <div class="main-col">
+
+    <!-- GALLERY -->
+    <div class="gallery">
+      <div class="gallery-main">
+        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_19_at_14_55_50_48f01303aa.png" alt="1 Addison St aerial view" />
+      </div>
+      <div class="gallery-thumb">
+        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_19_at_14_56_48_ee1894eac6.png" alt="1 Addison St aerial view 2" />
+      </div>
+      <div class="gallery-thumb">
+        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_19_at_14_57_05_0b1009a2b6.png" alt="1 Addison St aerial view 3" />
+      </div>
+      <div class="gallery-thumb">
+        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_19_at_14_55_35_e7f2c6e0b7.png" alt="1 Addison St aerial view 4" />
+      </div>
+      <div class="gallery-thumb">
+        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_19_at_14_57_18_25db048675.png" alt="1 Addison St aerial view 5" />
+      </div>
+      <div class="gallery-thumb">
+        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_19_at_14_56_26_ec5d7f5947.png" alt="1 Addison St aerial view 6" />
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section">
+      <div class="section-label">Property Overview</div>
+      <h2>About 1 Addison St</h2>
+      <p>Positioned just off N Ascension St, this 0.22-acre lot offers a strong combination of nearby access, location, and future upside in one of Horizon City's steadily expanding areas. The lot itself is reached via an unpaved access road, with N Ascension St — a major paved corridor — close by, making this land more practical for future use or resale than typical off-grid parcels.</p>
+      <p>Located minutes from Sunburst Dr and surrounded by an established street network, this property sits within a growing residential pocket with visible development activity nearby. You're not buying in isolation — you're buying into an area that's actively filling in.</p>
+      <p>Owner financing available. No bank, no broker, no agent commissions. Close through a title company and the deed is in your hands within two to four weeks. Buyer responsible for all closing costs.</p>
+
+      <div class="advantage-grid">
+        <div class="advantage-card"><span class="advantage-dot"></span><p>Immediate proximity to N Ascension St — a major paved corridor, reached via unpaved access road</p></div>
+        <div class="advantage-card"><span class="advantage-dot"></span><p>Close to Sunburst Dr and the surrounding neighborhood grid</p></div>
+        <div class="advantage-card"><span class="advantage-dot"></span><p>Structured subdivision with mapped lots and road access</p></div>
+        <div class="advantage-card"><span class="advantage-dot"></span><p>Near local landmarks and expanding residential zones</p></div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- FINANCING -->
+    <div class="section">
+      <div class="section-label">Owner Financing</div>
+      <h2>Flexible Terms — No Bank Required</h2>
+      <p>Whether you're looking to build, hold, or invest in a path-of-growth location, this parcel checks the key boxes. And you can get started with just $500 down.</p>
+      <div class="financing-box">
+        <div class="fin-title">Monthly Payment</div>
+        <div class="fin-monthly">$313.27 / mo</div>
+        <div class="fin-detail">5-year term at 8% interest · Total price $15,950</div>
+        <div class="fin-reserve">$500 secures the lot today. Reservation goes toward your closing costs. Full refund if you don't proceed.</div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- NEARBY -->
+    <div class="section">
+      <div class="section-label">What's Nearby</div>
+      <ul class="nearby-list">
+        <li>N Ascension St — immediately adjacent, major access corridor</li>
+        <li>Sunburst Dr — minutes away, surrounding road network</li>
+        <li>Active residential development — visible in the surrounding area</li>
+        <li>Horizon City schools, shops &amp; services — minutes away</li>
+        <li>Downtown El Paso — approx. 30 minutes via I-10</li>
+        <li>Hospitals of Providence Horizon City Campus — nearby</li>
+      </ul>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- SPECS -->
+    <div class="section">
+      <div class="section-label">Property Specs</div>
+      <table class="specs-table">
+        <tr><td>Address</td><td>1 Addison St, El Paso TX 79938</td></tr>
+        <tr><td>Parcel Size</td><td>0.22 Acres (approx. 9,583 sq ft)</td></tr>
+        <tr><td>Price</td><td>$15,950</td></tr>
+        <tr><td>Monthly Payment</td><td>$313.27 over 5 years at 8%</td></tr>
+        <tr><td>Location</td><td>Horizon City, TX</td></tr>
+        <tr><td>Zip Code</td><td>79938</td></tr>
+        <tr><td>Road Access</td><td>Dirt Road (paved N Ascension St nearby)</td></tr>
+        <tr><td>Parcel Number</td><td>H779-065-4930-0240</td></tr>
+        <tr><td>Status</td><td><span style="color:var(--green);font-weight:600;">Available</span></td></tr>
+      </table>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- MAP -->
+    <div class="section">
+      <div class="section-label">Location</div>
+      <div class="map-embed">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-106.1900%2C31.6800%2C-106.1100%2C31.7200&layer=mapnik&marker=31.700%2C-106.150" title="Property location map" loading="lazy"></iframe>
+      </div>
+      <p class="map-coords">Horizon City · El Paso County, TX 79938</p>
+    </div>
+
+    <!-- CALL BAR -->
+    <div style="background:var(--ink);border-radius:var(--radius-lg);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:0.5px;text-transform:uppercase;font-weight:500;margin-bottom:4px;">Questions? Call direct</p>
+        <a href="tel:18005200534" style="font-size:20px;font-weight:600;color:var(--white);text-decoration:none;">1 (800) 520-0534</a>
+      </div>
+      <a href="tel:18005200534" class="btn-primary">Call Now</a>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="lead-form">
+    <div class="form-card">
+      <div class="form-card-head">
+        <span class="price-tag">$15,950</span>
+        <span class="monthly-tag">or $313.27/mo over 5 years at 8%</span>
+        <p>Get the full details sent to you — no commitment, no credit check required.</p>
+      </div>
+      <div class="form-card-body" id="form-wrap">
+
+        <div class="form-guarantee">
+          <span class="form-guarantee-icon">🔒</span>
+          <span>$500 reservation goes directly toward closing costs. Full refund if you decide not to proceed.</span>
+        </div>
+
+        <form id="lead-form-el" onsubmit="handleSubmit(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="jane@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required />
+          </div>
+          <div class="form-group">
+            <label for="use">How do you plan to use the land?</label>
+            <select id="use">
+              <option value="">Select intended use</option>
+              <option>Build a home</option>
+              <option>Park my RV / Camping base</option>
+              <option>Investment — hold for appreciation</option>
+              <option>Hunting / Recreation</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="timeline">How soon are you looking to buy?</label>
+            <select id="timeline">
+              <option value="">Select a timeframe</option>
+              <option>As soon as possible</option>
+              <option>Within 1–3 months</option>
+              <option>Within 6 months</option>
+              <option>Just researching for now</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Is this your first time buying land?</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" name="first_time" id="ft_yes" value="yes" />
+                <label for="ft_yes">Yes, first time</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="first_time" id="ft_no" value="no" />
+                <label for="ft_no">No, bought before</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="budget">What is your budget?</label>
+            <select id="budget">
+              <option value="">Select a range</option>
+              <option>Under $10,000</option>
+              <option>$10,000 – $25,000</option>
+              <option>$25,000 – $50,000</option>
+              <option>$50,000+</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="notes">Anything else you'd like us to know? (Optional)</label>
+            <textarea id="notes" placeholder="Tell us more..."></textarea>
+          </div>
+          <p style="font-size:11px;color:var(--ink-light);margin-bottom:12px;line-height:1.5;">By submitting you agree LandCurator may contact you about this property and offer.</p>
+          <button type="submit" class="btn-submit">Reserve This Lot ($500) →</button>
+        </form>
+
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>You're on the list.</h3>
+          <p>We'll be in touch shortly with everything you need on 1 Addison St. Watch your inbox and phone.</p>
+        </div>
+
+        <p class="form-fine" id="trust-footer">🔒 Secure &nbsp;·&nbsp; BBB A+ &nbsp;·&nbsp; No Spam</p>
+      </div>
+    </div>
+
+    <div class="call-card">
+      <div class="call-card-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      </div>
+      <div class="call-card-text">
+        Prefer to talk to someone?
+        <a href="tel:18005200534">1 (800) 520-0534</a>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:6px;">
+    <strong style="color:rgba(255,255,255,0.7);">LandCurator</strong> &nbsp;·&nbsp; Landcurator and Landxperte are wholly owned subsidiaries of UNOI Partners LLC.
+  </p>
+  <p>
+    <a href="https://landcurator.com/privacy">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="https://landcurator.com/terms">Terms</a>
+  </p>
+  <p style="margin-top:10px;font-size:11px;">
+    This site is not part of the Facebook website or Facebook Inc. FACEBOOK is a trademark of FACEBOOK, Inc.<br/>
+    © 2026 LandCurator / UNOI Partners LLC &nbsp;·&nbsp; BBB A+ Accredited &nbsp;·&nbsp; No agents &nbsp;·&nbsp; No hidden fees
+  </p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  if (!fname || !lname || !email || !phone) {
+    alert('Please fill in your name, email, and phone number.');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  document.getElementById('lead-form-el').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+  document.getElementById('trust-footer').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
