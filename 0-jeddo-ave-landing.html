@@ -1,578 +1,1100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>1 Acre Lot Near N Ascension St &amp; Pipeline Rd | Horizon City, El Paso | LandCurator</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<meta name="description" content="1-acre lot at 0 Jeddo Ave, Horizon City TX. Directly opposite active development. Owner financing, no credit check, $500 reserves your spot. Close in 2 weeks." />
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '713056944975093');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=713056944975093&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root{
-    --bg: #ddd6c4;
-    --panel: #f1ecde;
-    --panel-deep: #e7e0cd;
-    --ink: #221f1c;
-    --ink-soft: #565044;
-    --indigo: #223a5e;
-    --indigo-dark: #16283f;
-    --clay: #c1502e;
-    --sage: #4f6b4c;
-    --line: rgba(34,31,28,0.16);
+  :root {
+    --bg: #0D1710;
+    --bg-card: #16231A;
+    --bg-card-light: #1D2C21;
+    --green: #1F7A4D;
+    --green-dark: #16623E;
+    --green-light: #E7F3EC;
+    --ink: #14140F;
+    --ink-mid: #44473F;
+    --ink-light: #6E7268;
+    --paper: #FBFAF6;
+    --border: rgba(20,20,15,0.12);
+    --border-strong: rgba(20,20,15,0.22);
+    --border-dark: rgba(255,255,255,0.12);
+    --white: #FFFFFF;
+    --red: #C0362C;
+    --red-bg: #FBEEED;
     --radius: 6px;
-    --display: 'Space Grotesk', sans-serif;
-    --body: 'Source Sans 3', sans-serif;
-    --mono: 'IBM Plex Mono', monospace;
-    --max: 1080px;
+    --radius-lg: 10px;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --page-max: 1200px;
+    --page-pad: 40px;
+    --bleed: max(var(--page-pad), calc((100vw - var(--page-max)) / 2 + var(--page-pad)));
+  }
+  @media (max-width: 900px) {
+    :root { --page-pad: 20px; }
   }
 
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--body);
-    font-size:16px;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  img{max-width:100%; display:block;}
-  a{color:inherit; text-decoration:none;}
-  h1,h2{font-family:var(--display); letter-spacing:-0.01em;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
-  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
 
-  /* ---------- header ---------- */
-  .site-header{
-    position:sticky; top:0; z-index:40;
-    background:rgba(221,214,196,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
+  /* NAV */
+  nav {
+    background: var(--bg);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-dark);
   }
-  .header-inner{
-    max-width:var(--max); margin:0 auto; padding:14px 24px;
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  .nav-logo img { height: 28px; width: auto; }
+  .nav-phone {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    background: var(--green);
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    letter-spacing: 0.2px;
+    white-space: nowrap;
   }
-  .logo{height:30px; width:auto;}
-  .phone-link{
-    font-family:var(--mono); font-size:14px; font-weight:600;
-    background:var(--indigo); color:#f1ecde;
-    padding:9px 16px; border-radius:var(--radius);
-    white-space:nowrap;
-  }
+  .nav-phone:hover { background: var(--green-dark); }
 
-  /* ---------- hero ---------- */
-  .hero{padding:56px 0 40px;}
-  .hero-inner{
-    display:grid; grid-template-columns:1.1fr 1fr; gap:48px; align-items:center;
+  /* HERO */
+  .hero-content {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    background: var(--bg);
+    color: var(--white);
+    padding: 56px 0 48px;
+    margin-left: calc(-1 * var(--bleed));
+    margin-right: calc(-1 * var(--bleed));
+    padding-left: var(--bleed);
+    padding-right: var(--bleed);
   }
-  .eyebrow{
-    font-family:var(--mono); text-transform:uppercase; letter-spacing:.14em;
-    font-size:12.5px; color:var(--clay); font-weight:600; margin-bottom:14px;
+  .hero-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #9CB8A6;
+    margin-bottom: 16px;
   }
-  h1{font-size:clamp(30px,4.4vw,44px); line-height:1.08; font-weight:700; margin-bottom:14px;}
-  .hero-address{
-    font-size:15.5px; color:var(--ink-soft); margin-bottom:22px;
-    border-left:3px solid var(--sage); padding-left:10px;
+  .hero h1 {
+    font-size: clamp(28px, 4.2vw, 46px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    color: var(--white);
+    margin-bottom: 12px;
+    text-transform: uppercase;
   }
-  .price-row{
-    display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:22px;
+  .hero-address {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 26px;
   }
-  .price{
-    font-family:var(--display); font-size:38px; font-weight:700; color:var(--indigo-dark);
-  }
-  .price-note{font-size:14px; color:var(--ink-soft);}
-  .hero-points{list-style:none; margin-bottom:28px;}
-  .hero-points li{
-    position:relative; padding-left:24px; margin-bottom:11px; font-size:15px; color:var(--ink);
-  }
-  .hero-points li::before{
-    content:"";
-    position:absolute; left:0; top:7px;
-    width:9px; height:9px; border-radius:50%;
-    background:var(--sage);
-  }
-  .cta-btn{
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--clay); color:#fff; font-weight:600; font-size:15px;
-    padding:14px 26px; border-radius:var(--radius);
-    border:none; cursor:pointer; font-family:var(--body);
-    transition:transform .15s ease, box-shadow .15s ease;
-  }
-  .cta-btn:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(193,80,46,0.35);}
-  .cta-btn.secondary{background:var(--indigo);}
-  .cta-btn.ghost{background:transparent; border:1.5px solid var(--bg); color:#f1ecde;}
-
-  /* ---------- hero parcel diagram ---------- */
-  .parcel-card{
-    background:var(--panel); border:1px solid var(--line); border-radius:10px;
-    padding:22px; position:relative;
-  }
-  .parcel-card svg{width:100%; height:auto;}
-  .parcel-caption{
-    font-family:var(--mono); font-size:11px; color:var(--ink-soft);
-    text-align:center; margin-top:10px; letter-spacing:.02em;
-  }
-  .stamp{
-    position:absolute; top:-14px; right:-14px;
-    width:78px; height:78px; border-radius:50%;
-    background:var(--indigo); color:#f1ecde;
-    display:flex; align-items:center; justify-content:center;
-    text-align:center; font-family:var(--mono); font-size:9.5px; font-weight:600;
-    line-height:1.25; border:2px dashed rgba(241,236,222,0.55);
-    transform:rotate(8deg); padding:6px;
+  .hero-price {
+    font-family: var(--font);
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -1px;
+    margin-bottom: 28px;
   }
 
-  /* ---------- urgency ---------- */
-  .urgency{background:var(--indigo-dark); color:#f1ecde; padding:32px 0;}
-  .urgency-tag{
-    font-family:var(--mono); text-transform:uppercase; letter-spacing:.12em;
-    font-size:13px; color:#e7b08f; font-weight:600; margin-bottom:10px;
+  /* OFFER CARD */
+  .offer-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-lg);
+    padding: 28px 30px;
+    margin-bottom: 22px;
   }
-  .urgency p{max-width:680px; margin-bottom:10px; font-size:15px; color:#e6e1d3;}
-  .check-row{
-    list-style:none; display:flex; gap:22px; flex-wrap:wrap; margin-top:16px;
+  .offer-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #6FCB9A;
+    margin-bottom: 12px;
   }
-  .check-row li{
-    font-size:13.5px; font-weight:600; padding-left:20px; position:relative; color:#f1ecde;
+  .offer-card h2 {
+    font-size: clamp(19px, 2.4vw, 25px);
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+    color: var(--white);
+    margin-bottom: 14px;
+    text-transform: uppercase;
   }
-  .check-row li::before{content:"✓"; position:absolute; left:0; color:#9ec79a;}
+  .offer-card p {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .offer-bullets { list-style: none; }
+  .offer-bullets li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .offer-bullets li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #6FCB9A;
+    font-weight: 700;
+  }
 
-  /* ---------- gallery ---------- */
-  .gallery{padding:54px 0;}
-  .gallery h2{font-size:26px; margin-bottom:20px;}
-  .gallery-grid{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:26px;
+  /* ALERT */
+  .alert-block {
+    background: var(--bg-card-light);
+    border-left: 4px solid var(--red);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    padding: 18px 22px;
+    margin-bottom: 22px;
   }
-  .gallery-grid img{
-    aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius);
-    cursor:pointer; border:1px solid var(--line);
-    transition:transform .2s ease;
+  .alert-block .alert-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #E8847A;
+    margin-bottom: 8px;
   }
-  .gallery-grid img:hover{transform:scale(1.02);}
-  .gallery-grid img:first-child{grid-column:span 2; grid-row:span 2; aspect-ratio:1/1;}
+  .alert-block p {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.65;
+  }
 
-  /* ---------- lead form ---------- */
-  .lead-section{background:var(--panel); padding:56px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .lead-inner{max-width:680px; margin:0 auto;}
-  .lead-inner h2{font-size:25px; margin-bottom:8px; text-align:center;}
-  .lead-sub{text-align:center; color:var(--ink-soft); font-size:14.5px; margin-bottom:30px;}
-  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;}
-  .field{margin-bottom:14px;}
-  .field label{display:block; font-size:13.5px; font-weight:600; margin-bottom:6px;}
-  .field input, .field select, .field textarea{
-    width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:var(--radius);
-    font-family:var(--body); font-size:14.5px; background:#fbf9f2; color:var(--ink);
+  /* BADGES */
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
   }
-  .field textarea{min-height:80px; resize:vertical;}
-  .check-line{display:flex; align-items:flex-start; gap:8px; font-size:13px; color:var(--ink-soft); margin-top:-6px; margin-bottom:14px;}
-  .check-line input{margin-top:3px;}
-  .radio-group{display:flex; gap:18px; margin-top:6px;}
-  .radio-group label{display:flex; align-items:center; gap:6px; font-size:14px; font-weight:500;}
-  .consent{font-size:12.5px; color:var(--ink-soft); margin:16px 0;}
-  .lead-inner .cta-btn{width:100%; justify-content:center; font-size:16px; padding:15px;}
-  .trust-line{text-align:center; font-size:13px; color:var(--ink-soft); margin-top:16px;}
-  .trust-bar{
-    margin-top:26px; padding-top:20px; border-top:1px solid var(--line);
-    display:flex; flex-wrap:wrap; justify-content:center; gap:18px;
-    font-family:var(--mono); font-size:11.5px; color:var(--ink-soft); text-align:center;
+  .badge {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dark);
+    border-radius: 999px;
+    padding: 9px 16px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #B9D9C6;
+    white-space: nowrap;
   }
-  .thankyou{display:none; text-align:center; padding:30px 10px;}
-  .thankyou h3{font-family:var(--display); font-size:22px; margin-bottom:10px; color:var(--indigo-dark);}
-  .thankyou p{color:var(--ink-soft); font-size:14.5px;}
 
-  /* ---------- overview / nearby ---------- */
-  .overview, .nearby{padding:54px 0;}
-  .overview h2, .nearby h2, .specs h2, .map-section h2{font-size:26px; margin-bottom:20px;}
-  .overview p{margin-bottom:16px; max-width:700px; font-size:15.5px;}
-  .nearby ul{list-style:none; max-width:620px;}
-  .nearby li{
-    padding:13px 0; border-bottom:1px solid var(--line);
-    display:flex; justify-content:space-between; gap:16px; font-size:15px;
+  .hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
   }
-  .nearby li span.tag{font-family:var(--mono); font-size:11.5px; color:var(--sage); white-space:nowrap; padding-top:2px;}
-
-  /* ---------- specs ---------- */
-  .specs{background:var(--panel-deep); padding:54px 0;}
-  .specs-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
-  .spec{background:var(--panel); padding:18px 20px;}
-  .spec .label{display:block; font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); margin-bottom:6px;}
-  .spec .value{font-size:15px; font-weight:600;}
-  .spec .value.mono{font-family:var(--mono); font-size:13.5px; font-weight:500;}
-  .finance-note{margin-top:18px; padding:16px 20px; background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); font-size:14px; color:var(--ink-soft);}
-
-  /* ---------- map ---------- */
-  .map-section{padding:54px 0;}
-  .map-frame{border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); height:340px;}
-  .map-frame iframe{width:100%; height:100%; border:0; filter:saturate(0.85);}
-  .map-note{font-size:13px; color:var(--ink-soft); margin-top:10px;}
-
-  /* ---------- footer ---------- */
-  footer{background:var(--indigo-dark); color:#cfc9b9; padding:50px 0 30px;}
-  .footer-cta{text-align:center; margin-bottom:30px;}
-  .footer-cta p{font-family:var(--display); font-size:20px; color:#f1ecde; margin-bottom:14px;}
-  .footer-logo{height:24px; margin:0 auto 18px; filter:brightness(0) invert(1) opacity(0.85);}
-  footer .legal{text-align:center; font-size:13px; margin-bottom:6px;}
-  footer .legal-links{text-align:center; font-size:13px; margin-bottom:18px;}
-  footer .legal-links a{text-decoration:underline;}
-  footer .fb-disclaimer{text-align:center; font-size:11.5px; color:#9b9686; max-width:560px; margin:0 auto 14px; line-height:1.5;}
-  footer .copyright{text-align:center; font-size:11.5px; color:#85806f;}
-
-  /* ---------- lightbox ---------- */
-  .lightbox{
-    position:fixed; inset:0; background:rgba(22,17,12,0.92);
-    display:none; align-items:center; justify-content:center; z-index:100; padding:30px;
+  .btn-primary {
+    background: var(--green);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 16px 30px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    min-height: 44px;
   }
-  .lightbox.open{display:flex;}
-  .lightbox img{max-width:90vw; max-height:80vh; border-radius:4px;}
-  .lightbox button{
-    position:absolute; background:none; border:none; color:#f1ecde; font-size:28px; cursor:pointer;
+  .btn-primary:hover { background: var(--green-dark); }
+  .hero-tel {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    text-decoration: none;
   }
-  .lightbox-close{top:20px; right:28px;}
-  .lightbox-prev{left:18px; top:50%; transform:translateY(-50%);}
-  .lightbox-next{right:18px; top:50%; transform:translateY(-50%);}
+  .hero-tel:hover { color: var(--white); }
 
-  /* ---------- mobile sticky cta ---------- */
-  .mobile-cta{
-    display:none; position:fixed; bottom:0; left:0; right:0; z-index:50;
-    background:var(--indigo-dark); padding:10px 14px; gap:10px;
+  /* TRUST STRIP */
+  .trust-strip {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    background: var(--green-dark);
+    padding: 14px 0;
+    margin-left: calc(-1 * var(--bleed));
+    margin-right: calc(-1 * var(--bleed));
+    padding-left: var(--bleed);
+    padding-right: var(--bleed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
   }
-  .mobile-cta a{
-    flex:1; text-align:center; padding:13px; border-radius:var(--radius); font-weight:600; font-size:14px;
+  .trust-item {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
-  .mobile-cta .mobile-call{background:transparent; border:1.5px solid #f1ecde; color:#f1ecde;}
-  .mobile-cta .mobile-reserve{background:var(--clay); color:#fff;}
 
-  @media (max-width:760px){
-    .hero-inner{grid-template-columns:1fr; gap:32px;}
-    .hero-visual{order:-1;}
-    .gallery-grid{grid-template-columns:repeat(2,1fr);}
-    .gallery-grid img:first-child{grid-column:span 2; grid-row:auto; aspect-ratio:16/9;}
-    .form-row{grid-template-columns:1fr;}
-    .specs-grid{grid-template-columns:1fr 1fr;}
-    .mobile-cta{display:flex;}
-    body{padding-bottom:64px;}
-    .phone-link span{display:none;}
+  /* MAIN LAYOUT — single continuous grid; left-col and right-col share the
+     same grid so the sticky right-col can track the full page height,
+     including alongside the hero and trust strip rows. */
+  .page-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    grid-template-rows: auto auto auto;
+    gap: 0 48px;
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+    align-items: start;
   }
-  @media (max-width:480px){
-    .specs-grid{grid-template-columns:1fr;}
+
+  .left-col {
+    grid-column: 1;
+    grid-row: 3;
+    min-width: 0;
+    padding: 52px 0;
+  }
+
+  /* GALLERY */
+  .gallery { margin-bottom: 44px; }
+  .gallery-main {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    margin-bottom: 8px;
+    background: #ddd;
+  }
+  .gallery-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery-thumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .gallery-thumb {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .gallery-thumb:hover { border-color: var(--green); }
+  .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* CONTENT SECTIONS */
+  .section { margin-bottom: 40px; }
+  .section h2 {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--green);
+  }
+  .section-heading-wrap { margin-bottom: 18px; }
+  .section p {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 36px 0;
+  }
+
+  /* NEARBY LIST */
+  .nearby-list { list-style: none; }
+  .nearby-list li {
+    font-size: 14.5px;
+    color: var(--ink-mid);
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .nearby-list li:last-child { border-bottom: none; }
+  .nearby-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* SPECS */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .spec-card {
+    background: var(--white);
+    padding: 16px 18px;
+  }
+  .spec-label {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 6px;
+  }
+  .spec-value { font-size: 14.5px; font-weight: 700; color: var(--ink); }
+
+  /* MAP */
+  #property-map { background: var(--border-strong); }
+  .coord-pills {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .coord-pill {
+    background: var(--bg);
+    color: var(--white);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+  }
+
+  /* RIGHT COLUMN — spans all three grid rows (hero, trust strip, content)
+     so it stays sticky for the full scroll height of the left column. */
+  .right-col {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    position: sticky;
+    top: 20px;
+    align-self: start;
+    padding-top: 56px;
+  }
+
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(13,23,16,0.08);
+  }
+  .form-card-head {
+    background: var(--bg);
+    color: var(--white);
+    padding: 24px 24px 22px;
+  }
+  .claim-pill {
+    display: inline-block;
+    background: var(--green);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .form-card-head h3 {
+    font-size: 19px;
+    font-weight: 900;
+    line-height: 1.25;
+    text-transform: uppercase;
+    letter-spacing: -0.2px;
+    margin-bottom: 10px;
+  }
+  .form-card-head p {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+  .form-card-body { padding: 22px 24px; background: var(--white); }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .form-group { margin-bottom: 14px; }
+  .form-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    padding: 11px 12px;
+    font-size: 14px;
+    font-family: var(--font);
+    color: var(--ink);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.15s;
+    -webkit-appearance: none;
+    min-height: 44px;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--green); }
+  .form-group textarea { resize: vertical; min-height: 76px; }
+
+  .check-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: -6px;
+    margin-bottom: 14px;
+  }
+  .check-line input { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; accent-color: var(--green); }
+  .check-line label {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.5;
+    text-transform: none;
+    font-weight: 500;
+  }
+
+  .radio-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .radio-option { display: flex; align-items: center; gap: 8px; }
+  .radio-option input[type="radio"] { width: 17px; height: 17px; accent-color: var(--green); flex-shrink: 0; }
+  .radio-option label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    cursor: pointer;
+  }
+
+  .consent {
+    font-size: 11.5px;
+    color: var(--ink-light);
+    text-align: center;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .form-error {
+    display: none;
+    background: var(--red-bg);
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--green-dark);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    min-height: 48px;
+  }
+  .btn-submit:hover { background: var(--green); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .form-fine {
+    font-size: 11.5px;
+    color: var(--ink-light);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  .call-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 22px;
+    margin-top: 16px;
+  }
+  .call-card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+  }
+  .call-card-phone {
+    display: block;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--ink);
+    text-decoration: none;
+    margin-bottom: 14px;
+  }
+  .call-card .btn-primary { width: 100%; text-align: center; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg);
+    color: rgba(255,255,255,0.55);
+    padding: 44px 5% 24px;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+  }
+  .footer-logo img { height: 26px; width: auto; margin-bottom: 12px; filter: brightness(0) invert(1); }
+  .footer-tagline { font-size: 12.5px; color: rgba(255,255,255,0.45); max-width: 360px; line-height: 1.6; }
+  .footer-legal-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 10px;
+  }
+  .footer-legal a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+  }
+  .footer-legal a:hover { color: var(--white); }
+  .fb-disclaimer {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-dark);
+    margin-bottom: 16px;
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .page-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
+    }
+    .hero-content,
+    .trust-strip { grid-column: 1; }
+    .left-col { grid-row: 3; }
+    .right-col {
+      grid-column: 1;
+      grid-row: 4;
+      position: static;
+      padding-top: 0;
+      align-self: auto;
+    }
+  }
+  @media (max-width: 560px) {
+    .trust-strip { gap: 14px; }
+    .nav-logo img { height: 22px; }
+    .nav-phone { font-size: 12.5px; padding: 9px 14px; }
+    .hero-content { padding: 40px 0 36px; }
+    .hero-price { font-size: 34px; }
+    .offer-card { padding: 22px 18px; }
+    .footer-top { flex-direction: column; }
   }
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <img class="logo" src="https://assets.cdn.filesafe.space/dfFlPq6tV5mw6ZqBtzW0/media/69cd5f61bb06f5e1249e3781.png" alt="LandCurator">
-    <a class="phone-link" href="tel:18005200534">1 (800) 520-0534</a>
-  </div>
-</header>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><img src="https://assets.cdn.filesafe.space/dfFlPq6tV5mw6ZqBtzW0/media/69cd5f61bb06f5e1249e3781.png" alt="LandCurator" /></a>
+  <a class="nav-phone" href="tel:18005200534">1 (800) 520-0534</a>
+</nav>
 
-<section class="hero">
-  <div class="wrap hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow">The Offer</p>
-      <h1>1 Acre Lot, Prime Position Near N Ascension St &amp; Pipeline Rd, Horizon City</h1>
-      <p class="hero-address">0 Jeddo Ave, El Paso, TX 79938 &middot; Near North Ascension Street &amp; Pipeline Road &middot; Opposite Active Development</p>
-      <div class="price-row">
-        <span class="price">$33,850</span>
-        <span class="price-note">or $500 down, then $676.16 a month for 5 years at 8% interest</span>
-      </div>
-      <ul class="hero-points">
-        <li>1 full acre, 43,560 sq ft, room to build, park an RV, grow, fence, and still have space left</li>
-        <li>Directly opposite an active large-scale development site, you're not near growth, you're across the street from it</li>
-        <li>Owner financing available, no bank, no credit check, $500 reserves your spot</li>
-        <li>No HOA, no build timeline, El Paso County permits manufactured homes, double wides, and RVs</li>
+<!-- SINGLE TWO-COLUMN GRID WRAPPER -->
+<div class="page-grid">
+
+  <!-- HERO (row 1, full width) -->
+  <div class="hero-content">
+    <p class="hero-subtitle">Near N Ascension St &amp; Pipeline Rd · Directly Opposite Active Development</p>
+    <h1>1 Acre Lot — Prime Position Near N Ascension St &amp; Pipeline Rd, Horizon City</h1>
+    <p class="hero-address">0 Jeddo Ave, El Paso, TX 79938</p>
+    <div class="hero-price">$33,850</div>
+
+    <div class="offer-card">
+      <span class="offer-eyebrow">The Offer</span>
+      <h2>1 Full Acre — Positioned Opposite Active Development in Horizon City</h2>
+      <p>This 1-acre lot at 0 Jeddo Ave sits at the intersection of two key access routes — North Ascension Street and Pipeline Road. What sets it apart: directly across from the lot, a large-scale development site is already underway. You're not speculating on future growth — you're buying a position next to proof it's happening now. El Paso County permits manufactured homes, double wides, and RVs. No agent commissions, no hidden fees, no bank approval process. Owner financing available. $500 reserves your spot. $33,850 total.</p>
+      <ul class="offer-bullets">
+        <li>1 full acre — 43,560 sq ft — room to build, park an RV, grow, fence, and still have space left</li>
+        <li>Directly opposite an active large-scale development site — you're not near growth, you're across the street from it</li>
+        <li>Owner financing available — no bank, no credit check, $500 reserves your spot</li>
+        <li>No HOA · No build timeline · El Paso County permits manufactured homes, double wides, and RVs</li>
       </ul>
-      <a href="#reserve" class="cta-btn">Reserve This Lot</a>
     </div>
-    <div class="hero-visual">
-      <div class="parcel-card">
-        <svg viewBox="0 0 320 250" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
-              <path d="M16 0H0V16" fill="none" stroke="#22201c" stroke-opacity="0.07" stroke-width="1"/>
-            </pattern>
-          </defs>
-          <rect x="0" y="0" width="320" height="250" fill="url(#grid)"/>
-          <line x1="20" y1="200" x2="300" y2="200" stroke="#56504d" stroke-width="2" stroke-dasharray="6 5"/>
-          <text x="160" y="218" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#56504d" letter-spacing="1">N ASCENSION ST</text>
-          <polygon points="48,196 268,188 262,72 56,80" fill="#c1502e" fill-opacity="0.14" stroke="#c1502e" stroke-width="2"/>
-          <circle cx="48" cy="196" r="4" fill="#223a5e"/>
-          <circle cx="268" cy="188" r="4" fill="#223a5e"/>
-          <circle cx="262" cy="72" r="4" fill="#223a5e"/>
-          <circle cx="56" cy="80" r="4" fill="#223a5e"/>
-          <text x="160" y="142" text-anchor="middle" font-family="Space Grotesk" font-size="17" font-weight="700" fill="#16283f">1 ACRE</text>
-          <text x="160" y="160" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#56504d">43,560 SQFT</text>
-          <text x="38" y="138" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#56504d" transform="rotate(-90 38 138)">approx 209 ft</text>
-          <text x="160" y="60" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#56504d">approx 209 ft</text>
-          <g transform="translate(280,28)">
-            <circle r="16" fill="none" stroke="#56504d" stroke-width="1.3"/>
-            <line x1="0" y1="-16" x2="0" y2="16" stroke="#56504d" stroke-width="1"/>
-            <line x1="-16" y1="0" x2="16" y2="0" stroke="#56504d" stroke-width="1"/>
-            <text x="0" y="-20" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#56504d">N</text>
-          </g>
-        </svg>
-        <p class="parcel-caption">Illustrative parcel diagram, not a surveyed boundary</p>
-        <div class="stamp">PARCEL<br>H779-070<br>5480-0040</div>
+
+    <div class="alert-block">
+      <div class="alert-label">High Interest Alert</div>
+      <p>This property is currently receiving a high level of interest. Skip the queue — reserve this property today and secure your place. If you move forward, your reservation goes directly toward your closing costs. If you decide not to proceed, you get a full refund. No questions asked. Close in as little as 2 weeks.</p>
+    </div>
+
+    <div class="badge-row">
+      <span class="badge">✓ Reservation → Closing Costs</span>
+      <span class="badge">✓ Full Refund if You Cancel</span>
+      <span class="badge">✓ Close in 2 Weeks</span>
+    </div>
+
+    <div class="hero-cta-group">
+      <a class="btn-primary" href="#lead-form">Reserve This Lot</a>
+      <a class="hero-tel" href="tel:18005200534">or call 1 (800) 520-0534</a>
+    </div>
+  </div>
+  <!-- END HERO -->
+
+  <!-- TRUST STRIP (row 2, full width) -->
+  <div class="trust-strip">
+    <span class="trust-item">BBB A+</span>
+    <span class="trust-item">No Credit Check</span>
+    <span class="trust-item">Deed in 2–4 Weeks</span>
+    <span class="trust-item">Owner Financing Available</span>
+    <span class="trust-item">No Agent Fees</span>
+  </div>
+
+  <!-- LEFT COLUMN (row 3) — all remaining page content -->
+  <div class="left-col">
+
+    <!-- GALLERY -->
+    <div class="gallery">
+      <div class="gallery-main">
+        <img id="galleryMain" src="https://d1sr9ngwehj2gk.cloudfront.net/1_acre_lot_jeddo_86805b1895.jpg" alt="0 Jeddo Ave aerial view" />
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="urgency">
-  <div class="wrap">
-    <p class="urgency-tag reveal">High Interest Alert</p>
-    <p class="reveal">This lot is getting steady attention from buyers along the N Ascension St &amp; Pipeline Rd corridor. Reserve it today and skip the queue.</p>
-    <p class="reveal">Move forward and your $500 reservation goes straight toward your closing costs. Change your mind and you get a full refund, no questions asked. Close in as little as 2 to 4 weeks.</p>
-    <ul class="check-row reveal">
-      <li>Reservation Counts Toward Closing</li>
-      <li>Full Refund If You Cancel</li>
-      <li>Title Company Closing</li>
-    </ul>
-  </div>
-</section>
-
-<section class="gallery">
-  <div class="wrap">
-    <h2 class="reveal">1 Acre at 0 Jeddo Ave</h2>
-    <div class="gallery-grid reveal">
-      <img onclick="openLightbox(0)" src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_10_20_at_00_32_27_c975808cd8.png" alt="0 Jeddo Ave aerial view 1">
-      <img onclick="openLightbox(1)" src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_10_20_at_00_32_44_d92ccadf8a.png" alt="0 Jeddo Ave aerial view 2">
-      <img onclick="openLightbox(2)" src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_10_20_at_00_31_21_f222361360.png" alt="0 Jeddo Ave aerial view 3">
-      <img onclick="openLightbox(3)" src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_10_20_at_00_31_05_1e2844e67f.png" alt="0 Jeddo Ave aerial view 4">
-      <img onclick="openLightbox(4)" src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_10_20_at_00_31_47_bab9058ba4.png" alt="0 Jeddo Ave aerial view 5">
-    </div>
-    <a href="#reserve" class="cta-btn secondary reveal">Claim This Offer</a>
-  </div>
-</section>
-
-<section class="lead-section" id="reserve">
-  <div class="wrap lead-inner">
-    <h2 class="reveal">Get the Full Details Sent to You</h2>
-    <p class="lead-sub reveal">Listed at $33,850. No commitment. No credit check required. We'll reach out with everything you need.</p>
-
-    <form id="leadForm" class="reveal">
-      <div class="form-row">
-        <div class="field">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" required>
+      <div class="gallery-thumbs">
+        <div class="gallery-thumb" onclick="document.getElementById('galleryMain').src=this.querySelector('img').src">
+          <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_24_at_12_23_44_7cc55a17ac.png" alt="0 Jeddo Ave aerial view 2" />
         </div>
-        <div class="field">
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" required>
+        <div class="gallery-thumb" onclick="document.getElementById('galleryMain').src=this.querySelector('img').src">
+          <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_24_at_12_24_12_d279024764.png" alt="0 Jeddo Ave aerial view 3" />
+        </div>
+        <div class="gallery-thumb" onclick="document.getElementById('galleryMain').src=this.querySelector('img').src">
+          <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_24_at_12_22_49_6a6d98712a.png" alt="0 Jeddo Ave aerial view 4" />
+        </div>
+        <div class="gallery-thumb" onclick="document.getElementById('galleryMain').src=this.querySelector('img').src">
+          <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_24_at_12_23_53_4b49a1320b.png" alt="0 Jeddo Ave aerial view 5" />
+        </div>
+        <div class="gallery-thumb" onclick="document.getElementById('galleryMain').src=this.querySelector('img').src">
+          <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_24_at_12_23_36_25a9cc9077.png" alt="0 Jeddo Ave aerial view 6" />
+        </div>
+        <div class="gallery-thumb" onclick="document.getElementById('galleryMain').src=this.querySelector('img').src">
+          <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_24_at_12_24_01_eabfac14f9.png" alt="0 Jeddo Ave aerial view 7" />
+        </div>
+        <div class="gallery-thumb" onclick="document.getElementById('galleryMain').src=this.querySelector('img').src">
+          <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_24_at_12_23_15_1ebd832d53.png" alt="0 Jeddo Ave aerial view 8" />
+        </div>
+        <div class="gallery-thumb" onclick="document.getElementById('galleryMain').src=this.querySelector('img').src">
+          <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_24_at_12_24_24_b50c6a3e80.png" alt="0 Jeddo Ave aerial view 9" />
+        </div>
+        <div class="gallery-thumb" onclick="document.getElementById('galleryMain').src=this.querySelector('img').src">
+          <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_04_24_at_12_23_25_bd54272102.png" alt="0 Jeddo Ave aerial view 10" />
         </div>
       </div>
-
-      <div class="field">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" required>
-      </div>
-      <div class="check-line">
-        <input type="checkbox" id="emailConfirm" required>
-        <label for="emailConfirm">This is the correct email address. LandCurator will use this to send me property details.</label>
-      </div>
-
-      <div class="field">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" required>
-      </div>
-      <div class="check-line">
-        <input type="checkbox" id="phoneConfirm" required>
-        <label for="phoneConfirm">This is the best number to reach me. I understand the LandCurator team will be in touch shortly.</label>
-      </div>
-
-      <div class="field">
-        <label for="usage">How do you plan to use the land?</label>
-        <select id="usage" required>
-          <option value="">Select intended use</option>
-          <option>Build a home</option>
-          <option>Park my RV / Camping base</option>
-          <option>Investment, hold for appreciation</option>
-          <option>Hunting / Recreation</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="timeframe">How soon are you looking to buy?</label>
-        <select id="timeframe" required>
-          <option value="">Select a timeframe</option>
-          <option>As soon as possible</option>
-          <option>Within 1 to 3 months</option>
-          <option>Within 6 months</option>
-          <option>Just researching for now</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Is this your first time buying land?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="firstTime" value="yes" required> Yes, this would be my first</label>
-          <label><input type="radio" name="firstTime" value="no" required> No, I've purchased land before</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="budget">What is your budget?</label>
-        <select id="budget" required>
-          <option value="">Select a range</option>
-          <option>Under $10,000</option>
-          <option>$10,000 to $25,000</option>
-          <option>$25,000 to $50,000</option>
-          <option>$50,000+</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="message">Anything else you'd like us to know? (Optional)</label>
-        <textarea id="message"></textarea>
-      </div>
-
-      <p class="consent">By submitting you agree LandCurator may contact you about this property and this offer.</p>
-
-      <button type="submit" class="cta-btn">Submit Your Details &rarr;</button>
-    </form>
-
-    <div class="thankyou" id="thankyou">
-      <h3>Got it, thank you</h3>
-      <p>A member of the LandCurator team will reach out shortly with the full details on 0 Jeddo Ave. If it's urgent, call 1 (800) 520-0534 direct.</p>
     </div>
 
-    <p class="trust-line">Secure &middot; BBB A+ &middot; No Spam</p>
-    <div class="trust-bar">
-      <span>BBB A+ Accredited Since 2018</span>
-      <span>No Credit Check</span>
-      <span>Deed in 2 to 4 Weeks</span>
-      <span>Owner Financing Available</span>
-      <span>No Agent Fees</span>
+    <!-- ABOUT -->
+    <div class="section">
+      <div class="section-heading-wrap"><h2>About 0 Jeddo Ave</h2></div>
+      <p>This 1-acre parcel sits in Horizon City's 79938 growth corridor — minutes from North Ascension Street and Pipeline Road, two of the main access routes in this part of El Paso County. What makes this lot different from anything else at this price point: directly across from it, a large-scale development site is already underway. That's not speculation — that's visible, active proof of where this corridor is heading.</p>
+      <p>At a full acre, the lot gives you 43,560 square feet to work with. Room for a manufactured home, an RV, a garden, a workshop, or simply hold it as the area around it develops. El Paso County permits manufactured homes and double wides. No HOA, no build timeline, no pressure.</p>
+      <p>Owner financing available. No bank, no broker, no agent commissions. Close through a title company and the deed is in your hands within two to four weeks.</p>
     </div>
-  </div>
-</section>
 
-<section class="overview">
-  <div class="wrap">
-    <h2 class="reveal">About 0 Jeddo Ave</h2>
-    <p class="reveal">This 1-acre parcel sits in Horizon City's 79938 growth corridor, minutes from North Ascension Street and Pipeline Road, two of the main access routes in this part of El Paso County. What makes this lot different from anything else at this price point: directly across from it, a large-scale development site is already underway. That's not speculation, that's visible, active proof of where this corridor is heading.</p>
-    <p class="reveal">At a full acre, the lot gives you 43,560 square feet to work with. Room for a manufactured home, an RV, a garden, a workshop, or simply hold it as the area around it develops. El Paso County permits manufactured homes and double wides. No HOA, no build timeline, no pressure.</p>
-    <p class="reveal">Owner financing is available. Put down $500 to reserve the lot, then $676.16 a month for 5 years at 8% interest. No bank, no broker, no agent commissions. Close through a title company and the deed is in your hands within two to four weeks.</p>
-  </div>
-</section>
+    <hr class="divider" />
 
-<section class="nearby">
-  <div class="wrap">
-    <h2 class="reveal">What's Nearby</h2>
-    <ul class="reveal">
-      <li>North Ascension Street, a major access corridor <span class="tag">minutes away</span></li>
-      <li>Pipeline Rd, extended connectivity into Horizon City <span class="tag">nearby</span></li>
-      <li>An active large-scale development site <span class="tag">directly opposite</span></li>
-      <li>Horizon City schools, shops and everyday services <span class="tag">minutes away</span></li>
-      <li>Downtown El Paso <span class="tag">approx 30 min via I-10</span></li>
-      <li>Hospitals of Providence Horizon City Campus <span class="tag">nearby</span></li>
-    </ul>
-  </div>
-</section>
-
-<section class="specs">
-  <div class="wrap">
-    <h2 class="reveal">Property Specs</h2>
-    <div class="specs-grid reveal">
-      <div class="spec"><span class="label">Address</span><span class="value">0 Jeddo Ave, El Paso, TX 79938</span></div>
-      <div class="spec"><span class="label">Parcel Size</span><span class="value">1 Acre (43,560 sq ft)</span></div>
-      <div class="spec"><span class="label">Price</span><span class="value">$33,850</span></div>
-      <div class="spec"><span class="label">Location</span><span class="value">Horizon City, TX</span></div>
-      <div class="spec"><span class="label">Zip Code</span><span class="value">79938</span></div>
-      <div class="spec"><span class="label">Parcel Number</span><span class="value mono">H779-070-5480-0040</span></div>
-      <div class="spec"><span class="label">Road Access</span><span class="value">Dirt Road</span></div>
-      <div class="spec"><span class="label">Status</span><span class="value">Available</span></div>
-      <div class="spec"><span class="label">Financing</span><span class="value">$500 down, owner financed</span></div>
+    <!-- NEARBY -->
+    <div class="section">
+      <div class="section-heading-wrap"><h2>What's Nearby</h2></div>
+      <ul class="nearby-list">
+        <li>North Ascension Street — minutes away, major access corridor</li>
+        <li>Pipeline Rd — nearby, extended connectivity into Horizon City</li>
+        <li>Active large-scale development — directly opposite the lot</li>
+        <li>Horizon City schools, shops, and services — minutes away</li>
+        <li>Downtown El Paso — approximately 30 minutes via I-10</li>
+        <li>Hospitals of Providence Horizon City Campus — nearby</li>
+      </ul>
     </div>
-    <p class="finance-note reveal">Financing terms, $500 reserves the lot, then $676.16 a month for 60 months at 8% interest. Buyer is responsible for all closing costs through the title company.</p>
-  </div>
-</section>
 
-<section class="map-section">
-  <div class="wrap">
-    <h2 class="reveal">Approximate Location</h2>
-    <div class="map-frame reveal">
-      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-106.1662%2C31.6900%2C-106.1062%2C31.7300&amp;layer=mapnik&amp;marker=31.7100%2C-106.1362" loading="lazy"></iframe>
+    <hr class="divider" />
+
+    <!-- SPECS -->
+    <div class="section">
+      <div class="section-heading-wrap"><h2>Property Specs</h2></div>
+      <div class="specs-grid">
+        <div class="spec-card"><span class="spec-label">Address</span><span class="spec-value">0 Jeddo Ave, El Paso TX 79938</span></div>
+        <div class="spec-card"><span class="spec-label">Parcel Size</span><span class="spec-value">1 Acre (43,560 sq ft)</span></div>
+        <div class="spec-card"><span class="spec-label">Price</span><span class="spec-value">$33,850</span></div>
+        <div class="spec-card"><span class="spec-label">Location</span><span class="spec-value">Horizon City, TX</span></div>
+        <div class="spec-card"><span class="spec-label">Zip Code</span><span class="spec-value">79938</span></div>
+        <div class="spec-card"><span class="spec-label">Road Access</span><span class="spec-value">Dirt Road</span></div>
+        <div class="spec-card"><span class="spec-label">Parcel Number</span><span class="spec-value">H779-070-5480-0040</span></div>
+        <div class="spec-card"><span class="spec-label">Status</span><span class="spec-value" style="color:var(--green-dark);">Available</span></div>
+      </div>
     </div>
-    <p class="map-note">Map shows the general N Ascension St &amp; Pipeline Rd area in Horizon City. Exact parcel boundary is confirmed at closing.</p>
-  </div>
-</section>
 
+    <hr class="divider" />
+
+    <!-- MAP -->
+    <div class="section">
+      <div class="section-heading-wrap"><h2>Location</h2></div>
+      <div id="property-map" style="width: 100%; height: 420px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.1);"></div>
+      <div class="coord-pills">
+        <span class="coord-pill">31.7100° N</span>
+        <span class="coord-pill">106.1362° W</span>
+      </div>
+    </div>
+
+  </div>
+  <!-- END LEFT COLUMN -->
+
+  <!-- RIGHT COLUMN (spans rows 1–3, sticky) -->
+  <aside class="right-col" id="lead-form">
+    <div class="form-card">
+      <div class="form-card-head">
+        <span class="claim-pill">Claim This Offer</span>
+        <h3>Get the Full Details Sent to You</h3>
+        <p>Listed at $33,850 · No commitment · No credit check required. We'll reach out with everything you need.</p>
+      </div>
+      <div class="form-card-body">
+
+        <form id="lead-form-el" onsubmit="handleSubmit(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Smith" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="jane@email.com" required />
+          </div>
+          <div class="check-line">
+            <input type="checkbox" id="emailConfirm" required />
+            <label for="emailConfirm">This is the correct email address — Landcurator will use this to send me property details.</label>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required />
+          </div>
+          <div class="check-line">
+            <input type="checkbox" id="phoneConfirm" required />
+            <label for="phoneConfirm">This is the best number to reach me — I understand the Landcurator team will be in touch shortly.</label>
+          </div>
+
+          <div class="form-group">
+            <label for="usage">How do you plan to use the land?</label>
+            <select id="usage" required>
+              <option value="">— Select intended use —</option>
+              <option>Build a home</option>
+              <option>Park my RV / Camping base</option>
+              <option>Investment — hold for appreciation</option>
+              <option>Hunting / Recreation</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="timeline">How soon are you looking to buy?</label>
+            <select id="timeline" required>
+              <option value="">— Select a timeframe —</option>
+              <option>As soon as possible</option>
+              <option>Within 1–3 months</option>
+              <option>Within 6 months</option>
+              <option>Just researching for now</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Is this your first time buying land?</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" name="first_time" id="ft_yes" value="yes" />
+                <label for="ft_yes">Yes, this would be my first</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="first_time" id="ft_no" value="no" />
+                <label for="ft_no">No, I've purchased land before</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">What is your budget?</label>
+            <select id="budget" required>
+              <option value="">— Select a range —</option>
+              <option>Under $10,000</option>
+              <option>$10,000 – $25,000</option>
+              <option>$25,000 – $50,000</option>
+              <option>$50,000+</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Anything else you'd like us to know? (Optional)</label>
+            <textarea id="notes" placeholder="Any questions about the lot, the offer, or the buying process?"></textarea>
+          </div>
+
+          <p class="consent">By submitting you agree Landcurator may contact you about these properties and this offer.</p>
+
+          <div class="form-error" id="form-error"></div>
+
+          <button type="submit" class="btn-submit" id="submit-btn">Submit Your Details →</button>
+        </form>
+
+        <p class="form-fine">🔒 Secure &nbsp;·&nbsp; BBB A+ &nbsp;·&nbsp; No Spam</p>
+      </div>
+    </div>
+
+    <div class="call-card">
+      <div class="call-card-label">Questions? Call Direct</div>
+      <a class="call-card-phone" href="tel:18005200534">1 (800) 520-0534</a>
+      <a class="btn-primary" href="tel:18005200534">Call Now</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <div class="wrap">
-    <div class="footer-cta">
-      <p>Questions? Call Direct</p>
-      <a href="tel:18005200534" class="cta-btn ghost">1 (800) 520-0534</a>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="https://assets.cdn.filesafe.space/dfFlPq6tV5mw6ZqBtzW0/media/69cd5f61bb06f5e1249e3781.png" alt="LandCurator" />
+        <p class="footer-tagline">Landcurator and Landxperte are wholly owned subsidiaries of UNOI Partners LLC.</p>
+      </div>
+      <div class="footer-legal">
+        <div class="footer-legal-label">Legal</div>
+        <a href="https://web.landcurator.com/privacy-policy">Privacy Policy</a>
+      </div>
     </div>
-    <img class="footer-logo" src="https://assets.cdn.filesafe.space/dfFlPq6tV5mw6ZqBtzW0/media/69cd5f61bb06f5e1249e3781.png" alt="LandCurator">
-    <p class="legal">LandCurator and Landxperte are wholly owned subsidiaries of UNOI Partners LLC.</p>
-    <p class="legal-links"><a href="https://landcurator.com/privacy">Privacy Policy</a></p>
-    <p class="fb-disclaimer">This page is not part of the Facebook website or Facebook Inc. This page is not endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
-    <p class="copyright">&copy; 2026 LandCurator / UNOI Partners LLC. BBB A+ Accredited. No agents. No hidden fees.</p>
+    <p class="fb-disclaimer">This site is not part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+    <div class="footer-bottom">
+      <span>© 2026 LandCurator / UNOI Partners LLC</span>
+      <span>BBB A+ Accredited · No agents · No hidden fees</span>
+    </div>
   </div>
 </footer>
 
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
-  <button class="lightbox-prev" onclick="navLightbox(-1)">&#8249;</button>
-  <img id="lightboxImg" src="" alt="Property photo">
-  <button class="lightbox-next" onclick="navLightbox(1)">&#8250;</button>
-</div>
-
-<div class="mobile-cta">
-  <a class="mobile-call" href="tel:18005200534">Call Now</a>
-  <a class="mobile-reserve" href="#reserve">Reserve $500</a>
-</div>
-
 <script>
-  const images = [
-    "https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_10_20_at_00_32_27_c975808cd8.png",
-    "https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_10_20_at_00_32_44_d92ccadf8a.png",
-    "https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_10_20_at_00_31_21_f222361360.png",
-    "https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_10_20_at_00_31_05_1e2844e67f.png",
-    "https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_10_20_at_00_31_47_bab9058ba4.png"
-  ];
-  let currentIndex = 0;
+  // Jay: replace WEBHOOK_URL with the real GHL inbound webhook URL before going live
+  const WEBHOOK_URL = "WEBHOOK_URL_PLACEHOLDER";
 
-  function openLightbox(i){
-    currentIndex = i;
-    document.getElementById('lightboxImg').src = images[i];
-    document.getElementById('lightbox').classList.add('open');
+  function showFormError(message) {
+    const el = document.getElementById('form-error');
+    el.textContent = message;
+    el.style.display = 'block';
   }
-  function closeLightbox(){
-    document.getElementById('lightbox').classList.remove('open');
-  }
-  function navLightbox(dir){
-    currentIndex = (currentIndex + dir + images.length) % images.length;
-    document.getElementById('lightboxImg').src = images[currentIndex];
-  }
-  document.getElementById('lightbox').addEventListener('click', function(e){
-    if(e.target === this) closeLightbox();
-  });
 
-  // mock submit, no backend wired yet, swap this for the real GHL/webhook endpoint
-  document.getElementById('leadForm').addEventListener('submit', function(e){
+  function hideFormError() {
+    document.getElementById('form-error').style.display = 'none';
+  }
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('thankyou').style.display = 'block';
+    hideFormError();
+
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const usage = document.getElementById('usage').value;
+    const timeline = document.getElementById('timeline').value;
+    const budget = document.getElementById('budget').value;
+    const notes = document.getElementById('notes').value.trim();
+    const emailConfirm = document.getElementById('emailConfirm').checked;
+    const phoneConfirm = document.getElementById('phoneConfirm').checked;
+    const firstTimeEl = document.querySelector('input[name="first_time"]:checked');
+    const firstTime = firstTimeEl ? firstTimeEl.value : '';
+
+    if (!fname || !lname || !email || !phone || !usage || !timeline || !budget) {
+      showFormError('Please fill in all required fields.');
+      return;
+    }
+    if (!emailConfirm || !phoneConfirm) {
+      showFormError('Please confirm your email and phone number using the checkboxes above.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showFormError('Please enter a valid email address.');
+      return;
+    }
+    if (phone.replace(/\D/g, '').length < 7) {
+      showFormError('Please enter a valid phone number.');
+      return;
+    }
+
+    const payload = {
+      first_name: fname,
+      last_name: lname,
+      email: email,
+      phone: phone,
+      intended_use: usage,
+      timeline: timeline,
+      first_time_buyer: firstTime,
+      budget: budget,
+      message: notes
+    };
+
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        window.location.href = 'https://web.landcurator.com/thank-you-page';
+      } else {
+        submitBtn.disabled = false;
+        showFormError('Something went wrong. Please call us at 1 (800) 520-0534.');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      showFormError('Something went wrong. Please call us at 1 (800) 520-0534.');
+    }
+  }
+
+  // Initialize Leaflet map
+  var map = L.map('property-map', {
+    center: [31.71, -106.13615],
+    zoom: 15,
+    scrollWheelZoom: false
   });
 
-  // gentle scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('in');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  // Satellite tile layer (Esri World Imagery — no API key needed)
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+    maxZoom: 19
+  }).addTo(map);
+
+  // Street label overlay on top of satellite (so street names are visible)
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; CartoDB',
+    subdomains: 'abcd',
+    maxZoom: 20,
+    opacity: 0.7
+  }).addTo(map);
+
+  // Red marker at the property location
+  var redIcon = L.icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  L.marker([31.71, -106.13615], {icon: redIcon})
+    .addTo(map)
+    .bindPopup('<strong>0 Jeddo Ave</strong><br>Horizon City, TX 79938')
+    .openPopup();
 </script>
 
 </body>
