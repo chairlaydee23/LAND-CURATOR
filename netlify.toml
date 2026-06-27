@@ -2,6 +2,9 @@
   command = ""
   publish = "."
 
+[build.environment]
+  NODE_VERSION = "18"
+
 [[redirects]]
   from = "/"
   to = "/1-addison-st-landing.html"
@@ -16,5 +19,3 @@
   from = "/jeddo"
   to = "/0-jeddo-ave-landing.html"
   status = 200
-  
-   directory = "netlify/functions"
