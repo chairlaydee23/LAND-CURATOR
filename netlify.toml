@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/1-addison-st"
+  to = "/1-addison-st-landing.html"
+  status = 200
+
+[[redirects]]
+  from = "/jeddo"
+  to = "/0-jeddo-ave-landing.html"
+  status = 200
