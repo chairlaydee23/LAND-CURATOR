@@ -16,3 +16,5 @@
   from = "/jeddo"
   to = "/0-jeddo-ave-landing.html"
   status = 200
+  
+   directory = "netlify/functions"
