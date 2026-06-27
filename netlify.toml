@@ -7,3 +7,6 @@
   from = "/jeddo"
   to = "/0-jeddo-ave-landing.html"
   status = 200
+[build]
+  command = ""
+  publish = "."
