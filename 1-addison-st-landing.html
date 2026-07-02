@@ -126,6 +126,10 @@
     color: var(--white);
     margin-bottom: 12px;
     text-transform: uppercase;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
   .hero-address {
     font-size: 14px;
@@ -172,6 +176,8 @@
     color: rgba(255,255,255,0.72);
     line-height: 1.7;
     margin-bottom: 18px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
   .offer-bullets { list-style: none; }
   .offer-bullets li {
@@ -292,7 +298,7 @@
      the full page height, including alongside the hero and trust strip rows. */
   .page-grid {
     display: grid;
-    grid-template-columns: 1fr 420px;
+    grid-template-columns: minmax(0, 1fr) 420px;
     grid-template-rows: auto auto auto;
     gap: 0 48px;
     max-width: var(--page-max);
@@ -305,6 +311,9 @@
     grid-column: 1;
     grid-row: 3;
     min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     padding: 52px 0;
   }
 
@@ -530,7 +539,7 @@
     margin-top: -6px;
     margin-bottom: 14px;
   }
-  .check-line input { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; accent-color: var(--green); }
+  .check-line input { width: 14px; height: 14px; min-width: 14px; min-height: 14px; flex-shrink: 0; margin-top: 2px; accent-color: var(--green); }
   .check-line label {
     font-size: 12px;
     color: var(--ink-light);
@@ -541,7 +550,7 @@
 
   .radio-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
   .radio-option { display: flex; align-items: center; gap: 8px; }
-  .radio-option input[type="radio"] { width: 17px; height: 17px; accent-color: var(--green); flex-shrink: 0; }
+  .radio-option input[type="radio"] { width: 14px; height: 14px; min-width: 14px; min-height: 14px; accent-color: var(--green); flex-shrink: 0; }
   .radio-option label {
     font-size: 13px;
     font-weight: 600;
