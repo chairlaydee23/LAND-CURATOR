@@ -24,3 +24,13 @@
   from = "/9-triumph-st"
   to = "/9-triumph-st-landing.html"
   status = 200
+
+[[redirects]]
+  from = "/la-joya"
+  to = "/la-joya-landing.html"
+  status = 200
+
+[[redirects]]
+  from = "/atlantis"
+  to = "/atlantis-landing.html"
+  status = 200
