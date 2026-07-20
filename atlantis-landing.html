@@ -184,7 +184,7 @@ nav {
 }
 .quiz-overlay-backdrop.open { display: flex; align-items: flex-start; justify-content: center; }
 .quiz-overlay-card {
-  background: #111f14; border: 1px solid rgba(255,255,255,0.13);
+  background: #0d0d0d; border: 1px solid rgba(255,255,255,0.13);
   border-radius: 14px; padding: 32px; max-width: 420px; width: 100%;
   position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.55); flex-shrink: 0;
 }
@@ -196,6 +196,8 @@ nav {
   line-height: 1; transition: background 0.15s;
 }
 .quiz-close-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; }
+
+/* Quiz internals */
 .quiz-progress-track {
   height: 4px; background: rgba(255,255,255,0.12); border-radius: 2px;
   margin-bottom: 8px; overflow: hidden;
@@ -208,11 +210,6 @@ nav {
   font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 700;
   letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 14px;
 }
-.quiz-back-btn {
-  background: none; border: none; font-size: 12px; color: rgba(255,255,255,0.45);
-  cursor: pointer; padding: 0; margin-bottom: 14px; display: block; visibility: hidden;
-}
-.quiz-back-btn:hover { color: rgba(255,255,255,0.8); }
 .quiz-step { display: none; }
 .quiz-step.active { display: block; }
 .quiz-q-heading {
@@ -240,7 +237,7 @@ nav {
 }
 .quiz-opt.selected .quiz-opt-check { opacity: 1; }
 
-/* Q6 contact form */
+/* Q5 contact form */
 .q6-group { margin-bottom: 11px; }
 .q6-group label {
   display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.8px;
@@ -254,34 +251,34 @@ nav {
 }
 .q6-group input::placeholder { color: rgba(255,255,255,0.28); }
 .q6-group input:focus { border-color: #2D6A4F; }
-.q6-check { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
-.q6-check input[type="checkbox"] {
-  width: 14px; height: 14px; min-width: 14px; min-height: 14px;
-  accent-color: #2D6A4F; flex-shrink: 0; cursor: pointer; margin-top: 2px;
-}
-.q6-check label { font-size: 11.5px; color: rgba(255,255,255,0.5); line-height: 1.5; cursor: pointer; }
-.q6-sms {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 6px; padding: 11px 12px; margin-bottom: 10px;
-}
-.q6-sms .q6-check { margin-bottom: 0; }
 .q6-privacy { font-size: 11px; color: rgba(255,255,255,0.3); text-align: center; margin-bottom: 0; line-height: 1.5; }
 .q6-privacy a { color: rgba(255,255,255,0.5); text-decoration: underline; }
+
+/* Quiz footer */
 .quiz-footer { margin-top: 18px; }
 .quiz-error {
   display: none; background: rgba(192,54,44,0.18); color: #ff8a84;
   font-size: 12.5px; font-weight: 600; padding: 10px 12px; border-radius: 6px;
   margin-bottom: 10px; text-align: center; border: 1px solid rgba(192,54,44,0.3); line-height: 1.5;
 }
+.quiz-nav-row {
+  display: flex; justify-content: space-between; align-items: center; min-height: 44px;
+}
+.quiz-back-btn {
+  background: none; border: none; font-size: 13px; color: rgba(255,255,255,0.45);
+  cursor: pointer; padding: 6px 0; visibility: hidden; flex-shrink: 0;
+}
+.quiz-back-btn:hover { color: rgba(255,255,255,0.8); }
 .quiz-next-btn {
-  width: 100%; background: #1B4332; color: #ffffff; border: none; border-radius: 8px;
-  padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer;
-  letter-spacing: 0.2px; transition: background 0.15s, opacity 0.2s; margin-bottom: 10px;
+  background: #1B4332; color: #ffffff; border: none; border-radius: 8px;
+  padding: 13px 20px; font-size: 15px; font-weight: 700; cursor: pointer;
+  letter-spacing: 0.2px; transition: background 0.15s, opacity 0.2s;
+  display: none;
 }
 .quiz-next-btn:hover:not(:disabled) { background: #2D6A4F; }
 .quiz-next-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 .quiz-consent-fine {
-  display: none; font-size: 11px; color: rgba(255,255,255,0.28); text-align: center; line-height: 1.5;
+  display: none; font-size: 11px; color: rgba(255,255,255,0.28); text-align: center; line-height: 1.5; margin-top: 10px;
 }
 
 /* ── ALERT BLOCK ── */
@@ -326,20 +323,6 @@ nav {
 
 /* ── CONTENT SECTIONS ── */
 .content-wrap { max-width: 860px; margin: 0 auto; padding: 0 5% 56px; }
-.prop-heading-wrap { margin-bottom: 22px; }
-.prop-heading {
-  display: inline-block; font-size: clamp(22px, 2.8vw, 30px); font-weight: 900;
-  text-transform: uppercase; color: #0D1710; letter-spacing: -0.3px;
-  padding-bottom: 10px; border-bottom: 3px solid #1B4332;
-}
-.specs-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
-.spec-chip { background: #ffffff; border: 1px solid #e0dbd2; border-radius: 6px; padding: 10px 14px; }
-.spec-chip .spec-label {
-  display: block; font-size: 10px; font-weight: 700; letter-spacing: 1px;
-  text-transform: uppercase; color: #555555; margin-bottom: 4px;
-}
-.spec-chip .spec-value { font-size: 14px; font-weight: 700; color: #1a1a1a; }
-.spec-chip .spec-value.available { color: #1B4332; }
 .divider { border: none; border-top: 1px solid #e0dbd2; margin: 32px 0; }
 .about-body p { font-size: 15px; color: #555555; line-height: 1.75; margin-bottom: 14px; }
 .about-body p:last-child { margin-bottom: 0; }
@@ -369,7 +352,7 @@ nav {
 }
 .title-callout p { font-size: 13.5px; color: #555555; line-height: 1.7; }
 .lots-table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid #e0dbd2; margin-bottom: 10px; }
-.lots-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 620px; }
+.lots-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 600px; }
 .lots-table thead tr { background: #1B4332; }
 .lots-table thead th {
   color: #ffffff; font-weight: 700; font-size: 11px; letter-spacing: 1px;
@@ -441,8 +424,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     <div class="quiz-progress-track">
       <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
     </div>
-    <p class="quiz-counter" id="quiz-counter">Question 1 of 6</p>
-    <button class="quiz-back-btn" id="quiz-back-btn" onclick="goBack()">&#8592; Back</button>
+    <p class="quiz-counter" id="quiz-counter">Question 1 of 5</p>
 
     <!-- Q1: Lot picker -->
     <div class="quiz-step active" id="step-q1">
@@ -509,27 +491,8 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
       </div>
     </div>
 
-    <!-- Q4: Prior experience -->
+    <!-- Q4: Timeline -->
     <div class="quiz-step" id="step-q4">
-      <h2 class="quiz-q-heading">Have you purchased land before</h2>
-      <div class="quiz-opts">
-        <div class="quiz-opt" data-key="buyer_experience" data-val="Yes, I own land already" onclick="selectOpt(this)">
-          <span class="quiz-opt-title">Yes, I own land already</span>
-          <span class="quiz-opt-check">&#10003;</span>
-        </div>
-        <div class="quiz-opt" data-key="buyer_experience" data-val="No, this is my first time" onclick="selectOpt(this)">
-          <span class="quiz-opt-title">No, this is my first time</span>
-          <span class="quiz-opt-check">&#10003;</span>
-        </div>
-        <div class="quiz-opt" data-key="buyer_experience" data-val="Helping a family member decide" onclick="selectOpt(this)">
-          <span class="quiz-opt-title">I'm helping a family member decide</span>
-          <span class="quiz-opt-check">&#10003;</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q5: Timeline -->
-    <div class="quiz-step" id="step-q5">
       <h2 class="quiz-q-heading">How soon are you looking to move forward</h2>
       <div class="quiz-opts">
         <div class="quiz-opt" data-key="purchase_timeline" data-val="As soon as possible" onclick="selectOpt(this)">
@@ -551,8 +514,8 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
       </div>
     </div>
 
-    <!-- Q6: Contact form -->
-    <div class="quiz-step" id="step-q6">
+    <!-- Q5: Contact form -->
+    <div class="quiz-step" id="step-q5">
       <h2 class="quiz-q-heading">Last step. Where should we send the details</h2>
       <p class="quiz-q-sub">We'll reach out with the full property info, financing breakdown and next steps. No spam.</p>
       <div class="q6-group">
@@ -571,23 +534,16 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
         <label for="c-phone">Phone Number</label>
         <input type="tel" id="c-phone" placeholder="+1 (915) 000-0000" oninput="onFormChange()" />
       </div>
-      <div class="q6-check">
-        <input type="checkbox" id="c-phone-confirm" onchange="onFormChange()" />
-        <label for="c-phone-confirm">This is the best number to reach me. I understand the Landcurator team will be in touch shortly.</label>
-      </div>
-      <div class="q6-sms">
-        <div class="q6-check">
-          <input type="checkbox" id="c-sms" onchange="onFormChange()" />
-          <label for="c-sms">I agree to receive SMS text messages from Landcurator about this property and related offers. Message frequency may vary. Msg and data rates may apply. Reply STOP to opt out. Reply HELP for help.</label>
-        </div>
-      </div>
       <p class="q6-privacy">View our <a href="https://web.landcurator.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
     </div>
 
     <!-- Quiz footer -->
     <div class="quiz-footer">
       <div class="quiz-error" id="quiz-error"></div>
-      <button id="quiz-next-btn" class="quiz-next-btn" disabled onclick="handleNext()">Next</button>
+      <div class="quiz-nav-row">
+        <button class="quiz-back-btn" id="quiz-back-btn" onclick="goBack()">&#8592; Back</button>
+        <button id="quiz-next-btn" class="quiz-next-btn" disabled onclick="handleNext()">Send My Details</button>
+      </div>
       <p class="quiz-consent-fine" id="quiz-consent-fine">By submitting you agree Landcurator may contact you about this property and financing offer.</p>
     </div>
   </div>
@@ -624,11 +580,11 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
       <div class="offer-card">
         <div class="offer-card-head">
           <span class="offer-card-badge">See Your Payment Options</span>
-          <h3 class="offer-card-heading">Get The Full Breakdown Sent To You</h3>
+          <h3 class="offer-card-heading">Get The Full Details Sent To You</h3>
         </div>
         <div class="offer-card-body">
           <p class="offer-card-summary" id="offer-card-summary">From $10,950. Owner financing from $3,285 down (30%), then $212.92 per month for 36 months. No commitment. No credit check required.</p>
-          <button class="offer-card-btn" onclick="openQuiz(null)">Start The Quiz</button>
+          <button class="offer-card-btn" onclick="openQuiz(null)">Get The Details &#8594;</button>
           <div class="offer-trust-row">
             <span>&#128274; Secure</span>
             <span>&middot;</span>
@@ -723,36 +679,6 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
 
 <!-- CONTENT SECTIONS -->
 <div class="content-wrap">
-  <hr class="divider" />
-
-  <!-- LOT A: 0.5 Acre -->
-  <div class="prop-heading-wrap">
-    <h2 class="prop-heading">Atlantis Dr, 0.5 Acre Lot</h2>
-  </div>
-  <div class="specs-row">
-    <div class="spec-chip"><span class="spec-label">SIZE</span><span class="spec-value">0.5 Acres</span></div>
-    <div class="spec-chip"><span class="spec-label">CASH PRICE</span><span class="spec-value">$19,995</span></div>
-    <div class="spec-chip"><span class="spec-label">FINANCING</span><span class="spec-value">$5,998.50 down &middot; $388.79/mo &middot; 36 months</span></div>
-    <div class="spec-chip"><span class="spec-label">ACCESS</span><span class="spec-value">Dirt Road</span></div>
-    <div class="spec-chip"><span class="spec-label">ZIP</span><span class="spec-value">79938</span></div>
-    <div class="spec-chip"><span class="spec-label">STATUS</span><span class="spec-value available">Available</span></div>
-  </div>
-
-  <hr class="divider" />
-
-  <!-- LOT B: 0.23 Acre -->
-  <div class="prop-heading-wrap">
-    <h2 class="prop-heading">Atlantis Dr, 0.23 Acre Lot</h2>
-  </div>
-  <div class="specs-row">
-    <div class="spec-chip"><span class="spec-label">SIZE</span><span class="spec-value">0.23 Acres (10,018 sq ft)</span></div>
-    <div class="spec-chip"><span class="spec-label">CASH PRICE</span><span class="spec-value">$10,950</span></div>
-    <div class="spec-chip"><span class="spec-label">FINANCING</span><span class="spec-value">$3,285 down &middot; $212.92/mo &middot; 36 months</span></div>
-    <div class="spec-chip"><span class="spec-label">ACCESS</span><span class="spec-value">Dirt Road, near paved connections</span></div>
-    <div class="spec-chip"><span class="spec-label">ZIP</span><span class="spec-value">79938</span></div>
-    <div class="spec-chip"><span class="spec-label">STATUS</span><span class="spec-value available">Available</span></div>
-  </div>
-
   <hr class="divider" />
 
   <!-- NEARBY -->
@@ -895,13 +821,13 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
 
   /* ── LOT DATA ── */
   var LOT_DATA = {
-    '0.5 Acre Lot':  { cash: '$19,995', down: '$5,998.50', monthly: '$388.79', downPct: '30%' },
-    '0.23 Acre Lot': { cash: '$10,950', down: '$3,285',    monthly: '$212.92', downPct: '30%' },
-    'both':          { cash: 'from $10,950', down: 'from $3,285', monthly: 'from $212.92', downPct: '30%' }
+    '0.5 Acre Lot':  { cash: '$19,995',      down: '$5,998.50',   monthly: '$388.79',  downPct: '30%' },
+    '0.23 Acre Lot': { cash: '$10,950',       down: '$3,285',      monthly: '$212.92',  downPct: '30%' },
+    'both':          { cash: 'from $10,950',  down: 'from $3,285', monthly: 'from $212.92', downPct: '30%' }
   };
 
   /* ── QUIZ STATE ── */
-  var STEP_ORDER  = ['q1','q2','q3','q4','q5','q6'];
+  var STEP_ORDER  = ['q1','q2','q3','q4','q5'];
   var stepHistory = [];
   var currentStep = 'q1';
   var quizAnswers = {};
@@ -917,8 +843,11 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     document.getElementById('quiz-backdrop').classList.add('open');
     document.body.style.overflow = 'hidden';
     updateUI();
-    checkStepAnswered();
     document.getElementById('quiz-backdrop').scrollTop = 0;
+    /* When opened from a lot card and quiz hasn't started yet, skip to Q2 */
+    if (lot && currentStep === 'q1') {
+      setTimeout(function() { goToStep('q2'); }, 350);
+    }
   }
 
   function closeQuiz() {
@@ -930,6 +859,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     if (e.target === document.getElementById('quiz-backdrop')) closeQuiz();
   }
 
+  /* Trap Escape key */
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeQuiz();
   });
@@ -939,7 +869,8 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     el.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(function(o) { o.classList.remove('selected'); });
     el.classList.add('selected');
     quizAnswers[el.dataset.key] = el.dataset.val;
-    setNextEnabled(true);
+    /* Auto-advance: brief delay lets selected state render before transitioning */
+    setTimeout(function() { handleNext(); }, 280);
   }
 
   /* ── NEXT BUTTON STATE ── */
@@ -948,11 +879,10 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
   }
 
   function checkStepAnswered() {
-    if (currentStep === 'q6') {
+    if (currentStep === 'q5') {
       setNextEnabled(isContactFormFilled());
-    } else {
-      setNextEnabled(!!document.querySelector('#step-' + currentStep + ' .quiz-opt.selected'));
     }
+    /* Single-select steps advance automatically — next button is hidden */
   }
 
   /* ── CONTACT FORM ── */
@@ -961,9 +891,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
       document.getElementById('c-fname').value.trim() &&
       document.getElementById('c-lname').value.trim() &&
       document.getElementById('c-email').value.trim() &&
-      document.getElementById('c-phone').value.trim() &&
-      document.getElementById('c-phone-confirm').checked &&
-      document.getElementById('c-sms').checked
+      document.getElementById('c-phone').value.trim()
     );
   }
   function onFormChange() { setNextEnabled(isContactFormFilled()); }
@@ -1017,11 +945,12 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
   /* ── UPDATE UI ── */
   function updateUI() {
     var idx = STEP_ORDER.indexOf(currentStep);
-    document.getElementById('quiz-progress-fill').style.width = ((idx + 1) / 6 * 100) + '%';
-    document.getElementById('quiz-counter').textContent = 'Question ' + (idx + 1) + ' of 6';
+    document.getElementById('quiz-progress-fill').style.width = ((idx + 1) / 5 * 100) + '%';
+    document.getElementById('quiz-counter').textContent = 'Question ' + (idx + 1) + ' of 5';
     document.getElementById('quiz-back-btn').style.visibility = stepHistory.length > 0 ? 'visible' : 'hidden';
-    document.getElementById('quiz-next-btn').textContent = currentStep === 'q6' ? 'Send My Details' : 'Next';
-    document.getElementById('quiz-consent-fine').style.display = currentStep === 'q6' ? 'block' : 'none';
+    /* Next button only appears on the contact form step */
+    document.getElementById('quiz-next-btn').style.display = currentStep === 'q5' ? 'inline-block' : 'none';
+    document.getElementById('quiz-consent-fine').style.display = currentStep === 'q5' ? 'block' : 'none';
     document.getElementById('quiz-error').style.display = 'none';
     if (currentStep === 'q2') updateQ2Cards();
     checkStepAnswered();
@@ -1039,7 +968,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
 
   /* ── STICKY OFFER CARD SUMMARY ── */
   function updateOfferCardSummary(lot) {
-    var d = LOT_DATA[lot];
+    var d  = LOT_DATA[lot];
     if (!d) return;
     var el = document.getElementById('offer-card-summary');
     el.textContent = 'Listed at ' + d.cash + '. ' + d.down + ' down (' + d.downPct + '), then ' + d.monthly + ' per month for 36 months. No commitment. No credit check required.';
@@ -1053,29 +982,21 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
 
   /* ── NEXT / SUBMIT ── */
   function handleNext() {
-    if (currentStep === 'q6') { handleSubmit(); return; }
+    if (currentStep === 'q5') { handleSubmit(); return; }
     var idx = STEP_ORDER.indexOf(currentStep);
     if (idx < STEP_ORDER.length - 1) goToStep(STEP_ORDER[idx + 1]);
   }
 
   async function handleSubmit() {
-    var fname   = document.getElementById('c-fname').value.trim();
-    var lname   = document.getElementById('c-lname').value.trim();
-    var email   = document.getElementById('c-email').value.trim();
-    var phone   = document.getElementById('c-phone').value.trim();
-    var phoneOk = document.getElementById('c-phone-confirm').checked;
-    var smsOk   = document.getElementById('c-sms').checked;
-    var errEl   = document.getElementById('quiz-error');
+    var fname = document.getElementById('c-fname').value.trim();
+    var lname = document.getElementById('c-lname').value.trim();
+    var email = document.getElementById('c-email').value.trim();
+    var phone = document.getElementById('c-phone').value.trim();
+    var errEl = document.getElementById('quiz-error');
     errEl.style.display = 'none';
 
     if (!fname || !lname || !email || !phone) {
       errEl.textContent = 'Please fill in all required fields.'; errEl.style.display = 'block'; return;
-    }
-    if (!phoneOk) {
-      errEl.textContent = 'Please confirm your phone number using the checkbox.'; errEl.style.display = 'block'; return;
-    }
-    if (!smsOk) {
-      errEl.textContent = 'Please agree to the SMS consent to continue.'; errEl.style.display = 'block'; return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return;
@@ -1090,10 +1011,9 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
       property_interest: quizAnswers.property_interest || '',
       purchase_method:   quizAnswers.purchase_method   || '',
       land_use_plan:     quizAnswers.land_use_plan      || '',
-      buyer_experience:  quizAnswers.buyer_experience   || '',
       purchase_timeline: quizAnswers.purchase_timeline  || '',
       first_name: fname, last_name: lname, email: email, phone: phone,
-      sms_consent: true, event_id: eventId
+      event_id: eventId
     };
 
     var btn = document.getElementById('quiz-next-btn');
@@ -1120,7 +1040,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
   }
 
   /* ── MAP ── */
-  var map = L.map('property-map', { center: [31.7035, -106.1380], zoom: 16, scrollWheelZoom: false });
+  var map = L.map('property-map', { center: [31.6985, -106.1355], zoom: 16, scrollWheelZoom: false });
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; Esri', maxZoom: 19
   }).addTo(map);
@@ -1132,8 +1052,8 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
     iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [1,-34], shadowSize: [41,41]
   });
-  L.marker([31.7038, -106.1383], { icon: redIcon }).addTo(map).bindPopup('<strong>Atlantis Dr, 0.5 Acre Lot</strong><br>0.5 Acres &middot; $19,995');
-  L.marker([31.7032, -106.1377], { icon: redIcon }).addTo(map).bindPopup('<strong>Atlantis Dr, 0.23 Acre Lot</strong><br>0.23 Acres &middot; $10,950');
+  L.marker([31.6988, -106.1358], { icon: redIcon }).addTo(map).bindPopup('<strong>Atlantis Dr, 0.5 Acre Lot</strong><br>0.5 Acres &middot; $19,995');
+  L.marker([31.6982, -106.1352], { icon: redIcon }).addTo(map).bindPopup('<strong>Atlantis Dr, 0.23 Acre Lot</strong><br>0.23 Acres &middot; $10,950');
 </script>
 
 </body>
