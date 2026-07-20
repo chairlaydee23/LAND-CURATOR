@@ -31,601 +31,329 @@
 
 <style>
 *, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box; margin: 0; padding: 0;
   font-family: 'Lato', sans-serif;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  overflow-wrap: break-word; word-wrap: break-word;
 }
 html { scroll-behavior: smooth; }
 body {
-  background: #ffffff;
-  color: #1a1a1a;
-  font-size: 16px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  background: #ffffff; color: #1a1a1a; font-size: 16px;
+  line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
 /* ── NAV ── */
 nav {
-  background: #0D1710;
-  padding: 0 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  position: sticky;
-  top: 0;
-  z-index: 300;
+  background: #0D1710; padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; position: sticky; top: 0; z-index: 300;
 }
 .nav-logo img { height: 28px; width: auto; }
 .nav-phone {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-  background: #1B4332;
-  padding: 10px 18px;
-  border-radius: 6px;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-  min-height: 44px;
-  transition: background 0.2s;
+  display: flex; align-items: center; font-size: 14px; font-weight: 700;
+  color: #ffffff; text-decoration: none; background: #1B4332;
+  padding: 10px 18px; border-radius: 6px; letter-spacing: 0.2px;
+  white-space: nowrap; min-height: 44px; transition: background 0.2s;
 }
 .nav-phone:hover { background: #2D6A4F; }
 
-/* ── HERO (DARK) ── */
-.hero-dark {
-  background: #0D1710;
-  padding: 52px 5% 60px;
-}
+/* ── HERO ── */
+.hero-dark { background: #0D1710; padding: 52px 5% 56px; }
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 390px;
-  gap: 48px;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: start;
+  display: grid; grid-template-columns: 1fr 360px;
+  gap: 48px; max-width: 1200px; margin: 0 auto; align-items: start;
 }
 .hero-eyebrow {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: #2D6A4F;
-  margin-bottom: 14px;
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: #2D6A4F; margin-bottom: 14px;
 }
 .hero-headline {
-  font-size: clamp(26px, 3.6vw, 46px);
-  font-weight: 900;
-  line-height: 1.08;
-  letter-spacing: -0.5px;
-  color: #ffffff;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+  font-size: clamp(26px, 3.6vw, 46px); font-weight: 900; line-height: 1.08;
+  letter-spacing: -0.5px; color: #ffffff; text-transform: uppercase; margin-bottom: 10px;
 }
 .hero-price-row {
-  font-size: 16px;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 30px;
-  line-height: 1.5;
+  font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 30px; line-height: 1.5;
 }
 .hero-price-row strong { color: #ffffff; }
-
-/* Hero gallery */
-.hero-gallery { margin-bottom: 28px; }
-.hero-gallery-main {
-  border-radius: 8px;
-  overflow: hidden;
-  aspect-ratio: 16/9;
-  margin-bottom: 8px;
-  background: #1B4332;
-}
-.hero-gallery-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.hero-gallery-thumbs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
-.hero-thumb {
-  border-radius: 4px;
-  overflow: hidden;
-  aspect-ratio: 16/10;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: border-color 0.15s;
-}
-.hero-thumb:hover, .hero-thumb.active { border-color: #2D6A4F; }
-.hero-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-/* Hero bullets */
-.hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+.hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .hero-bullets li {
-  font-size: 15px;
-  color: rgba(255,255,255,0.82);
-  padding-left: 26px;
-  position: relative;
-  line-height: 1.5;
+  font-size: 15px; color: rgba(255,255,255,0.82);
+  padding-left: 26px; position: relative; line-height: 1.5;
 }
 .hero-bullets li::before {
-  content: '✓';
-  position: absolute;
-  left: 0; top: 0;
-  color: #2D6A4F;
-  font-weight: 700;
-  font-size: 15px;
+  content: '✓'; position: absolute; left: 0; top: 0;
+  color: #2D6A4F; font-weight: 700; font-size: 15px;
 }
 
-/* ── PRICING SECTION (inside hero-left) ── */
-.pricing-section { margin-bottom: 0; }
+/* ── HERO RIGHT — STICKY OFFER CARD ── */
+.hero-right { position: sticky; top: 84px; align-self: start; }
+.offer-card {
+  background: #ffffff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.offer-card-head { background: #1B4332; padding: 20px 22px 18px; }
+.offer-card-badge {
+  display: inline-block; background: rgba(255,255,255,0.18); color: #ffffff;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 999px; margin-bottom: 10px;
+}
+.offer-card-heading {
+  font-size: 17px; font-weight: 900; color: #ffffff; line-height: 1.2; text-transform: uppercase;
+}
+.offer-card-body { padding: 18px 22px 20px; }
+.offer-card-summary {
+  font-size: 13px; color: #555555; line-height: 1.65; margin-bottom: 16px;
+}
+.offer-card-btn {
+  width: 100%; background: #1B4332; color: #ffffff; border: none; border-radius: 8px;
+  padding: 15px; font-size: 15px; font-weight: 700; cursor: pointer;
+  letter-spacing: 0.2px; transition: background 0.2s; margin-bottom: 14px;
+}
+.offer-card-btn:hover { background: #2D6A4F; }
+.offer-trust-row {
+  display: flex; justify-content: center; gap: 10px;
+  font-size: 11.5px; color: #888888; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+/* ── PRICING SECTION ── */
+.pricing-section-wrap { background: #0D1710; padding: 0 5% 56px; }
+.pricing-inner { max-width: 1200px; margin: 0 auto; }
+.pricing-section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
+  color: #2D6A4F; margin-bottom: 6px; display: block;
+}
 .pricing-heading {
-  font-size: clamp(18px, 2.2vw, 24px);
-  font-weight: 900;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: -0.3px;
-  line-height: 1.15;
-  margin-bottom: 8px;
+  font-size: clamp(20px, 2.4vw, 26px); font-weight: 900; color: #ffffff;
+  text-transform: uppercase; letter-spacing: -0.3px; line-height: 1.15;
+  padding-bottom: 10px; border-bottom: 3px solid #1B4332;
+  display: inline-block; margin-bottom: 8px;
 }
 .pricing-sub {
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 22px;
-  line-height: 1.5;
+  font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 24px; line-height: 1.5;
 }
 .pricing-cards-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 18px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 18px;
 }
 .pricing-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 10px;
-  padding: 20px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px; padding: 22px;
 }
 .pricing-addr-pill {
-  display: inline-block;
-  background: rgba(255,255,255,0.12);
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 999px;
-  margin-bottom: 10px;
+  display: inline-block; background: rgba(255,255,255,0.12); color: #ffffff;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px; margin-bottom: 10px;
 }
-.pricing-size {
-  font-size: 12px;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 4px;
-  line-height: 1.4;
-}
-.pricing-apn {
-  font-size: 11px;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 14px;
-}
-.pricing-sep {
-  border: none;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  margin-bottom: 14px;
-}
+.pricing-size { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+.pricing-apn { font-size: 11px; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
+.pricing-sep { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 14px; }
 .pricing-cash-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 5px;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 5px;
 }
 .pricing-cash-price {
-  font-size: 28px;
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1.1;
-  margin-bottom: 14px;
+  font-size: 30px; font-weight: 900; color: #ffffff; line-height: 1.1; margin-bottom: 16px;
 }
-.pricing-fin-sep {
-  border: none;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  margin-bottom: 14px;
-}
+.pricing-fin-sep { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 14px; }
 .pricing-fin-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #C9A84C;
-  margin-bottom: 8px;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: #C9A84C; margin-bottom: 8px;
 }
-.pricing-fin-line {
-  font-size: 13px;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.55;
-}
+.pricing-fin-line { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.55; }
 .pricing-reserve-note {
-  font-size: 11px;
-  color: rgba(255,255,255,0.38);
-  font-style: italic;
-  margin-top: 12px;
-  margin-bottom: 16px;
-  line-height: 1.5;
+  font-size: 11px; color: rgba(255,255,255,0.35); font-style: italic;
+  margin-top: 12px; margin-bottom: 18px; line-height: 1.5;
 }
 .pricing-cta-btn {
-  width: 100%;
-  background: #1B4332;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  padding: 13px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  letter-spacing: 0.2px;
-  transition: background 0.2s;
+  width: 100%; background: #1B4332; color: #ffffff; border: none; border-radius: 8px;
+  padding: 13px; font-size: 14px; font-weight: 700; cursor: pointer;
+  letter-spacing: 0.2px; transition: background 0.2s;
 }
 .pricing-cta-btn:hover { background: #2D6A4F; }
 .pricing-not-sure {
-  font-size: 13px;
-  color: rgba(255,255,255,0.38);
-  text-align: center;
-  line-height: 1.55;
+  font-size: 13px; color: rgba(255,255,255,0.38); text-align: center; line-height: 1.55;
 }
 
-/* ── HERO RIGHT — STICKY QUIZ ── */
-.hero-right {
-  position: sticky;
-  top: 84px;
-  align-self: start;
+/* ── QUIZ OVERLAY ── */
+.quiz-overlay-backdrop {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.68); z-index: 500;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding: 40px 20px;
 }
-.quiz-container {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.13);
-  border-radius: 14px;
-  padding: 26px 24px 22px;
-  max-height: calc(100vh - 104px);
-  overflow-y: auto;
+.quiz-overlay-backdrop.open { display: flex; align-items: flex-start; justify-content: center; }
+.quiz-overlay-card {
+  background: #111f14; border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 14px; padding: 32px; max-width: 420px; width: 100%;
+  position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.55); flex-shrink: 0;
 }
-.quiz-container::-webkit-scrollbar { width: 4px; }
-.quiz-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+.quiz-close-btn {
+  position: absolute; top: 14px; right: 14px;
+  background: rgba(255,255,255,0.08); border: none; color: rgba(255,255,255,0.55);
+  font-size: 16px; width: 30px; height: 30px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  line-height: 1; transition: background 0.15s;
+}
+.quiz-close-btn:hover { background: rgba(255,255,255,0.15); color: #ffffff; }
 
-/* Quiz header */
+/* Quiz internals */
 .quiz-progress-track {
-  height: 4px;
-  background: rgba(255,255,255,0.12);
-  border-radius: 2px;
-  margin-bottom: 8px;
-  overflow: hidden;
+  height: 4px; background: rgba(255,255,255,0.12); border-radius: 2px;
+  margin-bottom: 8px; overflow: hidden;
 }
 .quiz-progress-fill {
-  height: 100%;
-  background: #2D6A4F;
-  border-radius: 2px;
-  width: 0%;
-  transition: width 0.35s ease;
+  height: 100%; background: #2D6A4F; border-radius: 2px;
+  width: 0%; transition: width 0.35s ease;
 }
 .quiz-counter {
-  font-size: 11px;
-  color: rgba(255,255,255,0.4);
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 14px;
+  font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 700;
+  letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 14px;
 }
 .quiz-back-btn {
-  background: none;
-  border: none;
-  font-size: 12px;
-  color: rgba(255,255,255,0.45);
-  cursor: pointer;
-  padding: 0;
-  margin-bottom: 14px;
-  display: block;
-  visibility: hidden;
+  background: none; border: none; font-size: 12px; color: rgba(255,255,255,0.45);
+  cursor: pointer; padding: 0; margin-bottom: 14px; display: block; visibility: hidden;
 }
 .quiz-back-btn:hover { color: rgba(255,255,255,0.8); }
-
-/* Quiz steps */
 .quiz-step { display: none; }
 .quiz-step.active { display: block; }
 .quiz-q-heading {
-  font-size: 18px;
-  font-weight: 900;
-  color: #ffffff;
-  margin-bottom: 6px;
-  line-height: 1.25;
+  font-size: 18px; font-weight: 900; color: #ffffff; margin-bottom: 6px; line-height: 1.25;
 }
 .quiz-q-sub {
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 18px;
-  line-height: 1.5;
+  font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 18px; line-height: 1.5;
 }
-
-/* Option cards */
 .quiz-opts { display: flex; flex-direction: column; gap: 8px; }
 .quiz-opt {
-  border: 1.5px solid rgba(255,255,255,0.15);
-  border-radius: 8px;
-  padding: 13px 38px 13px 14px;
-  cursor: pointer;
-  position: relative;
-  transition: border-color 0.15s, background 0.15s;
-  user-select: none;
+  border: 1.5px solid rgba(255,255,255,0.15); border-radius: 8px;
+  padding: 13px 38px 13px 14px; cursor: pointer; position: relative;
+  transition: border-color 0.15s, background 0.15s; user-select: none;
 }
 .quiz-opt:hover { border-color: rgba(255,255,255,0.32); }
 .quiz-opt.selected { border-color: #2D6A4F; background: rgba(45,106,79,0.22); }
-.quiz-opt-title {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.3;
-}
+.quiz-opt-title { display: block; font-size: 14px; font-weight: 700; color: #ffffff; line-height: 1.3; }
 .quiz-opt-sub {
-  display: block;
-  font-size: 12px;
-  color: rgba(255,255,255,0.55);
-  margin-top: 3px;
-  line-height: 1.45;
+  display: block; font-size: 12px; color: rgba(255,255,255,0.55);
+  margin-top: 3px; line-height: 1.45;
 }
 .quiz-opt-check {
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-  color: #2D6A4F;
-  font-size: 14px;
-  font-weight: 700;
-  opacity: 0;
-  transition: opacity 0.15s;
+  position: absolute; top: 50%; right: 12px; transform: translateY(-50%);
+  color: #2D6A4F; font-size: 14px; font-weight: 700; opacity: 0; transition: opacity 0.15s;
 }
 .quiz-opt.selected .quiz-opt-check { opacity: 1; }
 
 /* Q6 contact form */
 .q6-group { margin-bottom: 11px; }
 .q6-group label {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  margin-bottom: 5px;
+  display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.8px;
+  text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 5px;
 }
 .q6-group input {
-  width: 100%;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 6px;
-  padding: 10px 12px;
-  font-size: 14px;
-  color: #ffffff;
-  outline: none;
-  transition: border-color 0.15s;
-  -webkit-appearance: none;
-  appearance: none;
-  min-height: 44px;
+  width: 100%; background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 6px;
+  padding: 10px 12px; font-size: 14px; color: #ffffff; outline: none;
+  transition: border-color 0.15s; -webkit-appearance: none; appearance: none; min-height: 44px;
 }
 .q6-group input::placeholder { color: rgba(255,255,255,0.28); }
 .q6-group input:focus { border-color: #2D6A4F; }
-.q6-check {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 10px;
-}
+.q6-check { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
 .q6-check input[type="checkbox"] {
-  width: 14px; height: 14px;
-  min-width: 14px; min-height: 14px;
-  accent-color: #2D6A4F;
-  flex-shrink: 0;
-  cursor: pointer;
-  margin-top: 2px;
+  width: 14px; height: 14px; min-width: 14px; min-height: 14px;
+  accent-color: #2D6A4F; flex-shrink: 0; cursor: pointer; margin-top: 2px;
 }
-.q6-check label {
-  font-size: 11.5px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.5;
-  cursor: pointer;
-}
+.q6-check label { font-size: 11.5px; color: rgba(255,255,255,0.5); line-height: 1.5; cursor: pointer; }
 .q6-sms {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 6px;
-  padding: 11px 12px;
-  margin-bottom: 10px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; padding: 11px 12px; margin-bottom: 10px;
 }
 .q6-sms .q6-check { margin-bottom: 0; }
-.q6-privacy {
-  font-size: 11px;
-  color: rgba(255,255,255,0.3);
-  text-align: center;
-  margin-bottom: 0;
-  line-height: 1.5;
-}
+.q6-privacy { font-size: 11px; color: rgba(255,255,255,0.3); text-align: center; margin-bottom: 0; line-height: 1.5; }
 .q6-privacy a { color: rgba(255,255,255,0.5); text-decoration: underline; }
 
 /* Quiz footer */
 .quiz-footer { margin-top: 18px; }
 .quiz-error {
-  display: none;
-  background: rgba(192,54,44,0.18);
-  color: #ff8a84;
-  font-size: 12.5px;
-  font-weight: 600;
-  padding: 10px 12px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  text-align: center;
-  border: 1px solid rgba(192,54,44,0.3);
-  line-height: 1.5;
+  display: none; background: rgba(192,54,44,0.18); color: #ff8a84;
+  font-size: 12.5px; font-weight: 600; padding: 10px 12px; border-radius: 6px;
+  margin-bottom: 10px; text-align: center; border: 1px solid rgba(192,54,44,0.3); line-height: 1.5;
 }
 .quiz-next-btn {
-  width: 100%;
-  background: #1B4332;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  padding: 14px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  letter-spacing: 0.2px;
-  transition: background 0.15s, opacity 0.2s;
-  margin-bottom: 10px;
+  width: 100%; background: #1B4332; color: #ffffff; border: none; border-radius: 8px;
+  padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer;
+  letter-spacing: 0.2px; transition: background 0.15s, opacity 0.2s; margin-bottom: 10px;
 }
 .quiz-next-btn:hover:not(:disabled) { background: #2D6A4F; }
 .quiz-next-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 .quiz-consent-fine {
-  display: none;
-  font-size: 11px;
-  color: rgba(255,255,255,0.28);
-  text-align: center;
-  line-height: 1.5;
-}
-
-/* ── OFFER SECTION (below hero) ── */
-.offer-section {
-  background: #ffffff;
-  border-top: 1px solid #e0dbd2;
-  padding: 52px 5%;
-}
-.section-inner { max-width: 860px; margin: 0 auto; }
-.section-label {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: #2D6A4F;
-  margin-bottom: 6px;
-}
-.section-heading-wrap { margin-bottom: 20px; }
-.section-heading {
-  display: inline-block;
-  font-size: clamp(20px, 2.4vw, 26px);
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #0D1710;
-  letter-spacing: -0.3px;
-  padding-bottom: 10px;
-  border-bottom: 3px solid #1B4332;
-}
-.offer-body-text {
-  font-size: 15px;
-  color: #555555;
-  line-height: 1.75;
-  margin-bottom: 20px;
-}
-.offer-body-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.offer-body-bullets li {
-  font-size: 15px;
-  color: #1a1a1a;
-  padding-left: 26px;
-  position: relative;
-  line-height: 1.5;
-}
-.offer-body-bullets li::before {
-  content: '✓';
-  position: absolute;
-  left: 0; top: 0;
-  color: #2D6A4F;
-  font-weight: 700;
-  font-size: 15px;
+  display: none; font-size: 11px; color: rgba(255,255,255,0.28); text-align: center; line-height: 1.5;
 }
 
 /* ── ALERT BLOCK ── */
 .alert-block {
-  background: #FEF3CD;
-  border-top: 3px solid #C9A84C;
-  border-bottom: 3px solid #C9A84C;
+  background: #FEF3CD; border-top: 3px solid #C9A84C; border-bottom: 3px solid #C9A84C;
   padding: 20px 5%;
 }
-.alert-inner {
-  max-width: 860px;
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
+.alert-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: flex-start; gap: 14px; }
 .alert-icon {
-  flex-shrink: 0;
-  width: 32px; height: 32px;
-  background: #C9A84C;
-  color: #ffffff;
-  font-size: 17px;
-  font-weight: 900;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2px;
+  flex-shrink: 0; width: 32px; height: 32px; background: #C9A84C; color: #ffffff;
+  font-size: 17px; font-weight: 900; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
 }
 .alert-text strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: #0D1710;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
+  display: block; font-size: 14px; font-weight: 700; color: #0D1710;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;
 }
 .alert-text p { font-size: 14px; color: #555555; line-height: 1.55; }
 
-/* ── CONTENT SECTIONS ── */
-.content-wrap {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 5% 56px;
+/* ── OFFER SECTION (white) ── */
+.offer-section { background: #ffffff; border-top: 1px solid #e0dbd2; padding: 52px 5%; }
+.section-inner { max-width: 860px; margin: 0 auto; }
+.section-label {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: #2D6A4F; margin-bottom: 6px;
 }
+.section-heading-wrap { margin-bottom: 20px; }
+.section-heading {
+  display: inline-block; font-size: clamp(20px, 2.4vw, 26px); font-weight: 900;
+  text-transform: uppercase; color: #0D1710; letter-spacing: -0.3px;
+  padding-bottom: 10px; border-bottom: 3px solid #1B4332;
+}
+.offer-body-text { font-size: 15px; color: #555555; line-height: 1.75; margin-bottom: 20px; }
+.offer-body-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.offer-body-bullets li {
+  font-size: 15px; color: #1a1a1a; padding-left: 26px; position: relative; line-height: 1.5;
+}
+.offer-body-bullets li::before {
+  content: '✓'; position: absolute; left: 0; top: 0;
+  color: #2D6A4F; font-weight: 700; font-size: 15px;
+}
+
+/* ── CONTENT SECTIONS ── */
+.content-wrap { max-width: 860px; margin: 0 auto; padding: 0 5% 56px; }
 .prop-heading-wrap { margin-bottom: 22px; }
 .prop-heading {
-  display: inline-block;
-  font-size: clamp(22px, 2.8vw, 30px);
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #0D1710;
-  letter-spacing: -0.3px;
-  padding-bottom: 10px;
-  border-bottom: 3px solid #1B4332;
+  display: inline-block; font-size: clamp(22px, 2.8vw, 30px); font-weight: 900;
+  text-transform: uppercase; color: #0D1710; letter-spacing: -0.3px;
+  padding-bottom: 10px; border-bottom: 3px solid #1B4332;
 }
 .gallery { margin-bottom: 22px; }
 .gallery-main {
-  border-radius: 6px;
-  overflow: hidden;
-  aspect-ratio: 16/9;
-  margin-bottom: 8px;
-  background: #e0dbd2;
+  border-radius: 6px; overflow: hidden; aspect-ratio: 16/9;
+  margin-bottom: 8px; background: #e0dbd2;
 }
 .gallery-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gallery-thumbs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
 .gallery-thumb {
-  border-radius: 4px;
-  overflow: hidden;
-  aspect-ratio: 16/10;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: border-color 0.15s;
+  border-radius: 4px; overflow: hidden; aspect-ratio: 16/10;
+  cursor: pointer; border: 2px solid transparent; transition: border-color 0.15s;
 }
 .gallery-thumb:hover, .gallery-thumb.active { border-color: #1B4332; }
 .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .specs-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
 .spec-chip { background: #ffffff; border: 1px solid #e0dbd2; border-radius: 6px; padding: 10px 14px; }
 .spec-chip .spec-label {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #555555;
-  margin-bottom: 4px;
+  display: block; font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: #555555; margin-bottom: 4px;
 }
 .spec-chip .spec-value { font-size: 14px; font-weight: 700; color: #1a1a1a; }
 .spec-chip .spec-value.available { color: #1B4332; }
@@ -634,61 +362,35 @@ nav {
 .about-body p:last-child { margin-bottom: 0; }
 .nearby-list { list-style: none; }
 .nearby-list li {
-  font-size: 14.5px;
-  color: #555555;
-  padding: 12px 0 12px 22px;
-  border-bottom: 1px solid #e0dbd2;
-  position: relative;
-  line-height: 1.5;
+  font-size: 14.5px; color: #555555; padding: 12px 0 12px 22px;
+  border-bottom: 1px solid #e0dbd2; position: relative; line-height: 1.5;
 }
 .nearby-list li:last-child { border-bottom: none; }
 .nearby-list li::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #2D6A4F;
-  position: absolute;
-  left: 0; top: 19px;
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: #2D6A4F; position: absolute; left: 0; top: 19px;
 }
 .numbered-steps { list-style: none; }
-.numbered-steps li {
-  display: flex;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid #e0dbd2;
-}
+.numbered-steps li { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #e0dbd2; }
 .numbered-steps li:last-child { border-bottom: none; }
 .step-num { font-size: 13px; font-weight: 900; color: #1B4332; min-width: 26px; padding-top: 2px; }
 .step-body h4 { font-size: 15px; font-weight: 700; color: #0D1710; margin-bottom: 5px; }
 .step-body p { font-size: 14px; color: #555555; line-height: 1.65; }
 .title-callout {
-  background: #E8F5EE;
-  border-left: 3px solid #1B4332;
-  border-radius: 0 6px 6px 0;
-  padding: 20px 24px;
-  margin-top: 32px;
+  background: #E8F5EE; border-left: 3px solid #1B4332;
+  border-radius: 0 6px 6px 0; padding: 20px 24px; margin-top: 32px;
 }
 .title-callout h4 {
-  font-size: 13px;
-  font-weight: 700;
-  color: #1B4332;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  margin-bottom: 10px;
+  font-size: 13px; font-weight: 700; color: #1B4332;
+  text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 10px;
 }
 .title-callout p { font-size: 13.5px; color: #555555; line-height: 1.7; }
 .lots-table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid #e0dbd2; margin-bottom: 10px; }
 .lots-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 600px; }
 .lots-table thead tr { background: #1B4332; }
 .lots-table thead th {
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 14px 16px;
-  text-align: left;
-  white-space: nowrap;
+  color: #ffffff; font-weight: 700; font-size: 11px; letter-spacing: 1px;
+  text-transform: uppercase; padding: 14px 16px; text-align: left; white-space: nowrap;
 }
 .lots-table tbody tr { background: #ffffff; border-bottom: 1px solid #e0dbd2; transition: background 0.15s; }
 .lots-table tbody tr:last-child { border-bottom: none; }
@@ -701,21 +403,12 @@ nav {
 
 /* ── TRUST STRIP ── */
 .trust-strip {
-  background: #1B4332;
-  padding: 16px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 18px;
+  background: #1B4332; padding: 16px 5%;
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 18px;
 }
 .trust-strip span {
-  font-size: 12px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  white-space: nowrap;
+  font-size: 12px; font-weight: 700; color: #ffffff;
+  letter-spacing: 0.6px; text-transform: uppercase; white-space: nowrap;
 }
 
 /* ── FOOTER ── */
@@ -733,9 +426,9 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-right { position: static; }
-  .quiz-container { max-height: none; overflow-y: visible; }
+  .hero-right { position: static; margin-top: 32px; }
   .pricing-cards-row { grid-template-columns: 1fr 1fr; }
+  .quiz-overlay-backdrop { padding: 24px 16px; }
 }
 @media (max-width: 640px) {
   .pricing-cards-row { grid-template-columns: 1fr; }
@@ -745,16 +438,178 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
   .nav-logo img { height: 22px; }
   .nav-phone { font-size: 12.5px; padding: 9px 14px; }
   .hero-dark { padding: 36px 4% 40px; }
+  .pricing-section-wrap { padding: 0 4% 40px; }
   .offer-section { padding: 36px 4%; }
   .alert-block { padding: 16px 4%; }
   .content-wrap { padding: 0 4% 56px; }
-  .quiz-container { padding: 20px 18px 18px; }
+  .quiz-overlay-card { padding: 24px 18px; }
   .trust-strip { gap: 6px 12px; }
   .footer-top { flex-direction: column; }
 }
 </style>
 </head>
 <body>
+
+<!-- ── QUIZ OVERLAY ── -->
+<div id="quiz-backdrop" class="quiz-overlay-backdrop" onclick="closeQuizIfBackdrop(event)">
+  <div class="quiz-overlay-card" id="quiz-overlay-card">
+    <button class="quiz-close-btn" onclick="closeQuiz()" aria-label="Close">&#10005;</button>
+
+    <div class="quiz-progress-track">
+      <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+    </div>
+    <p class="quiz-counter" id="quiz-counter">Question 1 of 6</p>
+    <button class="quiz-back-btn" id="quiz-back-btn" onclick="goBack()">&#8592; Back</button>
+
+    <!-- Q1: Lot picker -->
+    <div class="quiz-step active" id="step-q1">
+      <h2 class="quiz-q-heading">Which lot are you interested in</h2>
+      <p class="quiz-q-sub">You can change this later.</p>
+      <div class="quiz-opts">
+        <div class="quiz-opt" data-key="property_interest" data-val="2 La Joya Dr" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">2 La Joya Dr</span>
+          <span class="quiz-opt-sub">0.23 Acres, El Paso County TX</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="property_interest" data-val="1 La Joya Dr" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">1 La Joya Dr</span>
+          <span class="quiz-opt-sub">0.23 Acres, El Paso County TX</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="property_interest" data-val="both" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">I'm interested in both</span>
+          <span class="quiz-opt-sub">Show me both options</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2: Purchase method (lot-specific pricing) -->
+    <div class="quiz-step" id="step-q2">
+      <h2 class="quiz-q-heading">How are you planning to purchase</h2>
+      <p class="quiz-q-sub">Both options are available on this lot.</p>
+      <div class="quiz-opts">
+        <div class="quiz-opt" data-key="purchase_method" data-val="Owner Financing" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">Owner Financing</span>
+          <span class="quiz-opt-sub" id="q2-fin-sub">30% down, then a fixed monthly payment for 36 months. No bank. No credit check.</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="purchase_method" data-val="Cash Purchase" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">Cash Purchase</span>
+          <span class="quiz-opt-sub" id="q2-cash-sub">Pay the full price at closing. Close through a title company. Deed in 2 to 4 weeks. Same price as financed.</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3: Land use -->
+    <div class="quiz-step" id="step-q3">
+      <h2 class="quiz-q-heading">What are you planning to do with the land</h2>
+      <p class="quiz-q-sub">No wrong answer.</p>
+      <div class="quiz-opts">
+        <div class="quiz-opt" data-key="land_use_plan" data-val="Build when I'm ready" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">Build when I'm ready, no timeline pressure</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="land_use_plan" data-val="Hold as long term investment" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">Hold it as a long term investment</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="land_use_plan" data-val="Recreational use or RV" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">Recreational use or RV</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="land_use_plan" data-val="Not sure yet" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">I'm not sure yet</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4: Prior experience -->
+    <div class="quiz-step" id="step-q4">
+      <h2 class="quiz-q-heading">Have you purchased land before</h2>
+      <div class="quiz-opts">
+        <div class="quiz-opt" data-key="buyer_experience" data-val="Yes, I own land already" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">Yes, I own land already</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="buyer_experience" data-val="No, this is my first time" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">No, this is my first time</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="buyer_experience" data-val="Helping a family member decide" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">I'm helping a family member decide</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5: Timeline -->
+    <div class="quiz-step" id="step-q5">
+      <h2 class="quiz-q-heading">How soon are you looking to move forward</h2>
+      <div class="quiz-opts">
+        <div class="quiz-opt" data-key="purchase_timeline" data-val="As soon as possible" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">As soon as possible</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="purchase_timeline" data-val="Within 1 to 3 months" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">Within 1 to 3 months</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="purchase_timeline" data-val="Within 6 months" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">Within 6 months</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+        <div class="quiz-opt" data-key="purchase_timeline" data-val="Just researching for now" onclick="selectOpt(this)">
+          <span class="quiz-opt-title">Just researching for now</span>
+          <span class="quiz-opt-check">&#10003;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6: Contact form -->
+    <div class="quiz-step" id="step-q6">
+      <h2 class="quiz-q-heading">Last step. Where should we send the details</h2>
+      <p class="quiz-q-sub">We'll reach out with the full property info, financing breakdown and next steps. No spam.</p>
+      <div class="q6-group">
+        <label for="c-fname">First Name</label>
+        <input type="text" id="c-fname" placeholder="First name" oninput="onFormChange()" />
+      </div>
+      <div class="q6-group">
+        <label for="c-lname">Last Name</label>
+        <input type="text" id="c-lname" placeholder="Last name" oninput="onFormChange()" />
+      </div>
+      <div class="q6-group">
+        <label for="c-email">Email Address</label>
+        <input type="email" id="c-email" placeholder="your@email.com" oninput="onFormChange()" />
+      </div>
+      <div class="q6-group">
+        <label for="c-phone">Phone Number</label>
+        <input type="tel" id="c-phone" placeholder="+1 (915) 000-0000" oninput="onFormChange()" />
+      </div>
+      <div class="q6-check">
+        <input type="checkbox" id="c-phone-confirm" onchange="onFormChange()" />
+        <label for="c-phone-confirm">This is the best number to reach me. I understand the Landcurator team will be in touch shortly.</label>
+      </div>
+      <div class="q6-sms">
+        <div class="q6-check">
+          <input type="checkbox" id="c-sms" onchange="onFormChange()" />
+          <label for="c-sms">I agree to receive SMS text messages from Landcurator about this property and related offers. Message frequency may vary. Msg and data rates may apply. Reply STOP to opt out. Reply HELP for help.</label>
+        </div>
+      </div>
+      <p class="q6-privacy">View our <a href="https://web.landcurator.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+    </div>
+
+    <!-- Quiz footer -->
+    <div class="quiz-footer">
+      <div class="quiz-error" id="quiz-error"></div>
+      <button id="quiz-next-btn" class="quiz-next-btn" disabled onclick="handleNext()">Next</button>
+      <p class="quiz-consent-fine" id="quiz-consent-fine">By submitting you agree Landcurator may contact you about this property and financing offer.</p>
+    </div>
+  </div>
+</div>
+<!-- END QUIZ OVERLAY -->
 
 <!-- NAV -->
 <nav>
@@ -768,249 +623,102 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
 <section class="hero-dark">
   <div class="hero-grid">
 
-    <!-- LEFT -->
+    <!-- LEFT: headline + bullets only -->
     <div class="hero-left">
       <span class="hero-eyebrow">El Paso County, TX &nbsp;&middot;&nbsp; Zip 79938</span>
       <h1 class="hero-headline">La Joya Dr Lots, Horizon City</h1>
       <p class="hero-price-row">From <strong>$7,500</strong> &nbsp;&middot;&nbsp; Owner financing on both lots</p>
-
-      <div class="hero-gallery">
-        <div class="hero-gallery-main">
-          <img id="hero-main-img"
-               src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_11_16_at_19_19_27_b4ada9999b.png"
-               alt="La Joya Dr lot, Horizon City" />
-        </div>
-        <div class="hero-gallery-thumbs">
-          <div class="hero-thumb" onclick="setHeroImg('https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_12_16_at_14_30_23_d4295e2861.png', this)">
-            <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_12_16_at_14_30_23_d4295e2861.png" alt="2 La Joya Dr" />
-          </div>
-          <div class="hero-thumb" onclick="setHeroImg('https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_11_16_at_19_18_09_236e0a12ab.png', this)">
-            <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_11_16_at_19_18_09_236e0a12ab.png" alt="1 La Joya Dr view 2" />
-          </div>
-          <div class="hero-thumb" onclick="setHeroImg('https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_12_16_at_14_30_15_96107e29c4.png', this)">
-            <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_12_16_at_14_30_15_96107e29c4.png" alt="2 La Joya Dr view 2" />
-          </div>
-        </div>
-      </div>
-
       <ul class="hero-bullets">
         <li>Two 0.23-acre lots on the same street, buy one or both</li>
         <li>Owner financing available on both, 30% down, monthly payments over 36 months</li>
         <li>No credit check, no HOA, no build timeline, use it or hold it</li>
         <li>$500 reserves your lot, close through a licensed title company</li>
       </ul>
-
-      <!-- PRICING SECTION -->
-      <div class="pricing-section">
-        <h2 class="pricing-heading">2 Lots on La Joya Dr, El Paso County TX</h2>
-        <p class="pricing-sub">Same street. Different price points. Pick the one that works for you.</p>
-
-        <div class="pricing-cards-row">
-          <!-- Card: 2 La Joya Dr -->
-          <div class="pricing-card">
-            <span class="pricing-addr-pill">2 LA JOYA DR</span>
-            <p class="pricing-size">0.23 Acres, 10,018 Sq Ft</p>
-            <p class="pricing-apn">APN H78406300500120</p>
-            <hr class="pricing-sep" />
-            <div class="pricing-cash-label">Cash Price</div>
-            <div class="pricing-cash-price">$7,500</div>
-            <hr class="pricing-fin-sep" />
-            <div class="pricing-fin-label">Owner Financing</div>
-            <div class="pricing-fin-line">$2,250 down (30%)</div>
-            <div class="pricing-fin-line">$145.83/month for 36 months</div>
-            <div class="pricing-fin-line">No credit check. No bank.</div>
-            <p class="pricing-reserve-note">$500 reserves this lot. Full deposit due at closing.</p>
-            <button class="pricing-cta-btn" onclick="selectLotFromCard('2 La Joya Dr')">I Want This Lot</button>
-          </div>
-
-          <!-- Card: 1 La Joya Dr -->
-          <div class="pricing-card">
-            <span class="pricing-addr-pill">1 LA JOYA DR</span>
-            <p class="pricing-size">0.23 Acres, 10,000 Sq Ft</p>
-            <p class="pricing-apn">APN on file</p>
-            <hr class="pricing-sep" />
-            <div class="pricing-cash-label">Cash Price</div>
-            <div class="pricing-cash-price">$15,750</div>
-            <hr class="pricing-fin-sep" />
-            <div class="pricing-fin-label">Owner Financing</div>
-            <div class="pricing-fin-line">$4,725 down (30%)</div>
-            <div class="pricing-fin-line">$306.25/month for 36 months</div>
-            <div class="pricing-fin-line">No credit check. No bank.</div>
-            <p class="pricing-reserve-note">$500 reserves this lot. Full deposit due at closing.</p>
-            <button class="pricing-cta-btn" onclick="selectLotFromCard('1 La Joya Dr')">I Want This Lot</button>
-          </div>
-        </div>
-
-        <p class="pricing-not-sure">Not sure which one? Answer a few questions to the right and we'll help you figure it out.</p>
-      </div>
     </div>
 
-    <!-- RIGHT — sticky quiz -->
-    <aside class="hero-right" id="hero-right">
-      <div class="quiz-container" id="quiz-container">
-
-        <div class="quiz-progress-track">
-          <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+    <!-- RIGHT: sticky offer card -->
+    <aside class="hero-right">
+      <div class="offer-card">
+        <div class="offer-card-head">
+          <span class="offer-card-badge">See Your Payment Options</span>
+          <h3 class="offer-card-heading">Get The Full Breakdown Sent To You</h3>
         </div>
-        <p class="quiz-counter" id="quiz-counter">Question 1 of 6</p>
-        <button class="quiz-back-btn" id="quiz-back-btn" onclick="goBack()">&#8592; Back</button>
-
-        <!-- Q1: Which lot -->
-        <div class="quiz-step active" id="step-q1">
-          <h2 class="quiz-q-heading">Which lot are you interested in</h2>
-          <p class="quiz-q-sub">You can change this later.</p>
-          <div class="quiz-opts">
-            <div class="quiz-opt" data-key="property_interest" data-val="2 La Joya Dr" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">2 La Joya Dr</span>
-              <span class="quiz-opt-sub">0.23 Acres, El Paso County TX</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="property_interest" data-val="1 La Joya Dr" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">1 La Joya Dr</span>
-              <span class="quiz-opt-sub">0.23 Acres, El Paso County TX</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="property_interest" data-val="both" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">I'm interested in both</span>
-              <span class="quiz-opt-sub">Show me both options</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
+        <div class="offer-card-body">
+          <p class="offer-card-summary" id="offer-card-summary">From $7,500. Owner financing from $2,250 down (30%), then $145.83 per month for 36 months. No commitment. No credit check required.</p>
+          <button class="offer-card-btn" onclick="openQuiz(null)">Start The Quiz</button>
+          <div class="offer-trust-row">
+            <span>&#128274; Secure</span>
+            <span>&middot;</span>
+            <span>BBB A+</span>
+            <span>&middot;</span>
+            <span>No Spam</span>
           </div>
         </div>
-
-        <!-- Q2: Purchase method (lot-specific pricing) -->
-        <div class="quiz-step" id="step-q2">
-          <h2 class="quiz-q-heading">How are you planning to purchase</h2>
-          <p class="quiz-q-sub">Both options are available on this lot.</p>
-          <div class="quiz-opts">
-            <div class="quiz-opt" data-key="purchase_method" data-val="Owner Financing" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">Owner Financing</span>
-              <span class="quiz-opt-sub" id="q2-fin-sub">30% down, then a fixed monthly payment for 36 months. No bank. No credit check.</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="purchase_method" data-val="Cash Purchase" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">Cash Purchase</span>
-              <span class="quiz-opt-sub" id="q2-cash-sub">Pay the full price at closing. Close through a title company. Deed in 2 to 4 weeks. Same price as financed.</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Q3: Land use -->
-        <div class="quiz-step" id="step-q3">
-          <h2 class="quiz-q-heading">What are you planning to do with the land</h2>
-          <p class="quiz-q-sub">No wrong answer.</p>
-          <div class="quiz-opts">
-            <div class="quiz-opt" data-key="land_use_plan" data-val="Build when I'm ready" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">Build when I'm ready, no timeline pressure</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="land_use_plan" data-val="Hold as long term investment" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">Hold it as a long term investment</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="land_use_plan" data-val="Recreational use or RV" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">Recreational use or RV</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="land_use_plan" data-val="Not sure yet" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">I'm not sure yet</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Q4: Prior experience -->
-        <div class="quiz-step" id="step-q4">
-          <h2 class="quiz-q-heading">Have you purchased land before</h2>
-          <div class="quiz-opts">
-            <div class="quiz-opt" data-key="buyer_experience" data-val="Yes, I own land already" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">Yes, I own land already</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="buyer_experience" data-val="No, this is my first time" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">No, this is my first time</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="buyer_experience" data-val="Helping a family member decide" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">I'm helping a family member decide</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Q5: Timeline -->
-        <div class="quiz-step" id="step-q5">
-          <h2 class="quiz-q-heading">How soon are you looking to move forward</h2>
-          <div class="quiz-opts">
-            <div class="quiz-opt" data-key="purchase_timeline" data-val="As soon as possible" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">As soon as possible</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="purchase_timeline" data-val="Within 1 to 3 months" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">Within 1 to 3 months</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="purchase_timeline" data-val="Within 6 months" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">Within 6 months</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-            <div class="quiz-opt" data-key="purchase_timeline" data-val="Just researching for now" onclick="selectOpt(this)">
-              <span class="quiz-opt-title">Just researching for now</span>
-              <span class="quiz-opt-check">&#10003;</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Q6: Contact form -->
-        <div class="quiz-step" id="step-q6">
-          <h2 class="quiz-q-heading">Last step. Where should we send the details</h2>
-          <p class="quiz-q-sub">We'll reach out with the full property info, financing breakdown and next steps. No spam.</p>
-
-          <div class="q6-group">
-            <label for="c-fname">First Name</label>
-            <input type="text" id="c-fname" placeholder="First name" oninput="onFormChange()" />
-          </div>
-          <div class="q6-group">
-            <label for="c-lname">Last Name</label>
-            <input type="text" id="c-lname" placeholder="Last name" oninput="onFormChange()" />
-          </div>
-          <div class="q6-group">
-            <label for="c-email">Email Address</label>
-            <input type="email" id="c-email" placeholder="your@email.com" oninput="onFormChange()" />
-          </div>
-          <div class="q6-group">
-            <label for="c-phone">Phone Number</label>
-            <input type="tel" id="c-phone" placeholder="+1 (915) 000-0000" oninput="onFormChange()" />
-          </div>
-
-          <div class="q6-check">
-            <input type="checkbox" id="c-phone-confirm" onchange="onFormChange()" />
-            <label for="c-phone-confirm">This is the best number to reach me. I understand the Landcurator team will be in touch shortly.</label>
-          </div>
-
-          <div class="q6-sms">
-            <div class="q6-check">
-              <input type="checkbox" id="c-sms" onchange="onFormChange()" />
-              <label for="c-sms">I agree to receive SMS text messages from Landcurator about this property and related offers. Message frequency may vary. Msg and data rates may apply. Reply STOP to opt out. Reply HELP for help.</label>
-            </div>
-          </div>
-
-          <p class="q6-privacy">View our <a href="https://web.landcurator.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
-        </div>
-
-        <!-- Quiz footer (always visible) -->
-        <div class="quiz-footer">
-          <div class="quiz-error" id="quiz-error"></div>
-          <button id="quiz-next-btn" class="quiz-next-btn" disabled onclick="handleNext()">Next</button>
-          <p class="quiz-consent-fine" id="quiz-consent-fine">By submitting you agree Landcurator may contact you about this property and financing offer.</p>
-        </div>
-
       </div>
     </aside>
 
   </div>
 </section>
+
+<!-- PRICING SECTION -->
+<section class="pricing-section-wrap">
+  <div class="pricing-inner">
+    <span class="pricing-section-label">Available Now</span>
+    <div style="margin-bottom:8px;">
+      <h2 class="pricing-heading">2 Lots on La Joya Dr, El Paso County TX</h2>
+    </div>
+    <p class="pricing-sub">Same street. Different price points. Pick the one that works for you.</p>
+    <div class="pricing-cards-row">
+
+      <!-- Card: 2 La Joya Dr -->
+      <div class="pricing-card">
+        <span class="pricing-addr-pill">2 LA JOYA DR</span>
+        <p class="pricing-size">0.23 Acres, 10,018 Sq Ft</p>
+        <p class="pricing-apn">APN H78406300500120</p>
+        <hr class="pricing-sep" />
+        <div class="pricing-cash-label">Cash Price</div>
+        <div class="pricing-cash-price">$7,500</div>
+        <hr class="pricing-fin-sep" />
+        <div class="pricing-fin-label">Owner Financing</div>
+        <div class="pricing-fin-line">$2,250 down (30%)</div>
+        <div class="pricing-fin-line">$145.83/month for 36 months</div>
+        <div class="pricing-fin-line">No credit check. No bank.</div>
+        <p class="pricing-reserve-note">$500 reserves this lot. Full deposit due at closing.</p>
+        <button class="pricing-cta-btn" onclick="selectLotFromCard('2 La Joya Dr')">I Want This Lot</button>
+      </div>
+
+      <!-- Card: 1 La Joya Dr -->
+      <div class="pricing-card">
+        <span class="pricing-addr-pill">1 LA JOYA DR</span>
+        <p class="pricing-size">0.23 Acres, 10,000 Sq Ft</p>
+        <p class="pricing-apn">APN on file</p>
+        <hr class="pricing-sep" />
+        <div class="pricing-cash-label">Cash Price</div>
+        <div class="pricing-cash-price">$15,750</div>
+        <hr class="pricing-fin-sep" />
+        <div class="pricing-fin-label">Owner Financing</div>
+        <div class="pricing-fin-line">$4,725 down (30%)</div>
+        <div class="pricing-fin-line">$306.25/month for 36 months</div>
+        <div class="pricing-fin-line">No credit check. No bank.</div>
+        <p class="pricing-reserve-note">$500 reserves this lot. Full deposit due at closing.</p>
+        <button class="pricing-cta-btn" onclick="selectLotFromCard('1 La Joya Dr')">I Want This Lot</button>
+      </div>
+
+    </div>
+    <p class="pricing-not-sure">Not sure which one? Start the quiz and we'll help you figure it out.</p>
+  </div>
+</section>
+
+<!-- ALERT BLOCK -->
+<div class="alert-block">
+  <div class="alert-inner">
+    <div class="alert-icon">!</div>
+    <div class="alert-text">
+      <strong>High Interest on These Lots</strong>
+      <p>Both lots are still available but inquiries are coming in regularly. Start the quiz to see your payment options and hold your spot before someone else does.</p>
+    </div>
+  </div>
+</div>
 
 <!-- OFFER SECTION -->
 <section class="offer-section">
@@ -1029,17 +737,6 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     </ul>
   </div>
 </section>
-
-<!-- ALERT BLOCK -->
-<div class="alert-block">
-  <div class="alert-inner">
-    <div class="alert-icon">!</div>
-    <div class="alert-text">
-      <strong>High Interest on These Lots</strong>
-      <p>Both lots are still available but inquiries are coming in regularly. Answer the questions above to see your payment options and hold your spot before someone else does.</p>
-    </div>
-  </div>
-</div>
 
 <!-- CONTENT SECTIONS -->
 <div class="content-wrap">
@@ -1119,7 +816,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
   <div class="about-body">
     <p>1 La Joya Dr and 2 La Joya Dr sit within the same quiet stretch of Horizon City, El Paso County, approximately 10 minutes from North Ascencion Rd and minutes from Horizon Blvd and Eastlake Blvd. Each lot is 0.23 acres with dirt road frontage, no HOA, and no build timeline.</p>
     <p>El Paso County permits manufactured homes, double-wides, and RVs on both parcels. Buy one lot or both. Each closes independently through a licensed title company and your deed is delivered by certified mail within 2 to 4 weeks of closing.</p>
-    <p>Owner financing is available on both lots with no bank, no credit check, and no approval process. You pay us directly. Cash and financed buyers pay the same total price.</p>
+    <p>Owner financing is available on both lots with no bank, no credit check, and no approval process. Cash and financed buyers pay the same total price.</p>
   </div>
 
   <hr class="divider" />
@@ -1278,9 +975,38 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
   var currentStep = 'q1';
   var quizAnswers = {};
 
+  /* ── OVERLAY OPEN / CLOSE ── */
+  function openQuiz(lot) {
+    if (lot) {
+      quizAnswers.property_interest = lot;
+      document.querySelectorAll('#step-q1 .quiz-opt').forEach(function(o) {
+        o.classList.toggle('selected', o.dataset.val === lot);
+      });
+    }
+    document.getElementById('quiz-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    updateUI();
+    checkStepAnswered();
+    /* scroll overlay card to top in case it was previously scrolled */
+    document.getElementById('quiz-backdrop').scrollTop = 0;
+  }
+
+  function closeQuiz() {
+    document.getElementById('quiz-backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeQuizIfBackdrop(e) {
+    if (e.target === document.getElementById('quiz-backdrop')) closeQuiz();
+  }
+
+  /* Trap Escape key */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeQuiz();
+  });
+
   /* ── OPTION SELECTION ── */
   function selectOpt(el) {
-    var stepId = el.closest('.quiz-step').id.replace('step-', '');
     el.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(function(o) { o.classList.remove('selected'); });
     el.classList.add('selected');
     quizAnswers[el.dataset.key] = el.dataset.val;
@@ -1289,8 +1015,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
 
   /* ── NEXT BUTTON STATE ── */
   function setNextEnabled(on) {
-    var btn = document.getElementById('quiz-next-btn');
-    btn.disabled = !on;
+    document.getElementById('quiz-next-btn').disabled = !on;
   }
 
   function checkStepAnswered() {
@@ -1312,10 +1037,9 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
       document.getElementById('c-sms').checked
     );
   }
-
   function onFormChange() { setNextEnabled(isContactFormFilled()); }
 
-  /* ── STEP TRANSITION ── */
+  /* ── STEP TRANSITIONS ── */
   function goToStep(nextId) {
     var fromEl = document.getElementById('step-' + currentStep);
     var toEl   = document.getElementById('step-' + nextId);
@@ -1326,24 +1050,19 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     fromEl.style.transform  = 'translateY(-14px)';
 
     setTimeout(function() {
-      fromEl.classList.remove('active');
-      fromEl.style.cssText = '';
-
-      toEl.style.opacity   = '0';
-      toEl.style.transform = 'translateY(14px)';
-      toEl.classList.add('active');
-      toEl.offsetHeight;
+      fromEl.classList.remove('active'); fromEl.style.cssText = '';
+      toEl.style.opacity = '0'; toEl.style.transform = 'translateY(14px)';
+      toEl.classList.add('active'); toEl.offsetHeight;
       toEl.style.transition = 'opacity 0.25s, transform 0.25s';
-      toEl.style.opacity    = '1';
-      toEl.style.transform  = 'translateY(0)';
+      toEl.style.opacity = '1'; toEl.style.transform = 'translateY(0)';
       setTimeout(function() { toEl.style.cssText = ''; }, 260);
-
       currentStep = nextId;
       updateUI();
+      /* scroll overlay to top on each step change */
+      document.getElementById('quiz-backdrop').scrollTop = 0;
     }, 230);
   }
 
-  /* ── BACK ── */
   function goBack() {
     if (!stepHistory.length) return;
     var prevId = stepHistory.pop();
@@ -1355,20 +1074,15 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     fromEl.style.transform  = 'translateY(14px)';
 
     setTimeout(function() {
-      fromEl.classList.remove('active');
-      fromEl.style.cssText = '';
-
-      toEl.style.opacity   = '0';
-      toEl.style.transform = 'translateY(-14px)';
-      toEl.classList.add('active');
-      toEl.offsetHeight;
+      fromEl.classList.remove('active'); fromEl.style.cssText = '';
+      toEl.style.opacity = '0'; toEl.style.transform = 'translateY(-14px)';
+      toEl.classList.add('active'); toEl.offsetHeight;
       toEl.style.transition = 'opacity 0.25s, transform 0.25s';
-      toEl.style.opacity    = '1';
-      toEl.style.transform  = 'translateY(0)';
+      toEl.style.opacity = '1'; toEl.style.transform = 'translateY(0)';
       setTimeout(function() { toEl.style.cssText = ''; }, 260);
-
       currentStep = prevId;
       updateUI();
+      document.getElementById('quiz-backdrop').scrollTop = 0;
     }, 230);
   }
 
@@ -1378,82 +1092,68 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     document.getElementById('quiz-progress-fill').style.width = ((idx + 1) / 6 * 100) + '%';
     document.getElementById('quiz-counter').textContent = 'Question ' + (idx + 1) + ' of 6';
     document.getElementById('quiz-back-btn').style.visibility = stepHistory.length > 0 ? 'visible' : 'hidden';
-
-    var nextBtn = document.getElementById('quiz-next-btn');
-    nextBtn.textContent = currentStep === 'q6' ? 'Send My Details' : 'Next';
-
+    document.getElementById('quiz-next-btn').textContent = currentStep === 'q6' ? 'Send My Details' : 'Next';
     document.getElementById('quiz-consent-fine').style.display = currentStep === 'q6' ? 'block' : 'none';
     document.getElementById('quiz-error').style.display = 'none';
-
-    if (currentStep === 'q2') { updateQ2Cards(); }
+    if (currentStep === 'q2') updateQ2Cards();
     checkStepAnswered();
   }
 
-  /* ── Q2 LOT-SPECIFIC PRICING ── */
+  /* ── Q2 LOT-SPECIFIC COPY ── */
   function updateQ2Cards() {
     var lot = quizAnswers.property_interest || '2 La Joya Dr';
-    var d = LOT_DATA[lot] || LOT_DATA['2 La Joya Dr'];
-
+    var d   = LOT_DATA[lot] || LOT_DATA['2 La Joya Dr'];
     document.getElementById('q2-fin-sub').textContent =
       d.down + ' down (' + d.downPct + '), then ' + d.monthly + ' per month for 36 months. No bank. No credit check.';
-
     document.getElementById('q2-cash-sub').textContent =
-      'Pay ' + d.cash + ' in full at closing. Close through a title company. Deed in 2 to 4 weeks. Same price as financed.';
+      'Pay ' + d.cash + ' in full at closing. Close through a title company. Deed in 2 to 4 weeks. No discount for paying cash, same price as financed.';
+  }
+
+  /* ── STICKY OFFER CARD SUMMARY ── */
+  function updateOfferCardSummary(lot) {
+    var d  = LOT_DATA[lot];
+    if (!d) return;
+    var el = document.getElementById('offer-card-summary');
+    el.textContent = 'Listed at ' + d.cash + '. ' + d.down + ' down (' + d.downPct + '), then ' + d.monthly + ' per month for 36 months. No commitment. No credit check required.';
+  }
+
+  /* ── PRICING CARD CTA ── */
+  function selectLotFromCard(lot) {
+    updateOfferCardSummary(lot);
+    openQuiz(lot);
   }
 
   /* ── NEXT / SUBMIT ── */
   function handleNext() {
     if (currentStep === 'q6') { handleSubmit(); return; }
     var idx = STEP_ORDER.indexOf(currentStep);
-    if (idx < STEP_ORDER.length - 1) { goToStep(STEP_ORDER[idx + 1]); }
+    if (idx < STEP_ORDER.length - 1) goToStep(STEP_ORDER[idx + 1]);
   }
 
-  /* ── PRICING CARD CTA ── */
-  function selectLotFromCard(lot) {
-    quizAnswers.property_interest = lot;
-    document.querySelectorAll('#step-q1 .quiz-opt').forEach(function(o) {
-      o.classList.toggle('selected', o.dataset.val === lot);
-    });
-    if (currentStep === 'q1') { setNextEnabled(true); }
-
-    var quizEl = document.getElementById('quiz-container');
-    var rect = quizEl.getBoundingClientRect();
-    if (rect.top < 0 || rect.bottom > window.innerHeight) {
-      quizEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  /* ── SUBMIT ── */
   async function handleSubmit() {
-    var fname    = document.getElementById('c-fname').value.trim();
-    var lname    = document.getElementById('c-lname').value.trim();
-    var email    = document.getElementById('c-email').value.trim();
-    var phone    = document.getElementById('c-phone').value.trim();
-    var phoneOk  = document.getElementById('c-phone-confirm').checked;
-    var smsOk    = document.getElementById('c-sms').checked;
-    var errEl    = document.getElementById('quiz-error');
-
+    var fname   = document.getElementById('c-fname').value.trim();
+    var lname   = document.getElementById('c-lname').value.trim();
+    var email   = document.getElementById('c-email').value.trim();
+    var phone   = document.getElementById('c-phone').value.trim();
+    var phoneOk = document.getElementById('c-phone-confirm').checked;
+    var smsOk   = document.getElementById('c-sms').checked;
+    var errEl   = document.getElementById('quiz-error');
     errEl.style.display = 'none';
 
     if (!fname || !lname || !email || !phone) {
-      errEl.textContent = 'Please fill in all required fields.';
-      errEl.style.display = 'block'; return;
+      errEl.textContent = 'Please fill in all required fields.'; errEl.style.display = 'block'; return;
     }
     if (!phoneOk) {
-      errEl.textContent = 'Please confirm your phone number using the checkbox.';
-      errEl.style.display = 'block'; return;
+      errEl.textContent = 'Please confirm your phone number using the checkbox.'; errEl.style.display = 'block'; return;
     }
     if (!smsOk) {
-      errEl.textContent = 'Please agree to the SMS consent to continue.';
-      errEl.style.display = 'block'; return;
+      errEl.textContent = 'Please agree to the SMS consent to continue.'; errEl.style.display = 'block'; return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errEl.textContent = 'Please enter a valid email address.';
-      errEl.style.display = 'block'; return;
+      errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return;
     }
-    if (phone.replace(/\D/g, '').length < 7) {
-      errEl.textContent = 'Please enter a valid phone number.';
-      errEl.style.display = 'block'; return;
+    if (phone.replace(/\D/g,'').length < 7) {
+      errEl.textContent = 'Please enter a valid phone number.'; errEl.style.display = 'block'; return;
     }
 
     var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
@@ -1464,55 +1164,34 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
       land_use_plan:     quizAnswers.land_use_plan      || '',
       buyer_experience:  quizAnswers.buyer_experience   || '',
       purchase_timeline: quizAnswers.purchase_timeline  || '',
-      first_name:  fname,
-      last_name:   lname,
-      email:       email,
-      phone:       phone,
-      sms_consent: true,
-      event_id:    eventId
+      first_name:  fname, last_name: lname, email: email, phone: phone,
+      sms_consent: true, event_id: eventId
     };
 
     var btn = document.getElementById('quiz-next-btn');
-    btn.disabled    = true;
-    btn.textContent = 'Sending…';
+    btn.disabled = true; btn.textContent = 'Sending…';
 
     try {
       var res = await fetch(WEBHOOK_URL, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload)
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       });
-
       if (res.ok) {
-        fbq('track', 'Lead', {
-          content_name:     'La Joya Dr Lots',
-          content_category: 'Land',
-          value:            7500,
-          currency:         'USD'
-        });
+        fbq('track', 'Lead', { content_name: 'La Joya Dr Lots', content_category: 'Land', value: 7500, currency: 'USD' });
         window.location.href = THANK_YOU + '?eid=' + eventId;
       } else {
-        btn.disabled    = false;
-        btn.textContent = 'Send My Details';
+        btn.disabled = false; btn.textContent = 'Send My Details';
         errEl.textContent = 'Something went wrong. Please call us at 1 (800) 520-0534.';
         errEl.style.display = 'block';
       }
     } catch (err) {
-      btn.disabled    = false;
-      btn.textContent = 'Send My Details';
+      btn.disabled = false; btn.textContent = 'Send My Details';
       errEl.textContent = 'Something went wrong. Please call us at 1 (800) 520-0534.';
       errEl.style.display = 'block';
     }
   }
 
-  /* ── HERO GALLERY ── */
-  function setHeroImg(src, el) {
-    document.getElementById('hero-main-img').src = src;
-    document.querySelectorAll('.hero-thumb').forEach(function(t) { t.classList.remove('active'); });
-    if (el) el.classList.add('active');
-  }
-
-  /* ── CONTENT GALLERIES ── */
+  /* ── GALLERY SWAP ── */
   function swapImg(galleryId, src, el) {
     document.getElementById(galleryId + '-main').src = src;
     document.querySelectorAll('#' + galleryId + ' .gallery-thumb').forEach(function(t) { t.classList.remove('active'); });
