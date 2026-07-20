@@ -83,11 +83,11 @@ nav {
 /* ── HERO (DARK) ── */
 .hero-dark {
   background: #0D1710;
-  padding: 52px 5% 56px;
+  padding: 52px 5% 60px;
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 360px;
+  grid-template-columns: 1fr 390px;
   gap: 48px;
   max-width: 1200px;
   margin: 0 auto;
@@ -142,7 +142,7 @@ nav {
 .hero-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Hero bullets */
-.hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
 .hero-bullets li {
   font-size: 15px;
   color: rgba(255,255,255,0.82);
@@ -159,192 +159,339 @@ nav {
   font-size: 15px;
 }
 
-/* Hero right — sticky offer card */
-.hero-right {
-  position: sticky;
-  top: 84px;
-  align-self: start;
-}
-.offer-card {
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.28);
-}
-.offer-card-head {
-  background: #1B4332;
-  padding: 18px 22px 16px;
-}
-.offer-card-pill {
-  display: inline-block;
-  background: rgba(255,255,255,0.18);
+/* ── PRICING SECTION (inside hero-left) ── */
+.pricing-section { margin-bottom: 0; }
+.pricing-heading {
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 900;
   color: #ffffff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 4px 12px;
+  letter-spacing: -0.3px;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.pricing-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+.pricing-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.pricing-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 20px;
+}
+.pricing-addr-pill {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
   border-radius: 999px;
   margin-bottom: 10px;
 }
-.offer-card-head h3 {
-  font-size: 16px;
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-.offer-lots-row {
-  display: grid;
-  grid-template-columns: 1fr 1px 1fr;
-  gap: 0;
-  padding: 18px 22px;
-  border-bottom: 1px solid #e0dbd2;
-}
-.offer-lot-divider { background: #e0dbd2; }
-.offer-lot-item { padding: 0 14px; text-align: center; }
-.offer-lot-item:first-child { padding-left: 0; }
-.offer-lot-item:last-child { padding-right: 0; }
-.offer-lot-addr {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: #555555;
+.pricing-size {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
   margin-bottom: 4px;
-}
-.offer-lot-price {
-  display: block;
-  font-size: 22px;
-  font-weight: 900;
-  color: #0D1710;
-  line-height: 1.1;
-  margin-bottom: 3px;
-}
-.offer-lot-note {
-  display: block;
-  font-size: 11px;
-  color: #888888;
   line-height: 1.4;
 }
-.offer-card-body { padding: 18px 22px 20px; }
-.offer-card-sub {
-  font-size: 13px;
-  color: #555555;
-  line-height: 1.5;
-  margin-bottom: 16px;
-  text-align: center;
+.pricing-apn {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 14px;
 }
-.offer-start-btn {
+.pricing-sep {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 14px;
+}
+.pricing-cash-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 5px;
+}
+.pricing-cash-price {
+  font-size: 28px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.pricing-fin-sep {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 14px;
+}
+.pricing-fin-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #C9A84C;
+  margin-bottom: 8px;
+}
+.pricing-fin-line {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.55;
+}
+.pricing-reserve-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.38);
+  font-style: italic;
+  margin-top: 12px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.pricing-cta-btn {
   width: 100%;
   background: #1B4332;
   color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 15px 20px;
-  font-size: 15px;
+  padding: 13px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   transition: background 0.2s;
-  margin-bottom: 14px;
-  line-height: 1.3;
 }
-.offer-start-btn:hover { background: #2D6A4F; }
-.offer-trust-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  font-size: 11.5px;
-  color: #888888;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.pricing-cta-btn:hover { background: #2D6A4F; }
+.pricing-not-sure {
+  font-size: 13px;
+  color: rgba(255,255,255,0.38);
+  text-align: center;
+  line-height: 1.55;
 }
 
-/* Mobile inline offer card (inside hero left, below bullets) */
-.hero-offer-mobile {
-  display: none;
-  margin-top: 28px;
-  background: #1B4332;
-  border-radius: 10px;
-  padding: 20px;
+/* ── HERO RIGHT — STICKY QUIZ ── */
+.hero-right {
+  position: sticky;
+  top: 84px;
+  align-self: start;
 }
-.hero-offer-mobile-prices {
-  display: flex;
-  gap: 16px;
+.quiz-container {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 14px;
+  padding: 26px 24px 22px;
+  max-height: calc(100vh - 104px);
+  overflow-y: auto;
+}
+.quiz-container::-webkit-scrollbar { width: 4px; }
+.quiz-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+
+/* Quiz header */
+.quiz-progress-track {
+  height: 4px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: #2D6A4F;
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.35s ease;
+}
+.quiz-counter {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   margin-bottom: 14px;
 }
-.hero-offer-mobile-lot {
-  flex: 1;
-  text-align: center;
+.quiz-back-btn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 14px;
+  display: block;
+  visibility: hidden;
 }
-.hero-offer-mobile-lot-addr {
+.quiz-back-btn:hover { color: rgba(255,255,255,0.8); }
+
+/* Quiz steps */
+.quiz-step { display: none; }
+.quiz-step.active { display: block; }
+.quiz-q-heading {
+  font-size: 18px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+.quiz-q-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+/* Option cards */
+.quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 13px 38px 13px 14px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+.quiz-opt:hover { border-color: rgba(255,255,255,0.32); }
+.quiz-opt.selected { border-color: #2D6A4F; background: rgba(45,106,79,0.22); }
+.quiz-opt-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+.quiz-opt-sub {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 3px;
+  line-height: 1.45;
+}
+.quiz-opt-check {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: #2D6A4F;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.quiz-opt.selected .quiz-opt-check { opacity: 1; }
+
+/* Q6 contact form */
+.q6-group { margin-bottom: 11px; }
+.q6-group label {
   display: block;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 4px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 5px;
 }
-.hero-offer-mobile-lot-price {
-  display: block;
-  font-size: 20px;
-  font-weight: 900;
-  color: #ffffff;
-}
-.hero-offer-mobile-divider { width: 1px; background: rgba(255,255,255,0.2); flex-shrink: 0; }
-.hero-offer-mobile-btn {
+.q6-group input {
   width: 100%;
-  background: #ffffff;
-  color: #1B4332;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 44px;
+}
+.q6-group input::placeholder { color: rgba(255,255,255,0.28); }
+.q6-group input:focus { border-color: #2D6A4F; }
+.q6-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.q6-check input[type="checkbox"] {
+  width: 14px; height: 14px;
+  min-width: 14px; min-height: 14px;
+  accent-color: #2D6A4F;
+  flex-shrink: 0;
+  cursor: pointer;
+  margin-top: 2px;
+}
+.q6-check label {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+  cursor: pointer;
+}
+.q6-sms {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 11px 12px;
+  margin-bottom: 10px;
+}
+.q6-sms .q6-check { margin-bottom: 0; }
+.q6-privacy {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+.q6-privacy a { color: rgba(255,255,255,0.5); text-decoration: underline; }
+
+/* Quiz footer */
+.quiz-footer { margin-top: 18px; }
+.quiz-error {
+  display: none;
+  background: rgba(192,54,44,0.18);
+  color: #ff8a84;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+  border: 1px solid rgba(192,54,44,0.3);
+  line-height: 1.5;
+}
+.quiz-next-btn {
+  width: 100%;
+  background: #1B4332;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   padding: 14px;
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.15s;
+  letter-spacing: 0.2px;
+  transition: background 0.15s, opacity 0.2s;
+  margin-bottom: 10px;
 }
-.hero-offer-mobile-btn:hover { background: #E8F5EE; }
-
-/* ── MOBILE FIXED BOTTOM BAR ── */
-.mobile-bottom-bar {
+.quiz-next-btn:hover:not(:disabled) { background: #2D6A4F; }
+.quiz-next-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.quiz-consent-fine {
   display: none;
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  background: #0D1710;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 12px 20px;
-  z-index: 200;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.28);
+  text-align: center;
+  line-height: 1.5;
 }
-.mobile-bar-text {
-  font-size: 12px;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.4;
-}
-.mobile-bar-text strong { color: #ffffff; display: block; font-size: 13px; }
-.mobile-bar-btn {
-  flex-shrink: 0;
-  background: #1B4332;
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  padding: 12px 18px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.2s;
-}
-.mobile-bar-btn:hover { background: #2D6A4F; }
 
-/* ── OFFER SECTION ── */
+/* ── OFFER SECTION (below hero) ── */
 .offer-section {
   background: #ffffff;
   border-top: 1px solid #e0dbd2;
@@ -410,8 +557,7 @@ nav {
 }
 .alert-icon {
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
+  width: 32px; height: 32px;
   background: #C9A84C;
   color: #ffffff;
   font-size: 17px;
@@ -433,443 +579,7 @@ nav {
 }
 .alert-text p { font-size: 14px; color: #555555; line-height: 1.55; }
 
-/* ── QUIZ CTA SECTION ── */
-.quiz-cta-section {
-  background: #f9f8f5;
-  border-top: 1px solid #e0dbd2;
-  padding: 52px 5%;
-  text-align: center;
-}
-.quiz-cta-btn-large {
-  display: inline-block;
-  background: #1B4332;
-  color: #ffffff;
-  border: none;
-  border-radius: 10px;
-  padding: 18px 32px;
-  font-size: 17px;
-  font-weight: 700;
-  cursor: pointer;
-  letter-spacing: 0.2px;
-  line-height: 1.3;
-  max-width: 560px;
-  width: 100%;
-  transition: background 0.2s;
-  margin-bottom: 14px;
-}
-.quiz-cta-btn-large:hover { background: #2D6A4F; }
-.quiz-cta-sub {
-  font-size: 15px;
-  color: #555555;
-  margin-bottom: 6px;
-}
-.quiz-cta-time {
-  font-size: 13px;
-  color: #888888;
-  font-style: italic;
-}
-
-/* ── QUIZ SECTION ── */
-.quiz-section-wrap {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 56px 5% 80px;
-}
-.quiz-intro-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: #2D6A4F;
-  text-align: center;
-  margin-bottom: 16px;
-}
-.quiz-container {
-  background: #ffffff;
-  border: 1px solid #e0dbd2;
-  border-radius: 14px;
-  padding: 32px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.09);
-}
-.quiz-progress-track {
-  height: 4px;
-  background: #e0dbd2;
-  border-radius: 2px;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-.quiz-progress-fill {
-  height: 100%;
-  background: #1B4332;
-  border-radius: 2px;
-  width: 0%;
-  transition: width 0.35s ease;
-}
-.quiz-counter {
-  font-size: 12px;
-  color: #888888;
-  margin-bottom: 20px;
-}
-.quiz-back-btn {
-  background: none;
-  border: none;
-  font-size: 13px;
-  color: #888888;
-  cursor: pointer;
-  padding: 0;
-  margin-bottom: 16px;
-  display: block;
-  visibility: hidden;
-}
-.quiz-back-btn:hover { color: #1a1a1a; }
-.quiz-step { display: none; }
-.quiz-step.active { display: block; }
-.quiz-q-heading {
-  font-size: 20px;
-  font-weight: 900;
-  color: #0D1710;
-  margin-bottom: 6px;
-  line-height: 1.2;
-}
-.quiz-q-sub {
-  font-size: 14px;
-  color: #555555;
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-/* Lot picker cards (Q1) */
-.quiz-lot-cards { display: flex; flex-direction: column; gap: 10px; }
-.quiz-lot-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  border: 2px solid #e0dbd2;
-  border-radius: 10px;
-  padding: 14px 44px 14px 14px;
-  cursor: pointer;
-  position: relative;
-  transition: border-color 0.15s, background 0.15s;
-  user-select: none;
-}
-.quiz-lot-card:hover { border-color: #2D6A4F; }
-.quiz-lot-card.selected { border-color: #1B4332; background: #E8F5EE; }
-.quiz-lot-thumb {
-  width: 90px;
-  flex-shrink: 0;
-  border-radius: 6px;
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  background: #e0dbd2;
-}
-.quiz-lot-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.quiz-lot-info { flex: 1; min-width: 0; }
-.quiz-lot-addr {
-  display: block;
-  font-size: 15px;
-  font-weight: 700;
-  color: #0D1710;
-  margin-bottom: 2px;
-}
-.quiz-lot-price {
-  display: block;
-  font-size: 18px;
-  font-weight: 900;
-  color: #1B4332;
-  margin-bottom: 2px;
-}
-.quiz-lot-size {
-  display: block;
-  font-size: 12px;
-  color: #555555;
-}
-.quiz-lot-card-no-thumb { padding: 16px 44px 16px 16px; }
-
-/* Standard option cards (Q2-Q5) */
-.quiz-options { display: flex; flex-direction: column; gap: 10px; }
-.quiz-option {
-  border: 1.5px solid #e0dbd2;
-  border-radius: 8px;
-  padding: 15px 44px 15px 16px;
-  cursor: pointer;
-  position: relative;
-  transition: border-color 0.15s, background 0.15s;
-  user-select: none;
-}
-.quiz-option:hover { border-color: #2D6A4F; }
-.quiz-option.selected { border-color: #1B4332; background: #E8F5EE; }
-.quiz-opt-title {
-  display: block;
-  font-size: 15px;
-  font-weight: 700;
-  color: #0D1710;
-}
-.quiz-opt-sub {
-  display: block;
-  font-size: 13px;
-  color: #555555;
-  margin-top: 2px;
-  line-height: 1.4;
-}
-.quiz-check {
-  position: absolute;
-  top: 50%;
-  right: 14px;
-  transform: translateY(-50%);
-  color: #1B4332;
-  font-weight: 700;
-  font-size: 15px;
-  opacity: 0;
-  transition: opacity 0.15s;
-}
-.quiz-lot-card.selected .quiz-check,
-.quiz-option.selected .quiz-check { opacity: 1; }
-
-/* Q4a / Q4b payment reveal screens */
-.payment-reveal {
-  border-radius: 10px;
-  padding: 22px;
-  margin-bottom: 20px;
-}
-.financing-reveal { background: #E8F5EE; border: 1px solid #2D6A4F; }
-.cash-reveal { background: #f9f8f5; border: 1px solid #e0dbd2; }
-.payment-reveal-eyebrow {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  color: #2D6A4F;
-  margin-bottom: 8px;
-}
-.payment-reveal-lot-name {
-  font-size: 17px;
-  font-weight: 900;
-  color: #0D1710;
-  margin-bottom: 16px;
-}
-.payment-amounts-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-.payment-amounts-row.single-col { grid-template-columns: 1fr; }
-.payment-amount-block {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 14px;
-  text-align: center;
-  border: 1px solid #e0dbd2;
-}
-.payment-amount-label {
-  display: block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #555555;
-  margin-bottom: 6px;
-}
-.payment-amount-value {
-  display: block;
-  font-size: 24px;
-  font-weight: 900;
-  color: #0D1710;
-  margin-bottom: 3px;
-}
-.payment-amount-sub {
-  display: block;
-  font-size: 11px;
-  color: #888888;
-}
-.payment-reveal-note {
-  font-size: 12.5px;
-  color: #555555;
-  line-height: 1.6;
-}
-.quiz-continue-btn {
-  width: 100%;
-  background: #1B4332;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  padding: 14px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-.quiz-continue-btn:hover { background: #2D6A4F; }
-
-/* Q6 contact form fields */
-.q7-group { margin-bottom: 14px; }
-.q7-group label {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: #555555;
-  margin-bottom: 6px;
-}
-.q7-group input {
-  width: 100%;
-  border: 1px solid #e0dbd2;
-  border-radius: 6px;
-  padding: 11px 12px;
-  font-size: 14px;
-  color: #1a1a1a;
-  background: #ffffff;
-  outline: none;
-  transition: border-color 0.15s;
-  -webkit-appearance: none;
-  appearance: none;
-  min-height: 44px;
-}
-.q7-group input:focus { border-color: #1B4332; box-shadow: 0 0 0 2px rgba(27,67,50,0.08); }
-.q7-check-line {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-.q7-check-line input[type="checkbox"] {
-  width: 14px; height: 14px;
-  min-width: 14px; min-height: 14px;
-  accent-color: #1B4332;
-  flex-shrink: 0;
-  cursor: pointer;
-  margin-top: 2px;
-}
-.q7-check-line label {
-  font-size: 12px;
-  color: #555555;
-  line-height: 1.5;
-  cursor: pointer;
-}
-.sms-consent {
-  background: #f9f8f5;
-  border: 1px solid #e0dbd2;
-  border-radius: 6px;
-  padding: 12px 14px;
-  margin-bottom: 14px;
-}
-.sms-consent-inner { display: flex; align-items: flex-start; gap: 8px; }
-.sms-consent-inner input[type="checkbox"] {
-  width: 14px; height: 14px;
-  min-width: 14px; min-height: 14px;
-  accent-color: #1B4332;
-  flex-shrink: 0;
-  cursor: pointer;
-  margin-top: 2px;
-}
-.sms-consent-inner label {
-  font-size: 11.5px;
-  color: #555555;
-  line-height: 1.5;
-  cursor: pointer;
-}
-.q7-privacy {
-  font-size: 11.5px;
-  color: #555555;
-  text-align: center;
-  margin-bottom: 14px;
-  line-height: 1.5;
-}
-.q7-privacy a { color: #1B4332; text-decoration: underline; }
-.quiz-error {
-  display: none;
-  background: #FBEEED;
-  color: #C0362C;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 10px 14px;
-  border-radius: 6px;
-  margin-bottom: 14px;
-  text-align: center;
-  line-height: 1.5;
-}
-.quiz-submit-btn {
-  width: 100%;
-  background: #1B4332;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  padding: 15px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  letter-spacing: 0.2px;
-  transition: background 0.15s, opacity 0.15s;
-  margin-bottom: 10px;
-}
-.quiz-submit-btn:hover:not(:disabled) { background: #2D6A4F; }
-.quiz-submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.quiz-consent-fine {
-  font-size: 11.5px;
-  color: #888888;
-  text-align: center;
-  line-height: 1.5;
-}
-
-/* Thank you screen */
-.thanks-wrap { text-align: center; }
-.thanks-check-circle {
-  width: 52px;
-  height: 52px;
-  background: #1B4332;
-  color: #ffffff;
-  font-size: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-}
-.thanks-bullets {
-  list-style: none;
-  text-align: left;
-  margin: 16px 0 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.thanks-bullets li {
-  font-size: 14px;
-  color: #555555;
-  padding-left: 22px;
-  position: relative;
-  line-height: 1.5;
-}
-.thanks-bullets li::before {
-  content: '✓';
-  position: absolute;
-  left: 0; top: 0;
-  color: #2D6A4F;
-  font-weight: 700;
-}
-.thanks-call-btn {
-  display: block;
-  width: 100%;
-  background: #1B4332;
-  color: #ffffff;
-  border-radius: 8px;
-  padding: 15px;
-  font-size: 15px;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  margin-bottom: 10px;
-  transition: background 0.2s;
-}
-.thanks-call-btn:hover { background: #2D6A4F; }
-.thanks-fine {
-  font-size: 12px;
-  color: #888888;
-  line-height: 1.5;
-}
-
-/* ── CONTENT SECTIONS (below quiz, fallback) ── */
+/* ── CONTENT SECTIONS ── */
 .content-wrap {
   max-width: 860px;
   margin: 0 auto;
@@ -1023,11 +733,12 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .hero-offer-mobile { display: block; }
-  .mobile-bottom-bar { display: flex; }
-  .quiz-section-wrap { padding-bottom: 100px; }
-  .content-wrap { padding-bottom: 100px; }
+  .hero-right { position: static; }
+  .quiz-container { max-height: none; overflow-y: visible; }
+  .pricing-cards-row { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .pricing-cards-row { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   nav { padding: 0 4%; }
@@ -1035,15 +746,11 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
   .nav-phone { font-size: 12.5px; padding: 9px 14px; }
   .hero-dark { padding: 36px 4% 40px; }
   .offer-section { padding: 36px 4%; }
-  .quiz-cta-section { padding: 36px 4%; }
-  .quiz-section-wrap { padding: 36px 4% 100px; }
-  .quiz-container { padding: 20px; }
-  .content-wrap { padding: 0 4% 100px; }
   .alert-block { padding: 16px 4%; }
+  .content-wrap { padding: 0 4% 56px; }
+  .quiz-container { padding: 20px 18px 18px; }
   .trust-strip { gap: 6px 12px; }
   .footer-top { flex-direction: column; }
-  .quiz-lot-thumb { width: 72px; }
-  .payment-amounts-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1058,7 +765,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
 </nav>
 
 <!-- HERO -->
-<section class="hero-dark" id="page-hero">
+<section class="hero-dark">
   <div class="hero-grid">
 
     <!-- LEFT -->
@@ -1093,68 +800,217 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
         <li>$500 reserves your lot, close through a licensed title company</li>
       </ul>
 
-      <!-- Mobile offer card (inline, below bullets) -->
-      <div class="hero-offer-mobile">
-        <div class="hero-offer-mobile-prices">
-          <div class="hero-offer-mobile-lot">
-            <span class="hero-offer-mobile-lot-addr">2 La Joya Dr</span>
-            <span class="hero-offer-mobile-lot-price">$7,500</span>
+      <!-- PRICING SECTION -->
+      <div class="pricing-section">
+        <h2 class="pricing-heading">2 Lots on La Joya Dr, El Paso County TX</h2>
+        <p class="pricing-sub">Same street. Different price points. Pick the one that works for you.</p>
+
+        <div class="pricing-cards-row">
+          <!-- Card: 2 La Joya Dr -->
+          <div class="pricing-card">
+            <span class="pricing-addr-pill">2 LA JOYA DR</span>
+            <p class="pricing-size">0.23 Acres, 10,018 Sq Ft</p>
+            <p class="pricing-apn">APN H78406300500120</p>
+            <hr class="pricing-sep" />
+            <div class="pricing-cash-label">Cash Price</div>
+            <div class="pricing-cash-price">$7,500</div>
+            <hr class="pricing-fin-sep" />
+            <div class="pricing-fin-label">Owner Financing</div>
+            <div class="pricing-fin-line">$2,250 down (30%)</div>
+            <div class="pricing-fin-line">$145.83/month for 36 months</div>
+            <div class="pricing-fin-line">No credit check. No bank.</div>
+            <p class="pricing-reserve-note">$500 reserves this lot. Full deposit due at closing.</p>
+            <button class="pricing-cta-btn" onclick="selectLotFromCard('2 La Joya Dr')">I Want This Lot</button>
           </div>
-          <div class="hero-offer-mobile-divider"></div>
-          <div class="hero-offer-mobile-lot">
-            <span class="hero-offer-mobile-lot-addr">1 La Joya Dr</span>
-            <span class="hero-offer-mobile-lot-price">$15,750</span>
+
+          <!-- Card: 1 La Joya Dr -->
+          <div class="pricing-card">
+            <span class="pricing-addr-pill">1 LA JOYA DR</span>
+            <p class="pricing-size">0.23 Acres, 10,000 Sq Ft</p>
+            <p class="pricing-apn">APN on file</p>
+            <hr class="pricing-sep" />
+            <div class="pricing-cash-label">Cash Price</div>
+            <div class="pricing-cash-price">$15,750</div>
+            <hr class="pricing-fin-sep" />
+            <div class="pricing-fin-label">Owner Financing</div>
+            <div class="pricing-fin-line">$4,725 down (30%)</div>
+            <div class="pricing-fin-line">$306.25/month for 36 months</div>
+            <div class="pricing-fin-line">No credit check. No bank.</div>
+            <p class="pricing-reserve-note">$500 reserves this lot. Full deposit due at closing.</p>
+            <button class="pricing-cta-btn" onclick="selectLotFromCard('1 La Joya Dr')">I Want This Lot</button>
           </div>
         </div>
-        <button class="hero-offer-mobile-btn" onclick="startQuiz()">Start Quiz and See Your Payment Options</button>
+
+        <p class="pricing-not-sure">Not sure which one? Answer a few questions to the right and we'll help you figure it out.</p>
       </div>
     </div>
 
-    <!-- RIGHT — sticky offer card (desktop only) -->
-    <aside class="hero-right">
-      <div class="offer-card">
-        <div class="offer-card-head">
-          <span class="offer-card-pill">2 Lots Available Now</span>
-          <h3>See Your Payment Options in 2 Minutes</h3>
+    <!-- RIGHT — sticky quiz -->
+    <aside class="hero-right" id="hero-right">
+      <div class="quiz-container" id="quiz-container">
+
+        <div class="quiz-progress-track">
+          <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
         </div>
-        <div class="offer-lots-row">
-          <div class="offer-lot-item">
-            <span class="offer-lot-addr">2 La Joya Dr</span>
-            <span class="offer-lot-price">$7,500</span>
-            <span class="offer-lot-note">0.23 acres<br>Owner financing available</span>
-          </div>
-          <div class="offer-lot-divider"></div>
-          <div class="offer-lot-item">
-            <span class="offer-lot-addr">1 La Joya Dr</span>
-            <span class="offer-lot-price">$15,750</span>
-            <span class="offer-lot-note">0.23 acres<br>Owner financing available</span>
+        <p class="quiz-counter" id="quiz-counter">Question 1 of 6</p>
+        <button class="quiz-back-btn" id="quiz-back-btn" onclick="goBack()">&#8592; Back</button>
+
+        <!-- Q1: Which lot -->
+        <div class="quiz-step active" id="step-q1">
+          <h2 class="quiz-q-heading">Which lot are you interested in</h2>
+          <p class="quiz-q-sub">You can change this later.</p>
+          <div class="quiz-opts">
+            <div class="quiz-opt" data-key="property_interest" data-val="2 La Joya Dr" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">2 La Joya Dr</span>
+              <span class="quiz-opt-sub">0.23 Acres, El Paso County TX</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="property_interest" data-val="1 La Joya Dr" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">1 La Joya Dr</span>
+              <span class="quiz-opt-sub">0.23 Acres, El Paso County TX</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="property_interest" data-val="both" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">I'm interested in both</span>
+              <span class="quiz-opt-sub">Show me both options</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
           </div>
         </div>
-        <div class="offer-card-body">
-          <p class="offer-card-sub">Pick your lot, answer a few questions, and see your exact deposit and monthly payment.</p>
-          <button class="offer-start-btn" onclick="startQuiz()">Start Quiz and See Your Options</button>
-          <div class="offer-trust-row">
-            <span>&#128274; Secure</span>
-            <span>&middot;</span>
-            <span>BBB A+</span>
-            <span>&middot;</span>
-            <span>No Spam</span>
+
+        <!-- Q2: Purchase method (lot-specific pricing) -->
+        <div class="quiz-step" id="step-q2">
+          <h2 class="quiz-q-heading">How are you planning to purchase</h2>
+          <p class="quiz-q-sub">Both options are available on this lot.</p>
+          <div class="quiz-opts">
+            <div class="quiz-opt" data-key="purchase_method" data-val="Owner Financing" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">Owner Financing</span>
+              <span class="quiz-opt-sub" id="q2-fin-sub">30% down, then a fixed monthly payment for 36 months. No bank. No credit check.</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="purchase_method" data-val="Cash Purchase" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">Cash Purchase</span>
+              <span class="quiz-opt-sub" id="q2-cash-sub">Pay the full price at closing. Close through a title company. Deed in 2 to 4 weeks. Same price as financed.</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
           </div>
         </div>
+
+        <!-- Q3: Land use -->
+        <div class="quiz-step" id="step-q3">
+          <h2 class="quiz-q-heading">What are you planning to do with the land</h2>
+          <p class="quiz-q-sub">No wrong answer.</p>
+          <div class="quiz-opts">
+            <div class="quiz-opt" data-key="land_use_plan" data-val="Build when I'm ready" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">Build when I'm ready, no timeline pressure</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="land_use_plan" data-val="Hold as long term investment" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">Hold it as a long term investment</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="land_use_plan" data-val="Recreational use or RV" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">Recreational use or RV</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="land_use_plan" data-val="Not sure yet" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">I'm not sure yet</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4: Prior experience -->
+        <div class="quiz-step" id="step-q4">
+          <h2 class="quiz-q-heading">Have you purchased land before</h2>
+          <div class="quiz-opts">
+            <div class="quiz-opt" data-key="buyer_experience" data-val="Yes, I own land already" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">Yes, I own land already</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="buyer_experience" data-val="No, this is my first time" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">No, this is my first time</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="buyer_experience" data-val="Helping a family member decide" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">I'm helping a family member decide</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5: Timeline -->
+        <div class="quiz-step" id="step-q5">
+          <h2 class="quiz-q-heading">How soon are you looking to move forward</h2>
+          <div class="quiz-opts">
+            <div class="quiz-opt" data-key="purchase_timeline" data-val="As soon as possible" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">As soon as possible</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="purchase_timeline" data-val="Within 1 to 3 months" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">Within 1 to 3 months</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="purchase_timeline" data-val="Within 6 months" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">Within 6 months</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+            <div class="quiz-opt" data-key="purchase_timeline" data-val="Just researching for now" onclick="selectOpt(this)">
+              <span class="quiz-opt-title">Just researching for now</span>
+              <span class="quiz-opt-check">&#10003;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q6: Contact form -->
+        <div class="quiz-step" id="step-q6">
+          <h2 class="quiz-q-heading">Last step. Where should we send the details</h2>
+          <p class="quiz-q-sub">We'll reach out with the full property info, financing breakdown and next steps. No spam.</p>
+
+          <div class="q6-group">
+            <label for="c-fname">First Name</label>
+            <input type="text" id="c-fname" placeholder="First name" oninput="onFormChange()" />
+          </div>
+          <div class="q6-group">
+            <label for="c-lname">Last Name</label>
+            <input type="text" id="c-lname" placeholder="Last name" oninput="onFormChange()" />
+          </div>
+          <div class="q6-group">
+            <label for="c-email">Email Address</label>
+            <input type="email" id="c-email" placeholder="your@email.com" oninput="onFormChange()" />
+          </div>
+          <div class="q6-group">
+            <label for="c-phone">Phone Number</label>
+            <input type="tel" id="c-phone" placeholder="+1 (915) 000-0000" oninput="onFormChange()" />
+          </div>
+
+          <div class="q6-check">
+            <input type="checkbox" id="c-phone-confirm" onchange="onFormChange()" />
+            <label for="c-phone-confirm">This is the best number to reach me. I understand the Landcurator team will be in touch shortly.</label>
+          </div>
+
+          <div class="q6-sms">
+            <div class="q6-check">
+              <input type="checkbox" id="c-sms" onchange="onFormChange()" />
+              <label for="c-sms">I agree to receive SMS text messages from Landcurator about this property and related offers. Message frequency may vary. Msg and data rates may apply. Reply STOP to opt out. Reply HELP for help.</label>
+            </div>
+          </div>
+
+          <p class="q6-privacy">View our <a href="https://web.landcurator.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+        </div>
+
+        <!-- Quiz footer (always visible) -->
+        <div class="quiz-footer">
+          <div class="quiz-error" id="quiz-error"></div>
+          <button id="quiz-next-btn" class="quiz-next-btn" disabled onclick="handleNext()">Next</button>
+          <p class="quiz-consent-fine" id="quiz-consent-fine">By submitting you agree Landcurator may contact you about this property and financing offer.</p>
+        </div>
+
       </div>
     </aside>
 
   </div>
 </section>
-
-<!-- MOBILE FIXED BOTTOM BAR -->
-<div class="mobile-bottom-bar" id="mobile-bottom-bar">
-  <div class="mobile-bar-text">
-    <strong>From $7,500</strong>
-    Owner financing available
-  </div>
-  <button class="mobile-bar-btn" onclick="startQuiz()">Start Quiz &rarr;</button>
-</div>
 
 <!-- OFFER SECTION -->
 <section class="offer-section">
@@ -1174,259 +1030,18 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
   </div>
 </section>
 
-<!-- HIGH INTEREST ALERT -->
+<!-- ALERT BLOCK -->
 <div class="alert-block">
   <div class="alert-inner">
     <div class="alert-icon">!</div>
     <div class="alert-text">
       <strong>High Interest on These Lots</strong>
-      <p>Both lots are still available but inquiries are coming in regularly. Answer a few questions to see your payment options and hold your spot before someone else does.</p>
+      <p>Both lots are still available but inquiries are coming in regularly. Answer the questions above to see your payment options and hold your spot before someone else does.</p>
     </div>
   </div>
 </div>
 
-<!-- START QUIZ CTA -->
-<section class="quiz-cta-section">
-  <button class="quiz-cta-btn-large" onclick="startQuiz()">Take The 2 Minute Quiz And See Your Payment Options</button>
-  <p class="quiz-cta-sub">Find out your deposit and monthly payment for the lot you pick</p>
-  <p class="quiz-cta-time">Takes about 2 minutes</p>
-</section>
-
-<!-- QUIZ -->
-<section class="quiz-section-wrap" id="quiz-section">
-  <p class="quiz-intro-label">Quiz &nbsp;&middot;&nbsp; 6 Questions</p>
-  <div class="quiz-container">
-
-    <div class="quiz-progress-track">
-      <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
-    </div>
-    <p class="quiz-counter" id="quiz-counter">Question 1 of 6</p>
-
-    <button class="quiz-back-btn" id="quiz-back-btn" onclick="goBack()">&#8592; Back</button>
-
-    <!-- Q1: Lot picker -->
-    <div class="quiz-step active" id="q-step-0">
-      <h2 class="quiz-q-heading">Which lot are you interested in</h2>
-      <p class="quiz-q-sub">Pick one to get started. You can ask about both.</p>
-      <div class="quiz-lot-cards">
-        <div class="quiz-lot-card" onclick="selectLotAndAdvance('2 La Joya Dr', this)">
-          <div class="quiz-lot-thumb">
-            <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_12_16_at_14_30_23_d4295e2861.png" alt="2 La Joya Dr" />
-          </div>
-          <div class="quiz-lot-info">
-            <span class="quiz-lot-addr">2 La Joya Dr</span>
-            <span class="quiz-lot-price">$7,500</span>
-            <span class="quiz-lot-size">0.23 acres &middot; Dirt road</span>
-          </div>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-lot-card" onclick="selectLotAndAdvance('1 La Joya Dr', this)">
-          <div class="quiz-lot-thumb">
-            <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_11_16_at_19_19_27_b4ada9999b.png" alt="1 La Joya Dr" />
-          </div>
-          <div class="quiz-lot-info">
-            <span class="quiz-lot-addr">1 La Joya Dr</span>
-            <span class="quiz-lot-price">$15,750</span>
-            <span class="quiz-lot-size">0.23 acres &middot; Dirt road</span>
-          </div>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-lot-card quiz-lot-card-no-thumb" onclick="selectLotAndAdvance('Both lots', this)">
-          <div class="quiz-lot-info">
-            <span class="quiz-lot-addr">I am interested in both</span>
-            <span class="quiz-lot-size">Tell me about all available lots</span>
-          </div>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q2: Timeline -->
-    <div class="quiz-step" id="q-step-1">
-      <h2 class="quiz-q-heading">How soon are you looking to buy land</h2>
-      <div class="quiz-options">
-        <div class="quiz-option" data-qkey="purchase_timeline" data-val="Right away" onclick="selectAndAdvance(this, 'q-step-2')">
-          <span class="quiz-opt-title">Right away</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-option" data-qkey="purchase_timeline" data-val="Within 3 months" onclick="selectAndAdvance(this, 'q-step-2')">
-          <span class="quiz-opt-title">Within 3 months</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-option" data-qkey="purchase_timeline" data-val="Just exploring options" onclick="selectAndAdvance(this, 'q-step-2')">
-          <span class="quiz-opt-title">Just exploring options</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q3: Reason -->
-    <div class="quiz-step" id="q-step-2">
-      <h2 class="quiz-q-heading">What is the main reason you are interested in this lot</h2>
-      <div class="quiz-options">
-        <div class="quiz-option" data-qkey="land_use_plan" data-val="Build a home later" onclick="selectAndAdvance(this, 'q-step-3')">
-          <span class="quiz-opt-title">Build a home later</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-option" data-qkey="land_use_plan" data-val="Investment or land banking" onclick="selectAndAdvance(this, 'q-step-3')">
-          <span class="quiz-opt-title">Investment or land banking</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-option" data-qkey="land_use_plan" data-val="Recreational use or RV" onclick="selectAndAdvance(this, 'q-step-3')">
-          <span class="quiz-opt-title">Recreational use or RV</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-option" data-qkey="land_use_plan" data-val="Not sure yet" onclick="selectAndAdvance(this, 'q-step-3')">
-          <span class="quiz-opt-title">Not sure yet</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q4: Payment method -->
-    <div class="quiz-step" id="q-step-3">
-      <h2 class="quiz-q-heading">How would you plan to pay</h2>
-      <div class="quiz-options">
-        <div class="quiz-option" data-qkey="purchase_method" data-val="Cash" onclick="selectPaymentAndAdvance(this, 'cash')">
-          <span class="quiz-opt-title">Cash, one-time payment</span>
-          <span class="quiz-opt-sub">Full price paid at closing through a title company</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-option" data-qkey="purchase_method" data-val="Owner Financing" onclick="selectPaymentAndAdvance(this, 'financing')">
-          <span class="quiz-opt-title">Owner financing with a monthly payment</span>
-          <span class="quiz-opt-sub">30% down, balance over 36 months, no bank, no credit check</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-option" data-qkey="purchase_method" data-val="Not sure yet" onclick="selectPaymentAndAdvance(this, 'not-sure')">
-          <span class="quiz-opt-title">Not sure yet</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q4a: Financing reveal (conditional) -->
-    <div class="quiz-step" id="q-step-4a">
-      <h2 class="quiz-q-heading">Here is your financing breakdown</h2>
-      <p class="quiz-q-sub">These numbers are for the lot you picked. No math required on your end.</p>
-      <div class="payment-reveal financing-reveal">
-        <div class="payment-reveal-eyebrow">Owner Financing</div>
-        <div class="payment-reveal-lot-name" id="q4a-lot-name">Your lot</div>
-        <div class="payment-amounts-row">
-          <div class="payment-amount-block">
-            <span class="payment-amount-label">Down Payment (30%)</span>
-            <span class="payment-amount-value" id="q4a-down">$4,725</span>
-            <span class="payment-amount-sub">Reserve with $500 now</span>
-          </div>
-          <div class="payment-amount-block">
-            <span class="payment-amount-label">Monthly Payment</span>
-            <span class="payment-amount-value" id="q4a-monthly">$306.25</span>
-            <span class="payment-amount-sub">for 36 months</span>
-          </div>
-        </div>
-        <p class="payment-reveal-note">No bank. No credit check. $500 of your deposit reserves this lot now and applies toward your closing costs. The balance is fully refundable if you cancel before closing.</p>
-      </div>
-      <button class="quiz-continue-btn" onclick="goToStep('q-step-5')">Looks Good, Continue &rarr;</button>
-    </div>
-
-    <!-- Q4b: Cash reveal (conditional) -->
-    <div class="quiz-step" id="q-step-4b">
-      <h2 class="quiz-q-heading">Here are your cash purchase details</h2>
-      <p class="quiz-q-sub">Cash and financed buyers pay the same total price.</p>
-      <div class="payment-reveal cash-reveal">
-        <div class="payment-reveal-eyebrow">Cash Purchase</div>
-        <div class="payment-reveal-lot-name" id="q4b-lot-name">Your lot</div>
-        <div class="payment-amounts-row single-col">
-          <div class="payment-amount-block">
-            <span class="payment-amount-label">Total Cash Price</span>
-            <span class="payment-amount-value" id="q4b-price">$15,750</span>
-            <span class="payment-amount-sub">Paid in full at closing</span>
-          </div>
-        </div>
-        <p class="payment-reveal-note">Close in as little as 2 weeks through a licensed title company. Title is searched and cleared, deed is recorded with El Paso County, and delivered to you by certified mail within 2 to 4 weeks of closing.</p>
-      </div>
-      <button class="quiz-continue-btn" onclick="goToStep('q-step-5')">Looks Good, Continue &rarr;</button>
-    </div>
-
-    <!-- Q5: Prior experience -->
-    <div class="quiz-step" id="q-step-5">
-      <h2 class="quiz-q-heading">Have you purchased land before</h2>
-      <div class="quiz-options">
-        <div class="quiz-option" data-qkey="first_time_buyer" data-val="Yes, I own land already" onclick="selectAndAdvance(this, 'q-step-6')">
-          <span class="quiz-opt-title">Yes, I own land already</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-option" data-qkey="first_time_buyer" data-val="No, this is my first time" onclick="selectAndAdvance(this, 'q-step-6')">
-          <span class="quiz-opt-title">No, this is my first time</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-        <div class="quiz-option" data-qkey="first_time_buyer" data-val="Helping a family member decide" onclick="selectAndAdvance(this, 'q-step-6')">
-          <span class="quiz-opt-title">I am helping a family member decide</span>
-          <span class="quiz-check">&#10003;</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q6: Contact form -->
-    <div class="quiz-step" id="q-step-6">
-      <h2 class="quiz-q-heading">Last step. Where should we send your details</h2>
-      <p class="quiz-q-sub">We will reach out with the full breakdown, payment options, and next steps. No spam.</p>
-
-      <div class="q7-group">
-        <label for="c-fname">First Name</label>
-        <input type="text" id="c-fname" placeholder="First name" oninput="checkContactForm()" />
-      </div>
-      <div class="q7-group">
-        <label for="c-lname">Last Name</label>
-        <input type="text" id="c-lname" placeholder="Last name" oninput="checkContactForm()" />
-      </div>
-      <div class="q7-group">
-        <label for="c-email">Email Address</label>
-        <input type="email" id="c-email" placeholder="your@email.com" oninput="checkContactForm()" />
-      </div>
-      <div class="q7-group">
-        <label for="c-phone">Phone Number</label>
-        <input type="tel" id="c-phone" placeholder="+1 (915) 000-0000" oninput="checkContactForm()" />
-      </div>
-
-      <div class="q7-check-line">
-        <input type="checkbox" id="c-phone-confirm" onchange="checkContactForm()" />
-        <label for="c-phone-confirm">This is the best number to reach me. I understand the LandCurator team will be in touch shortly.</label>
-      </div>
-
-      <div class="sms-consent">
-        <div class="sms-consent-inner">
-          <input type="checkbox" id="c-sms" onchange="checkContactForm()" />
-          <label for="c-sms">I agree to receive SMS text messages from Landcurator about this property and related offers. Message frequency may vary. Msg and data rates may apply. Reply STOP to opt out. Reply HELP for help.</label>
-        </div>
-      </div>
-
-      <p class="q7-privacy">View our <a href="https://web.landcurator.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
-
-      <div class="quiz-error" id="quiz-error"></div>
-      <button class="quiz-submit-btn" id="quiz-submit-btn" disabled onclick="handleSubmit()">Get My Payment Details &rarr;</button>
-      <p class="quiz-consent-fine">By submitting you agree Landcurator may contact you about this property and financing offer.</p>
-    </div>
-
-    <!-- Thank you screen -->
-    <div class="quiz-step" id="q-step-thanks">
-      <div class="thanks-wrap">
-        <div class="thanks-check-circle">&#10003;</div>
-        <h2 class="quiz-q-heading">You are all set.</h2>
-        <p class="quiz-q-sub">We got your info and will reach out within a few hours about <strong id="thanks-lot-name">your lot</strong>. No commitment yet, just a conversation.</p>
-        <ul class="thanks-bullets">
-          <li>$500 reserves your lot once you decide to move forward</li>
-          <li>Fully refundable if you cancel before closing</li>
-          <li>Close through a licensed title company, deed in 2 to 4 weeks</li>
-        </ul>
-        <a href="tel:18005200534" class="thanks-call-btn">Call Us Now &nbsp;&middot;&nbsp; 1 (800) 520-0534</a>
-        <p class="thanks-fine">Questions? We answer calls Monday through Saturday, 9 am to 6 pm CT.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROPERTY SPECS — fallback for scrollers -->
+<!-- CONTENT SECTIONS -->
 <div class="content-wrap">
   <hr class="divider" />
 
@@ -1474,7 +1089,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
            alt="2 La Joya Dr aerial view" />
     </div>
     <div class="gallery-thumbs">
-      <div class="gallery-thumb" onclick="swapImg('gallery2','https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_12_16_at_14_30_55_613fed7d8b.png',this)">
+      <div class="gallery-thumb" onclick="swapImg('gallery2','https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_12_16_at_14_32_55_613fed7d8b.png',this)">
         <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_12_16_at_14_32_55_613fed7d8b.png" alt="2 La Joya Dr view 2" />
       </div>
       <div class="gallery-thumb" onclick="swapImg('gallery2','https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2025_12_16_at_14_30_15_96107e29c4.png',this)">
@@ -1504,7 +1119,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
   <div class="about-body">
     <p>1 La Joya Dr and 2 La Joya Dr sit within the same quiet stretch of Horizon City, El Paso County, approximately 10 minutes from North Ascencion Rd and minutes from Horizon Blvd and Eastlake Blvd. Each lot is 0.23 acres with dirt road frontage, no HOA, and no build timeline.</p>
     <p>El Paso County permits manufactured homes, double-wides, and RVs on both parcels. Buy one lot or both. Each closes independently through a licensed title company and your deed is delivered by certified mail within 2 to 4 weeks of closing.</p>
-    <p>Owner financing is available on both lots. No bank, no credit check, no approval process. You pay us directly.</p>
+    <p>Owner financing is available on both lots with no bank, no credit check, and no approval process. You pay us directly. Cash and financed buyers pay the same total price.</p>
   </div>
 
   <hr class="divider" />
@@ -1569,7 +1184,6 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     </li>
   </ol>
 
-  <!-- TITLE CALLOUT -->
   <div class="title-callout">
     <h4>Closes Through a Licensed Title Company</h4>
     <p>Every transaction closes through a licensed title company. Your funds are held in escrow, the title is searched and cleared, and your deed is recorded with El Paso County and delivered to you by certified mail within 2 to 4 weeks. You get a clean deed with no surprises.</p>
@@ -1647,213 +1261,218 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
 </footer>
 
 <script>
-  /* ── WEBHOOK + REDIRECT ── */
-  var WEBHOOK_URL  = 'https://services.leadconnectorhq.com/hooks/dfFlPq6tV5mw6ZqBtzW0/webhook-trigger/c3WtSNfz6ibqqlaJjtJo';
-  var THANK_YOU    = 'https://web.landcurator.com/thank-you-la-joya-1';
-  var lastEventId  = '';
+  /* ── CONFIG ── */
+  var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/dfFlPq6tV5mw6ZqBtzW0/webhook-trigger/c3WtSNfz6ibqqlaJjtJo';
+  var THANK_YOU   = 'https://web.landcurator.com/thank-you-la-joya-1';
 
-  /* ── QUIZ STATE ── */
-  var stepHistory  = [];
-  var currentStepId = 'q-step-0';
-  var quizAnswers  = {};
-
-  var stepQuestionNum = {
-    'q-step-0':     1,
-    'q-step-1':     2,
-    'q-step-2':     3,
-    'q-step-3':     4,
-    'q-step-4a':    4,
-    'q-step-4b':    4,
-    'q-step-5':     5,
-    'q-step-6':     6,
-    'q-step-thanks': 6
+  /* ── LOT DATA ── */
+  var LOT_DATA = {
+    '2 La Joya Dr': { cash: '$7,500',      down: '$2,250',      monthly: '$145.83', downPct: '30%' },
+    '1 La Joya Dr': { cash: '$15,750',     down: '$4,725',      monthly: '$306.25', downPct: '30%' },
+    'both':         { cash: 'from $7,500', down: 'from $2,250', monthly: 'from $145.83', downPct: '30%' }
   };
 
-  /* ── START QUIZ ── */
-  function startQuiz() {
-    document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  /* ── QUIZ STATE ── */
+  var STEP_ORDER  = ['q1','q2','q3','q4','q5','q6'];
+  var stepHistory = [];
+  var currentStep = 'q1';
+  var quizAnswers = {};
+
+  /* ── OPTION SELECTION ── */
+  function selectOpt(el) {
+    var stepId = el.closest('.quiz-step').id.replace('step-', '');
+    el.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(function(o) { o.classList.remove('selected'); });
+    el.classList.add('selected');
+    quizAnswers[el.dataset.key] = el.dataset.val;
+    setNextEnabled(true);
   }
+
+  /* ── NEXT BUTTON STATE ── */
+  function setNextEnabled(on) {
+    var btn = document.getElementById('quiz-next-btn');
+    btn.disabled = !on;
+  }
+
+  function checkStepAnswered() {
+    if (currentStep === 'q6') {
+      setNextEnabled(isContactFormFilled());
+    } else {
+      setNextEnabled(!!document.querySelector('#step-' + currentStep + ' .quiz-opt.selected'));
+    }
+  }
+
+  /* ── CONTACT FORM ── */
+  function isContactFormFilled() {
+    return !!(
+      document.getElementById('c-fname').value.trim() &&
+      document.getElementById('c-lname').value.trim() &&
+      document.getElementById('c-email').value.trim() &&
+      document.getElementById('c-phone').value.trim() &&
+      document.getElementById('c-phone-confirm').checked &&
+      document.getElementById('c-sms').checked
+    );
+  }
+
+  function onFormChange() { setNextEnabled(isContactFormFilled()); }
 
   /* ── STEP TRANSITION ── */
   function goToStep(nextId) {
-    var from = document.getElementById(currentStepId);
-    var to   = document.getElementById(nextId);
-    stepHistory.push(currentStepId);
+    var fromEl = document.getElementById('step-' + currentStep);
+    var toEl   = document.getElementById('step-' + nextId);
+    stepHistory.push(currentStep);
 
-    from.style.transition = 'opacity 0.2s, transform 0.2s';
-    from.style.opacity    = '0';
-    from.style.transform  = 'translateY(-14px)';
+    fromEl.style.transition = 'opacity 0.22s, transform 0.22s';
+    fromEl.style.opacity    = '0';
+    fromEl.style.transform  = 'translateY(-14px)';
 
     setTimeout(function() {
-      from.classList.remove('active');
-      from.style.cssText = '';
+      fromEl.classList.remove('active');
+      fromEl.style.cssText = '';
 
-      to.style.opacity   = '0';
-      to.style.transform = 'translateY(14px)';
-      to.classList.add('active');
-      to.offsetHeight;
-      to.style.transition = 'opacity 0.25s, transform 0.25s';
-      to.style.opacity    = '1';
-      to.style.transform  = 'translateY(0)';
+      toEl.style.opacity   = '0';
+      toEl.style.transform = 'translateY(14px)';
+      toEl.classList.add('active');
+      toEl.offsetHeight;
+      toEl.style.transition = 'opacity 0.25s, transform 0.25s';
+      toEl.style.opacity    = '1';
+      toEl.style.transform  = 'translateY(0)';
+      setTimeout(function() { toEl.style.cssText = ''; }, 260);
 
-      setTimeout(function() { to.style.cssText = ''; }, 260);
-
-      currentStepId = nextId;
-      updateQuizUI();
-    }, 210);
+      currentStep = nextId;
+      updateUI();
+    }, 230);
   }
 
   /* ── BACK ── */
   function goBack() {
-    if (stepHistory.length === 0) return;
+    if (!stepHistory.length) return;
     var prevId = stepHistory.pop();
-    var from   = document.getElementById(currentStepId);
-    var to     = document.getElementById(prevId);
+    var fromEl = document.getElementById('step-' + currentStep);
+    var toEl   = document.getElementById('step-' + prevId);
 
-    from.style.transition = 'opacity 0.2s, transform 0.2s';
-    from.style.opacity    = '0';
-    from.style.transform  = 'translateY(14px)';
+    fromEl.style.transition = 'opacity 0.22s, transform 0.22s';
+    fromEl.style.opacity    = '0';
+    fromEl.style.transform  = 'translateY(14px)';
 
     setTimeout(function() {
-      from.classList.remove('active');
-      from.style.cssText = '';
+      fromEl.classList.remove('active');
+      fromEl.style.cssText = '';
 
-      to.style.opacity   = '0';
-      to.style.transform = 'translateY(-14px)';
-      to.classList.add('active');
-      to.offsetHeight;
-      to.style.transition = 'opacity 0.25s, transform 0.25s';
-      to.style.opacity    = '1';
-      to.style.transform  = 'translateY(0)';
+      toEl.style.opacity   = '0';
+      toEl.style.transform = 'translateY(-14px)';
+      toEl.classList.add('active');
+      toEl.offsetHeight;
+      toEl.style.transition = 'opacity 0.25s, transform 0.25s';
+      toEl.style.opacity    = '1';
+      toEl.style.transform  = 'translateY(0)';
+      setTimeout(function() { toEl.style.cssText = ''; }, 260);
 
-      setTimeout(function() { to.style.cssText = ''; }, 260);
-
-      currentStepId = prevId;
-      updateQuizUI();
-    }, 210);
+      currentStep = prevId;
+      updateUI();
+    }, 230);
   }
 
   /* ── UPDATE UI ── */
-  function updateQuizUI() {
-    var qNum    = stepQuestionNum[currentStepId] || 1;
-    var isThank = currentStepId === 'q-step-thanks';
+  function updateUI() {
+    var idx = STEP_ORDER.indexOf(currentStep);
+    document.getElementById('quiz-progress-fill').style.width = ((idx + 1) / 6 * 100) + '%';
+    document.getElementById('quiz-counter').textContent = 'Question ' + (idx + 1) + ' of 6';
+    document.getElementById('quiz-back-btn').style.visibility = stepHistory.length > 0 ? 'visible' : 'hidden';
 
-    document.getElementById('quiz-progress-fill').style.width = (qNum / 6 * 100) + '%';
+    var nextBtn = document.getElementById('quiz-next-btn');
+    nextBtn.textContent = currentStep === 'q6' ? 'Send My Details' : 'Next';
 
-    var counter = document.getElementById('quiz-counter');
-    counter.style.display = isThank ? 'none' : 'block';
-    if (!isThank) counter.textContent = 'Question ' + qNum + ' of 6';
+    document.getElementById('quiz-consent-fine').style.display = currentStep === 'q6' ? 'block' : 'none';
+    document.getElementById('quiz-error').style.display = 'none';
 
-    var backBtn = document.getElementById('quiz-back-btn');
-    backBtn.style.visibility = (stepHistory.length > 0 && !isThank) ? 'visible' : 'hidden';
+    if (currentStep === 'q2') { updateQ2Cards(); }
+    checkStepAnswered();
   }
 
-  /* ── Q1: LOT PICKER ── */
-  function selectLotAndAdvance(lotVal, cardEl) {
-    document.querySelectorAll('.quiz-lot-card').forEach(function(c) { c.classList.remove('selected'); });
-    cardEl.classList.add('selected');
-    quizAnswers.property_interest = lotVal;
-    setTimeout(function() { goToStep('q-step-1'); }, 350);
+  /* ── Q2 LOT-SPECIFIC PRICING ── */
+  function updateQ2Cards() {
+    var lot = quizAnswers.property_interest || '2 La Joya Dr';
+    var d = LOT_DATA[lot] || LOT_DATA['2 La Joya Dr'];
+
+    document.getElementById('q2-fin-sub').textContent =
+      d.down + ' down (' + d.downPct + '), then ' + d.monthly + ' per month for 36 months. No bank. No credit check.';
+
+    document.getElementById('q2-cash-sub').textContent =
+      'Pay ' + d.cash + ' in full at closing. Close through a title company. Deed in 2 to 4 weeks. Same price as financed.';
   }
 
-  /* ── Q2-Q3-Q5: STANDARD OPTIONS ── */
-  function selectAndAdvance(optEl, nextStepId) {
-    optEl.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(function(o) { o.classList.remove('selected'); });
-    optEl.classList.add('selected');
-    quizAnswers[optEl.dataset.qkey] = optEl.dataset.val;
-    setTimeout(function() { goToStep(nextStepId); }, 350);
+  /* ── NEXT / SUBMIT ── */
+  function handleNext() {
+    if (currentStep === 'q6') { handleSubmit(); return; }
+    var idx = STEP_ORDER.indexOf(currentStep);
+    if (idx < STEP_ORDER.length - 1) { goToStep(STEP_ORDER[idx + 1]); }
   }
 
-  /* ── Q4: PAYMENT METHOD ── */
-  function selectPaymentAndAdvance(optEl, payType) {
-    optEl.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(function(o) { o.classList.remove('selected'); });
-    optEl.classList.add('selected');
-    quizAnswers.purchase_method = optEl.dataset.val;
+  /* ── PRICING CARD CTA ── */
+  function selectLotFromCard(lot) {
+    quizAnswers.property_interest = lot;
+    document.querySelectorAll('#step-q1 .quiz-opt').forEach(function(o) {
+      o.classList.toggle('selected', o.dataset.val === lot);
+    });
+    if (currentStep === 'q1') { setNextEnabled(true); }
 
-    if (payType === 'financing') {
-      updateFinancingReveal();
-      setTimeout(function() { goToStep('q-step-4a'); }, 350);
-    } else if (payType === 'cash') {
-      updateCashReveal();
-      setTimeout(function() { goToStep('q-step-4b'); }, 350);
-    } else {
-      setTimeout(function() { goToStep('q-step-5'); }, 350);
+    var quizEl = document.getElementById('quiz-container');
+    var rect = quizEl.getBoundingClientRect();
+    if (rect.top < 0 || rect.bottom > window.innerHeight) {
+      quizEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }
-
-  /* ── PAYMENT REVEAL DATA ── */
-  function updateFinancingReveal() {
-    var lot = quizAnswers.property_interest;
-    var down, monthly;
-    if (lot === '1 La Joya Dr') {
-      down = '$4,725'; monthly = '$306.25';
-    } else if (lot === '2 La Joya Dr') {
-      down = '$2,250'; monthly = '$145.83';
-    } else {
-      down = 'Starting from $2,250'; monthly = 'From $145.83';
-    }
-    document.getElementById('q4a-lot-name').textContent  = lot || 'Your lot';
-    document.getElementById('q4a-down').textContent      = down;
-    document.getElementById('q4a-monthly').textContent   = monthly;
-  }
-
-  function updateCashReveal() {
-    var lot = quizAnswers.property_interest;
-    var price = lot === '1 La Joya Dr' ? '$15,750' : lot === '2 La Joya Dr' ? '$7,500' : 'From $7,500';
-    document.getElementById('q4b-lot-name').textContent = lot || 'Your lot';
-    document.getElementById('q4b-price').textContent    = price;
-  }
-
-  /* ── Q6: CONTACT FORM ── */
-  function checkContactForm() {
-    var fname   = document.getElementById('c-fname').value.trim();
-    var lname   = document.getElementById('c-lname').value.trim();
-    var email   = document.getElementById('c-email').value.trim();
-    var phone   = document.getElementById('c-phone').value.trim();
-    var phoneOk = document.getElementById('c-phone-confirm').checked;
-    var smsOk   = document.getElementById('c-sms').checked;
-    document.getElementById('quiz-submit-btn').disabled = !(fname && lname && email && phone && phoneOk && smsOk);
-  }
-
-  function showQuizError(msg) {
-    var el = document.getElementById('quiz-error');
-    el.textContent = msg;
-    el.style.display = 'block';
   }
 
   /* ── SUBMIT ── */
   async function handleSubmit() {
-    var fname   = document.getElementById('c-fname').value.trim();
-    var lname   = document.getElementById('c-lname').value.trim();
-    var email   = document.getElementById('c-email').value.trim();
-    var phone   = document.getElementById('c-phone').value.trim();
-    var phoneOk = document.getElementById('c-phone-confirm').checked;
-    var smsOk   = document.getElementById('c-sms').checked;
+    var fname    = document.getElementById('c-fname').value.trim();
+    var lname    = document.getElementById('c-lname').value.trim();
+    var email    = document.getElementById('c-email').value.trim();
+    var phone    = document.getElementById('c-phone').value.trim();
+    var phoneOk  = document.getElementById('c-phone-confirm').checked;
+    var smsOk    = document.getElementById('c-sms').checked;
+    var errEl    = document.getElementById('quiz-error');
 
-    if (!fname || !lname || !email || !phone) { showQuizError('Please fill in all required fields.'); return; }
-    if (!phoneOk) { showQuizError('Please confirm your phone number using the checkbox.'); return; }
-    if (!smsOk)   { showQuizError('Please agree to the SMS consent to continue.'); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showQuizError('Please enter a valid email address.'); return; }
-    if (phone.replace(/\D/g, '').length < 7) { showQuizError('Please enter a valid phone number.'); return; }
+    errEl.style.display = 'none';
+
+    if (!fname || !lname || !email || !phone) {
+      errEl.textContent = 'Please fill in all required fields.';
+      errEl.style.display = 'block'; return;
+    }
+    if (!phoneOk) {
+      errEl.textContent = 'Please confirm your phone number using the checkbox.';
+      errEl.style.display = 'block'; return;
+    }
+    if (!smsOk) {
+      errEl.textContent = 'Please agree to the SMS consent to continue.';
+      errEl.style.display = 'block'; return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = 'Please enter a valid email address.';
+      errEl.style.display = 'block'; return;
+    }
+    if (phone.replace(/\D/g, '').length < 7) {
+      errEl.textContent = 'Please enter a valid phone number.';
+      errEl.style.display = 'block'; return;
+    }
 
     var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-    lastEventId = eventId;
 
     var payload = {
       property_interest: quizAnswers.property_interest || '',
-      purchase_timeline: quizAnswers.purchase_timeline  || '',
+      purchase_method:   quizAnswers.purchase_method   || '',
       land_use_plan:     quizAnswers.land_use_plan      || '',
-      purchase_method:   quizAnswers.purchase_method    || '',
-      first_time_buyer:  quizAnswers.first_time_buyer   || '',
-      first_name:        fname,
-      last_name:         lname,
-      email:             email,
-      phone:             phone,
-      sms_consent:       true,
-      event_id:          eventId
+      buyer_experience:  quizAnswers.buyer_experience   || '',
+      purchase_timeline: quizAnswers.purchase_timeline  || '',
+      first_name:  fname,
+      last_name:   lname,
+      email:       email,
+      phone:       phone,
+      sms_consent: true,
+      event_id:    eventId
     };
 
-    var btn = document.getElementById('quiz-submit-btn');
+    var btn = document.getElementById('quiz-next-btn');
     btn.disabled    = true;
     btn.textContent = 'Sending…';
 
@@ -1863,6 +1482,7 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(payload)
       });
+
       if (res.ok) {
         fbq('track', 'Lead', {
           content_name:     'La Joya Dr Lots',
@@ -1870,34 +1490,33 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
           value:            7500,
           currency:         'USD'
         });
-        var thanksLot = document.getElementById('thanks-lot-name');
-        if (thanksLot) thanksLot.textContent = quizAnswers.property_interest || 'your lot';
-        document.getElementById('quiz-progress-fill').style.width = '100%';
-        goToStep('q-step-thanks');
+        window.location.href = THANK_YOU + '?eid=' + eventId;
       } else {
         btn.disabled    = false;
-        btn.textContent = 'Get My Payment Details →';
-        showQuizError('Something went wrong. Please call us at 1 (800) 520-0534.');
+        btn.textContent = 'Send My Details';
+        errEl.textContent = 'Something went wrong. Please call us at 1 (800) 520-0534.';
+        errEl.style.display = 'block';
       }
     } catch (err) {
       btn.disabled    = false;
-      btn.textContent = 'Get My Payment Details →';
-      showQuizError('Something went wrong. Please call us at 1 (800) 520-0534.');
+      btn.textContent = 'Send My Details';
+      errEl.textContent = 'Something went wrong. Please call us at 1 (800) 520-0534.';
+      errEl.style.display = 'block';
     }
   }
 
   /* ── HERO GALLERY ── */
-  function setHeroImg(src, thumbEl) {
+  function setHeroImg(src, el) {
     document.getElementById('hero-main-img').src = src;
     document.querySelectorAll('.hero-thumb').forEach(function(t) { t.classList.remove('active'); });
-    if (thumbEl) thumbEl.classList.add('active');
+    if (el) el.classList.add('active');
   }
 
-  /* ── CONTENT GALLERY SWAP ── */
-  function swapImg(galleryId, src, thumbEl) {
+  /* ── CONTENT GALLERIES ── */
+  function swapImg(galleryId, src, el) {
     document.getElementById(galleryId + '-main').src = src;
     document.querySelectorAll('#' + galleryId + ' .gallery-thumb').forEach(function(t) { t.classList.remove('active'); });
-    thumbEl.classList.add('active');
+    el.classList.add('active');
   }
 
   /* ── MAP ── */
@@ -1909,9 +1528,9 @@ footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24
     attribution: '&copy; CartoDB', subdomains: 'abcd', maxZoom: 20, opacity: 0.7
   }).addTo(map);
   var redIcon = L.icon({
-    iconUrl:     'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-    shadowUrl:   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-    iconSize:    [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+    iconUrl:   'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+    iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [1,-34], shadowSize: [41,41]
   });
   L.marker([31.7020, -106.1420], { icon: redIcon }).addTo(map).bindPopup('<strong>1 La Joya Dr</strong><br>0.23 Acres &middot; $15,750');
   L.marker([31.7015, -106.1415], { icon: redIcon }).addTo(map).bindPopup('<strong>2 La Joya Dr</strong><br>0.23 Acres &middot; $7,500');
