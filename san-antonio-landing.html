@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prime Corner Lot For Sale, San Antonio, Bexar County TX | LandCurator</title>
+<meta name="description" content="0.17 acre corner lot at Pecan Valley Drive, Lincolnshire Drive and Dorie Street, San Antonio TX 78220. $45,000. Owner financing $13,500 down, $875/mo. No credit check. $500 reserves your lot." />
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '713056944975093');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=713056944975093&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<style>
+*, *::before, *::after {
+  box-sizing: border-box; margin: 0; padding: 0;
+  font-family: 'Lato', sans-serif;
+  overflow-wrap: break-word; word-wrap: break-word;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: #ffffff; color: #1a1a1a; font-size: 16px;
+  line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ── NAV ── */
+nav {
+  background: #0D1710; padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; position: sticky; top: 0; z-index: 300;
+}
+.nav-logo img { height: 28px; width: auto; }
+.nav-phone {
+  display: flex; align-items: center; font-size: 14px; font-weight: 700;
+  color: #ffffff; text-decoration: none; background: #1B4332;
+  padding: 10px 18px; border-radius: 6px; letter-spacing: 0.2px;
+  white-space: nowrap; min-height: 44px; transition: background 0.2s;
+}
+.nav-phone:hover { background: #2D6A4F; }
+
+/* ── HERO ── */
+.hero-dark { background: #0D1710; padding: 52px 5% 56px; }
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 360px;
+  gap: 48px; max-width: 1200px; margin: 0 auto; align-items: start;
+}
+.hero-eyebrow {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: #2D6A4F; margin-bottom: 14px;
+}
+.hero-headline {
+  font-size: clamp(24px, 3.2vw, 42px); font-weight: 900; line-height: 1.1;
+  letter-spacing: -0.5px; color: #ffffff; text-transform: uppercase; margin-bottom: 10px;
+}
+.hero-address {
+  font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 12px; line-height: 1.5;
+}
+.hero-price {
+  font-size: 38px; font-weight: 900; color: #ffffff; letter-spacing: -0.5px;
+  line-height: 1.1; margin-bottom: 8px;
+}
+.hero-fin-line {
+  font-size: 15px; color: rgba(255,255,255,0.75); margin-bottom: 28px; line-height: 1.55;
+}
+.hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.hero-bullets li {
+  font-size: 15px; color: rgba(255,255,255,0.82);
+  padding-left: 26px; position: relative; line-height: 1.5;
+}
+.hero-bullets li::before {
+  content: '✓'; position: absolute; left: 0; top: 0;
+  color: #2D6A4F; font-weight: 700; font-size: 15px;
+}
+
+/* ── STICKY OFFER CARD ── */
+.hero-right { position: sticky; top: 84px; align-self: start; }
+.offer-card {
+  background: #ffffff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.offer-card-head { background: #1B4332; padding: 20px 22px 18px; }
+.offer-card-badge {
+  display: inline-block; background: rgba(255,255,255,0.18); color: #ffffff;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 999px; margin-bottom: 10px;
+}
+.offer-card-heading {
+  font-size: 17px; font-weight: 900; color: #ffffff; line-height: 1.2; text-transform: uppercase;
+}
+.offer-card-body { padding: 18px 22px 20px; }
+.offer-card-copy {
+  font-size: 13px; color: #555555; line-height: 1.65; margin-bottom: 16px;
+}
+.offer-card-btn {
+  width: 100%; background: #1B4332; color: #ffffff; border: none; border-radius: 8px;
+  padding: 15px; font-size: 15px; font-weight: 700; cursor: pointer;
+  letter-spacing: 0.2px; transition: background 0.2s; margin-bottom: 14px;
+  text-align: center; display: block; text-decoration: none;
+}
+.offer-card-btn:hover { background: #2D6A4F; }
+.offer-trust-row {
+  display: flex; justify-content: center; gap: 10px;
+  font-size: 11.5px; color: #888888; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+/* ── GALLERY ── */
+.gallery-section { max-width: 1100px; margin: 0 auto; padding: 48px 5% 0; }
+.section-label {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: #2D6A4F; margin-bottom: 6px;
+}
+.section-heading-wrap { margin-bottom: 20px; }
+.section-heading {
+  display: inline-block; font-size: clamp(20px, 2.4vw, 26px); font-weight: 900;
+  text-transform: uppercase; color: #0D1710; letter-spacing: -0.3px;
+  padding-bottom: 10px; border-bottom: 3px solid #1B4332;
+}
+.gallery-main-wrap {
+  border-radius: 8px; overflow: hidden; aspect-ratio: 16/9;
+  margin-bottom: 10px; background: #e0dbd2; cursor: pointer; position: relative;
+}
+.gallery-main-wrap img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: opacity 0.2s;
+}
+.gallery-main-wrap::after {
+  content: '⤢'; position: absolute; bottom: 10px; right: 12px;
+  font-size: 18px; color: rgba(255,255,255,0.8);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); pointer-events: none;
+}
+.gallery-thumbs {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+}
+.gallery-thumb {
+  border-radius: 5px; overflow: hidden; aspect-ratio: 16/10;
+  cursor: pointer; border: 2px solid transparent; transition: border-color 0.15s;
+}
+.gallery-thumb:hover, .gallery-thumb.active { border-color: #1B4332; }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 900;
+  background: rgba(0,0,0,0.95); align-items: center; justify-content: center;
+  padding: 20px;
+}
+.lightbox.open { display: flex; }
+.lightbox-img {
+  max-width: 100%; max-height: 90vh; border-radius: 6px; object-fit: contain;
+}
+.lb-close {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,0.12); border: none; color: #ffffff;
+  font-size: 20px; width: 38px; height: 38px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s; z-index: 1;
+}
+.lb-close:hover { background: rgba(255,255,255,0.22); }
+.lb-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.12); border: none; color: #ffffff;
+  font-size: 22px; width: 44px; height: 44px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+.lb-nav:hover { background: rgba(255,255,255,0.22); }
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+.lb-counter {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 700; letter-spacing: 0.5px;
+}
+
+/* ── CONTENT SECTIONS ── */
+.content-wrap { max-width: 1100px; margin: 0 auto; padding: 0 5% 56px; }
+.divider { border: none; border-top: 1px solid #e0dbd2; margin: 36px 0; }
+.offer-section { background: #ffffff; border-top: 1px solid #e0dbd2; padding: 52px 5%; }
+.offer-inner { max-width: 860px; margin: 0 auto; }
+.offer-body-text { font-size: 15px; color: #555555; line-height: 1.75; margin-bottom: 20px; }
+.offer-body-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 0; }
+.offer-body-bullets li {
+  font-size: 15px; color: #1a1a1a; padding-left: 26px; position: relative; line-height: 1.5;
+}
+.offer-body-bullets li::before {
+  content: '✓'; position: absolute; left: 0; top: 0;
+  color: #2D6A4F; font-weight: 700; font-size: 15px;
+}
+
+/* ── ALERT BLOCK ── */
+.alert-block {
+  background: #FEF3CD; border-top: 3px solid #C9A84C; border-bottom: 3px solid #C9A84C;
+  padding: 20px 5%;
+}
+.alert-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-start; gap: 14px; }
+.alert-icon {
+  flex-shrink: 0; width: 32px; height: 32px; background: #C9A84C; color: #ffffff;
+  font-size: 17px; font-weight: 900; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+.alert-text strong {
+  display: block; font-size: 14px; font-weight: 700; color: #0D1710;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;
+}
+.alert-text p {
+  font-size: 14px; color: #555555; line-height: 1.55; margin-bottom: 6px;
+}
+.alert-text p:last-child { margin-bottom: 0; }
+
+/* ── SPEC CHIPS ── */
+.specs-section { background: #f9f8f5; border-top: 1px solid #e0dbd2; border-bottom: 1px solid #e0dbd2; padding: 36px 5%; }
+.specs-inner { max-width: 1100px; margin: 0 auto; }
+.specs-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;
+}
+.spec-chip {
+  background: #ffffff; border: 1px solid #e0dbd2; border-radius: 8px; padding: 14px 16px;
+}
+.spec-chip .spec-label {
+  display: block; font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: #888888; margin-bottom: 5px;
+}
+.spec-chip .spec-value { font-size: 14px; font-weight: 700; color: #1a1a1a; line-height: 1.4; }
+.spec-chip .spec-value.available { color: #1B4332; }
+
+/* ── MAP ── */
+.map-section { padding: 48px 5%; max-width: 1100px; margin: 0 auto; }
+.map-disclaimer { font-size: 12px; color: #555555; font-style: italic; margin-bottom: 12px; line-height: 1.5; }
+#property-map { width: 100%; height: 400px; border-radius: 8px; overflow: hidden; border: 1px solid #e0dbd2; }
+
+/* ── CONTACT FORM SECTION ── */
+.contact-section { background: #0D1710; padding: 56px 5%; }
+.contact-inner { max-width: 560px; margin: 0 auto; }
+.contact-label {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: #2D6A4F; margin-bottom: 6px;
+}
+.contact-heading {
+  font-size: clamp(22px, 2.8vw, 30px); font-weight: 900; color: #ffffff;
+  text-transform: uppercase; letter-spacing: -0.3px; line-height: 1.12;
+  margin-bottom: 28px; padding-bottom: 12px; border-bottom: 3px solid #1B4332;
+  display: inline-block;
+}
+.form-group { margin-bottom: 14px; }
+.form-group label {
+  display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.8px;
+  text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 6px;
+}
+.form-group input, .form-group textarea {
+  width: 100%; background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 6px;
+  padding: 11px 13px; font-size: 14px; color: #ffffff; outline: none;
+  transition: border-color 0.15s; -webkit-appearance: none; appearance: none; min-height: 44px;
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.28); }
+.form-group input:focus, .form-group textarea:focus { border-color: #2D6A4F; }
+.form-group textarea { min-height: 100px; resize: vertical; line-height: 1.55; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.phone-wrap { display: flex; gap: 8px; }
+.phone-prefix {
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px; padding: 11px 10px; font-size: 14px; color: #ffffff;
+  outline: none; cursor: pointer; min-height: 44px; flex-shrink: 0; width: 82px;
+  -webkit-appearance: none; appearance: none;
+}
+.phone-prefix:focus { border-color: #2D6A4F; }
+.phone-prefix option { background: #0D1710; color: #ffffff; }
+.form-error {
+  display: none; background: rgba(192,54,44,0.18); color: #ff8a84;
+  font-size: 12.5px; font-weight: 600; padding: 10px 12px; border-radius: 6px;
+  margin-bottom: 12px; text-align: center; border: 1px solid rgba(192,54,44,0.3); line-height: 1.5;
+}
+.form-submit-btn {
+  width: 100%; background: #1B4332; color: #ffffff; border: none; border-radius: 8px;
+  padding: 15px; font-size: 15px; font-weight: 700; cursor: pointer;
+  letter-spacing: 0.2px; transition: background 0.15s, opacity 0.2s; margin-bottom: 12px;
+}
+.form-submit-btn:hover:not(:disabled) { background: #2D6A4F; }
+.form-submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.form-consent {
+  font-size: 11.5px; color: rgba(255,255,255,0.32); text-align: center; line-height: 1.55;
+}
+
+/* ── TRUST STRIP ── */
+.trust-strip {
+  background: #1B4332; padding: 16px 5%;
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 18px;
+}
+.trust-strip span {
+  font-size: 12px; font-weight: 700; color: #ffffff;
+  letter-spacing: 0.6px; text-transform: uppercase; white-space: nowrap;
+}
+
+/* ── FOOTER ── */
+footer { background: #0D1710; color: rgba(255,255,255,0.55); padding: 44px 5% 24px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; margin-bottom: 26px; }
+.footer-logo img { height: 26px; width: auto; margin-bottom: 12px; filter: brightness(0) invert(1); }
+.footer-tagline { font-size: 12.5px; color: rgba(255,255,255,0.45); max-width: 360px; line-height: 1.6; }
+.footer-legal-label { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+.footer-legal a { font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; }
+.footer-legal a:hover { color: #ffffff; }
+.fb-disclaimer { font-size: 11.5px; color: rgba(255,255,255,0.35); line-height: 1.6; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.12); margin-bottom: 16px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 11.5px; color: rgba(255,255,255,0.4); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-right { position: static; margin-top: 32px; }
+  .gallery-thumbs { grid-template-columns: repeat(5, 1fr); }
+}
+@media (max-width: 680px) {
+  .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  nav { padding: 0 4%; }
+  .nav-logo img { height: 22px; }
+  .nav-phone { font-size: 12.5px; padding: 9px 14px; }
+  .hero-dark { padding: 36px 4% 40px; }
+  .gallery-section { padding: 32px 4% 0; }
+  .offer-section { padding: 36px 4%; }
+  .alert-block { padding: 16px 4%; }
+  .specs-section { padding: 28px 4%; }
+  .contact-section { padding: 40px 4%; }
+  .map-section { padding: 36px 4%; }
+  .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+  .footer-top { flex-direction: column; }
+  .trust-strip { gap: 6px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="lbClickOutside(event)">
+  <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
+  <button class="lb-nav lb-prev" onclick="lbStep(-1)" aria-label="Previous">&#8249;</button>
+  <img class="lightbox-img" id="lb-img" alt="Property photo" />
+  <button class="lb-nav lb-next" onclick="lbStep(1)" aria-label="Next">&#8250;</button>
+  <span class="lb-counter" id="lb-counter"></span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="https://assets.cdn.filesafe.space/dfFlPq6tV5mw6ZqBtzW0/media/69cd5f61bb06f5e1249e3781.png" alt="LandCurator" />
+  </a>
+  <a class="nav-phone" href="tel:18005200534">1 (800) 520-0534</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero-dark">
+  <div class="hero-grid">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+      <span class="hero-eyebrow">Bexar County, TX &nbsp;&middot;&nbsp; Zip 78220</span>
+      <h1 class="hero-headline">Prime Corner Lot For Sale, San Antonio, Bexar County TX</h1>
+      <p class="hero-address">Corner of Pecan Valley Drive, Lincolnshire Drive and Dorie Street, San Antonio TX 78220</p>
+      <p class="hero-price">$45,000</p>
+      <p class="hero-fin-line">Owner financing available &mdash; $13,500 down (30%), then $875 per month for 36 months. No bank. No credit check.</p>
+      <ul class="hero-bullets">
+        <li>0.17 acre corner lot, paved road access</li>
+        <li>Minutes from US Highway 90</li>
+        <li>At the intersection of Pecan Valley Drive, Lincolnshire Drive and Dorie Street</li>
+        <li>$500 reserves this lot, close through a licensed title company</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: sticky offer card -->
+    <aside class="hero-right">
+      <div class="offer-card">
+        <div class="offer-card-head">
+          <span class="offer-card-badge">Claim This Offer</span>
+          <h3 class="offer-card-heading">Get The Full Details Sent To You</h3>
+        </div>
+        <div class="offer-card-body">
+          <p class="offer-card-copy">Listed at $45,000. $13,500 down (30%), then $875 per month for 36 months. No commitment. No credit check required. We'll reach out with everything you need.</p>
+          <a class="offer-card-btn" href="#contact">Get The Full Details &#8594;</a>
+          <div class="offer-trust-row">
+            <span>&#128274; Secure</span>
+            <span>&middot;</span>
+            <span>BBB A+</span>
+            <span>&middot;</span>
+            <span>No Spam</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery-section">
+  <div class="section-heading-wrap">
+    <span class="section-label">Property Photos</span>
+    <h2 class="section-heading">San Antonio Corner Lot</h2>
+  </div>
+  <div class="gallery-main-wrap" onclick="openLightbox(currentThumb)">
+    <img id="gallery-main" src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_25_855decf370.png" alt="San Antonio corner lot photo" />
+  </div>
+  <div class="gallery-thumbs">
+    <div class="gallery-thumb active" onclick="swapGallery(0, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_25_855decf370.png" alt="Photo 1" />
+    </div>
+    <div class="gallery-thumb" onclick="swapGallery(1, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_29_31c41d9844.png" alt="Photo 2" />
+    </div>
+    <div class="gallery-thumb" onclick="swapGallery(2, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_46_b226392666.png" alt="Photo 3" />
+    </div>
+    <div class="gallery-thumb" onclick="swapGallery(3, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_40_54_620ed5083f.png" alt="Photo 4" />
+    </div>
+    <div class="gallery-thumb" onclick="swapGallery(4, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_13_75f76a7e1d.png" alt="Photo 5" />
+    </div>
+    <div class="gallery-thumb" onclick="swapGallery(5, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_18_c8cfa75903.png" alt="Photo 6" />
+    </div>
+    <div class="gallery-thumb" onclick="swapGallery(6, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_37_041c074aed.png" alt="Photo 7" />
+    </div>
+    <div class="gallery-thumb" onclick="swapGallery(7, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_06_0b649c5c09.png" alt="Photo 8" />
+    </div>
+    <div class="gallery-thumb" onclick="swapGallery(8, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_01_cc4b5ce293.png" alt="Photo 9" />
+    </div>
+    <div class="gallery-thumb" onclick="swapGallery(9, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_40_a8bb4ddfd8.png" alt="Photo 10" />
+    </div>
+    <div class="gallery-thumb" onclick="swapGallery(10, this)">
+      <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_40_02_ba7974a438.png" alt="Photo 11" />
+    </div>
+  </div>
+</div>
+
+<!-- THE OFFER SECTION -->
+<section class="offer-section">
+  <div class="offer-inner">
+    <div class="section-heading-wrap">
+      <span class="section-label">Why This Lot</span>
+      <h2 class="section-heading">Corner Lot With Paved Access, Minutes From US Highway 90</h2>
+    </div>
+    <p class="offer-body-text">This 0.17 acre corner parcel sits at the intersection of Pecan Valley Drive, Lincolnshire Drive and Dorie Street in Bexar County, San Antonio. Paved road access on a corner lot puts this ahead of typical off-grid parcels, making it more practical for building or resale. The location sits minutes from US Highway 90 with strong visibility and an established street grid around it.</p>
+    <ul class="offer-body-bullets">
+      <li>Corner lot with paved road frontage on three connecting streets</li>
+      <li>Minutes from US Highway 90</li>
+      <li>Established residential grid with visible development nearby</li>
+      <li>Owner financing available, no bank, no credit check, $500 reserves your spot</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ALERT BLOCK -->
+<div class="alert-block">
+  <div class="alert-inner">
+    <div class="alert-icon">!</div>
+    <div class="alert-text">
+      <strong>High Interest On This Lot</strong>
+      <p>Corner lots with paved access at this price point move fast. Reserve this lot today and secure your place before it's gone.</p>
+      <p>If you move forward, your reservation goes directly toward your closing costs. If you decide not to proceed, you get a full refund. No questions asked.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROPERTY SPECS -->
+<div class="specs-section">
+  <div class="specs-inner">
+    <div class="section-heading-wrap" style="margin-bottom:20px;">
+      <span class="section-label">Details</span>
+      <h3 class="section-heading">Property Specs</h3>
+    </div>
+    <div class="specs-grid">
+      <div class="spec-chip">
+        <span class="spec-label">ADDRESS</span>
+        <span class="spec-value">Corner of Pecan Valley Dr, Lincolnshire Dr &amp; Dorie St, San Antonio TX 78220</span>
+      </div>
+      <div class="spec-chip">
+        <span class="spec-label">PARCEL SIZE</span>
+        <span class="spec-value">0.17 Acres</span>
+      </div>
+      <div class="spec-chip">
+        <span class="spec-label">CASH PRICE</span>
+        <span class="spec-value">$45,000</span>
+      </div>
+      <div class="spec-chip">
+        <span class="spec-label">LOCATION</span>
+        <span class="spec-value">San Antonio, Bexar County TX</span>
+      </div>
+      <div class="spec-chip">
+        <span class="spec-label">ZIP CODE</span>
+        <span class="spec-value">78220</span>
+      </div>
+      <div class="spec-chip">
+        <span class="spec-label">ROAD ACCESS</span>
+        <span class="spec-value">Paved Road</span>
+      </div>
+      <div class="spec-chip">
+        <span class="spec-label">PARCEL NUMBER</span>
+        <span class="spec-value">10270-011-0470</span>
+      </div>
+      <div class="spec-chip">
+        <span class="spec-label">STATUS</span>
+        <span class="spec-value available">Available</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-section">
+  <div class="section-heading-wrap">
+    <span class="section-label">MAP</span>
+    <h3 class="section-heading">Property Location</h3>
+  </div>
+  <p class="map-disclaimer">Pin location is approximate (Pecan Valley Drive at Lincolnshire Drive and Dorie Street, San Antonio TX) — exact GPS pin pending parcel boundary confirmation.</p>
+  <div id="property-map"></div>
+</div>
+
+<!-- CONTACT FORM -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <span class="contact-label">Make an Inquiry</span>
+    <h2 class="contact-heading" style="display:block;">Get In Touch</h2>
+    <div class="form-error" id="form-error"></div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="c-fname">First Name <span style="color:#ff8a84;">*</span></label>
+        <input type="text" id="c-fname" placeholder="First name" />
+      </div>
+      <div class="form-group">
+        <label for="c-lname">Last Name <span style="color:#ff8a84;">*</span></label>
+        <input type="text" id="c-lname" placeholder="Last name" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="c-email">Email Address <span style="color:#ff8a84;">*</span></label>
+      <input type="email" id="c-email" placeholder="your@email.com" />
+    </div>
+    <div class="form-group">
+      <label for="c-phone">Phone Number <span style="color:#ff8a84;">*</span></label>
+      <div class="phone-wrap">
+        <select class="phone-prefix" id="c-phone-prefix">
+          <option value="+1">+1 US</option>
+          <option value="+1">+1 CA</option>
+          <option value="+52">+52 MX</option>
+          <option value="+44">+44 UK</option>
+        </select>
+        <input type="tel" id="c-phone" placeholder="(210) 000-0000" style="flex:1;" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="c-message">Message</label>
+      <textarea id="c-message" placeholder="Any questions about the lot, financing or next steps?"></textarea>
+    </div>
+    <button class="form-submit-btn" id="form-submit-btn" onclick="handleSubmit()">Send Message</button>
+    <p class="form-consent">By pressing Send Message, you agree that Landcurator may call or text you about your inquiry regarding this property.</p>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <span>&#10003; BBB A+ ACCREDITED SINCE 2018</span>
+  <span>&middot;</span>
+  <span>NO CREDIT CHECK</span>
+  <span>&middot;</span>
+  <span>DEED IN 2&ndash;4 WEEKS</span>
+  <span>&middot;</span>
+  <span>OWNER FINANCING AVAILABLE</span>
+  <span>&middot;</span>
+  <span>CLOSE THROUGH A TITLE COMPANY</span>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="https://assets.cdn.filesafe.space/dfFlPq6tV5mw6ZqBtzW0/media/69cd5f61bb06f5e1249e3781.png" alt="LandCurator" />
+        <p class="footer-tagline">Landcurator and Landxperte are wholly owned subsidiaries of UNOI Partners LLC.</p>
+      </div>
+      <div class="footer-legal">
+        <div class="footer-legal-label">Legal</div>
+        <a href="https://web.landcurator.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+      </div>
+    </div>
+    <p class="fb-disclaimer">This site is not part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+    <div class="footer-bottom">
+      <span>&copy; 2026 LandCurator / UNOI Partners LLC</span>
+      <span>BBB A+ Accredited &nbsp;&middot;&nbsp; No agents &nbsp;&middot;&nbsp; No hidden fees</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── CONFIG ── */
+  var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/dfFlPq6tV5mw6ZqBtzW0/webhook-trigger/c3WtSNfz6ibqqlaJjtJo';
+  var THANK_YOU   = 'https://web.landcurator.com/thank-you-san-antonio-1';
+
+  /* ── GALLERY ── */
+  var galleryImages = [
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_25_855decf370.png',
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_29_31c41d9844.png',
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_46_b226392666.png',
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_40_54_620ed5083f.png',
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_13_75f76a7e1d.png',
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_18_c8cfa75903.png',
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_37_041c074aed.png',
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_06_0b649c5c09.png',
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_01_cc4b5ce293.png',
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_40_a8bb4ddfd8.png',
+    'https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_40_02_ba7974a438.png'
+  ];
+  var currentThumb = 0;
+
+  function swapGallery(idx, el) {
+    currentThumb = idx;
+    document.getElementById('gallery-main').src = galleryImages[idx];
+    document.querySelectorAll('.gallery-thumb').forEach(function(t) { t.classList.remove('active'); });
+    el.classList.add('active');
+  }
+
+  /* ── LIGHTBOX ── */
+  var lbIndex = 0;
+
+  function openLightbox(idx) {
+    lbIndex = idx;
+    document.getElementById('lb-img').src = galleryImages[lbIndex];
+    document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + galleryImages.length;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function lbStep(dir) {
+    lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length;
+    document.getElementById('lb-img').src = galleryImages[lbIndex];
+    document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + galleryImages.length;
+  }
+
+  function lbClickOutside(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lbStep(-1);
+    if (e.key === 'ArrowRight') lbStep(1);
+  });
+
+  /* ── FORM SUBMIT ── */
+  async function handleSubmit() {
+    var fname   = document.getElementById('c-fname').value.trim();
+    var lname   = document.getElementById('c-lname').value.trim();
+    var email   = document.getElementById('c-email').value.trim();
+    var prefix  = document.getElementById('c-phone-prefix').value;
+    var phone   = document.getElementById('c-phone').value.trim();
+    var message = document.getElementById('c-message').value.trim();
+    var errEl   = document.getElementById('form-error');
+    errEl.style.display = 'none';
+
+    if (!fname || !lname || !email || !phone) {
+      errEl.textContent = 'Please fill in all required fields.'; errEl.style.display = 'block'; return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return;
+    }
+    if (phone.replace(/\D/g,'').length < 7) {
+      errEl.textContent = 'Please enter a valid phone number.'; errEl.style.display = 'block'; return;
+    }
+
+    var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+    var payload = {
+      property_interest: 'San Antonio Corner Lot — Pecan Valley Drive, Lincolnshire Drive and Dorie Street',
+      first_name: fname,
+      last_name:  lname,
+      email:      email,
+      phone:      prefix + ' ' + phone,
+      message:    message,
+      event_id:   eventId
+    };
+
+    var btn = document.getElementById('form-submit-btn');
+    btn.disabled = true; btn.textContent = 'Sending…';
+
+    try {
+      var res = await fetch(WEBHOOK_URL, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        fbq('track', 'Lead', { content_name: 'San Antonio Corner Lot', content_category: 'Land', value: 45000, currency: 'USD' });
+        window.location.href = THANK_YOU + '?eid=' + eventId;
+      } else {
+        btn.disabled = false; btn.textContent = 'Send Message';
+        errEl.textContent = 'Something went wrong. Please call us at 1 (800) 520-0534.';
+        errEl.style.display = 'block';
+      }
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Send Message';
+      errEl.textContent = 'Something went wrong. Please call us at 1 (800) 520-0534.';
+      errEl.style.display = 'block';
+    }
+  }
+
+  /* ── MAP ── */
+  var map = L.map('property-map', { center: [29.3885, -98.4058], zoom: 17, scrollWheelZoom: false });
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri', maxZoom: 19
+  }).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; CartoDB', subdomains: 'abcd', maxZoom: 20, opacity: 0.7
+  }).addTo(map);
+  var redIcon = L.icon({
+    iconUrl:   'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+    iconSize: [25,41], iconAnchor: [12,41], popupAnchor: [1,-34], shadowSize: [41,41]
+  });
+  L.marker([29.3885, -98.4058], { icon: redIcon }).addTo(map)
+    .bindPopup('<strong>Corner Lot</strong><br>Pecan Valley Dr &amp; Dorie St<br>San Antonio TX 78220 &middot; $45,000');
+</script>
+
+</body>
+</html>
