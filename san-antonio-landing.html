@@ -27,68 +27,44 @@ src="https://www.facebook.com/tr?id=713056944975093&ev=PageView&noscript=1"/></n
 <style>
 :root {
   --font: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
-  --green-dark: #0D1710;
-  --green-mid: #1B4332;
+  --green-dark:  #0D1710;
+  --green-mid:   #1B4332;
   --green-light: #2D6A4F;
-  --page-max: 1200px;
-  --page-pad: 5%;
+  --page-max:  1200px;
+  --page-pad:  5%;
 }
 
 *, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: var(--font);
-  overflow-wrap: break-word;
+  box-sizing: border-box; margin: 0; padding: 0;
+  font-family: var(--font); overflow-wrap: break-word;
 }
 html { scroll-behavior: smooth; }
 body {
-  background: #fff;
-  color: #1a1a1a;
-  font-size: 16px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  background: #fff; color: #1a1a1a; font-size: 16px;
+  line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
 /* ── NAV ── */
 nav {
-  background: var(--green-dark);
-  padding: 0 var(--page-pad);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  position: sticky;
-  top: 0;
-  z-index: 300;
+  background: var(--green-dark); padding: 0 var(--page-pad);
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; position: sticky; top: 0; z-index: 300;
 }
 .nav-logo img { height: 28px; width: auto; }
 .nav-phone {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-  background: var(--green-mid);
-  padding: 10px 18px;
-  border-radius: 6px;
-  white-space: nowrap;
-  min-height: 44px;
-  letter-spacing: .2px;
-  transition: background .2s;
+  display: flex; align-items: center; font-size: 14px; font-weight: 700;
+  color: #fff; background: var(--green-mid); padding: 10px 18px;
+  border-radius: 6px; white-space: nowrap; min-height: 44px;
+  letter-spacing: .2px; transition: background .2s;
 }
 .nav-phone:hover { background: var(--green-light); }
 
-/* ── HERO DARK WRAPPER ── */
-.hero-dark {
-  background: var(--green-dark);
-  padding: 52px 0 56px;
-}
+/* ── HERO ── */
+.hero-dark { background: var(--green-dark); padding: 52px 0 64px; }
 
-/* ── HERO GRID — single auto row, sticky col in same row as left col ── */
+/* Single-row grid: left content col + sticky form col, both in grid-row 1 */
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 420px;
@@ -99,98 +75,101 @@ nav {
   padding: 0 var(--page-pad);
   align-items: start;
 }
-.hero-left {
-  grid-column: 1;
-  grid-row: 1;
-}
-/* Sticky col: position sticky keeps it in viewport while hero-dark is in view,
-   then releases naturally when the hero grid container's bottom edge passes. */
+.hero-left  { grid-column: 1; grid-row: 1; }
 .hero-sticky-col {
-  grid-column: 2;
-  grid-row: 1;
+  grid-column: 2; grid-row: 1;
   position: sticky;
   top: 84px; /* 64px nav + 20px breathing room */
   align-self: start;
 }
 
-/* ── HERO LEFT CONTENT ── */
+/* ── HERO LEFT — COPY ── */
 .hero-eyebrow {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--green-light);
-  margin-bottom: 14px;
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--green-light); margin-bottom: 14px;
 }
 .hero-headline {
-  font-size: clamp(22px, 3vw, 40px);
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -.5px;
-  color: #fff;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+  font-size: clamp(22px, 3vw, 40px); font-weight: 900; line-height: 1.1;
+  letter-spacing: -.5px; color: #fff; text-transform: uppercase; margin-bottom: 10px;
 }
-.hero-address {
-  font-size: 13.5px;
-  color: rgba(255,255,255,.5);
+.hero-address { font-size: 13.5px; color: rgba(255,255,255,.5); margin-bottom: 16px; line-height: 1.5; }
+.hero-price { font-size: 42px; font-weight: 900; color: #fff; letter-spacing: -.5px; line-height: 1.1; margin-bottom: 24px; }
+
+/* ── HERO OFFER CARD (dark, inside left col) ── */
+.hero-offer-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  padding: 22px 22px 20px;
   margin-bottom: 16px;
-  line-height: 1.5;
 }
-.hero-price {
-  font-size: 42px;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: -.5px;
-  line-height: 1.1;
-  margin-bottom: 18px;
+.hero-offer-eyebrow {
+  display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.4px;
+  text-transform: uppercase; color: var(--green-light); margin-bottom: 8px;
 }
-.hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.hero-offer-heading {
+  font-size: clamp(16px, 1.8vw, 20px); font-weight: 900; color: #fff;
+  line-height: 1.2; text-transform: uppercase; margin-bottom: 12px;
+}
+.hero-offer-body { font-size: 13.5px; color: rgba(255,255,255,.7); line-height: 1.65; margin-bottom: 16px; }
+.hero-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
 .hero-bullets li {
-  font-size: 15px;
-  color: rgba(255,255,255,.82);
-  padding-left: 26px;
-  position: relative;
-  line-height: 1.5;
+  font-size: 13.5px; color: rgba(255,255,255,.82);
+  padding-left: 22px; position: relative; line-height: 1.5;
 }
-.hero-bullets li::before {
-  content: '✓';
-  position: absolute;
-  left: 0; top: 0;
-  color: var(--green-light);
-  font-weight: 700;
+.hero-bullets li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--green-light); font-weight: 700; }
+
+/* ── HERO ALERT (red, inside left col on dark bg) ── */
+.hero-alert {
+  background: rgba(192,54,44,.18);
+  border-left: 3px solid #e05252;
+  border-radius: 0 6px 6px 0;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.hero-alert-icon {
+  flex-shrink: 0; width: 28px; height: 28px;
+  background: #C0362C; color: #fff; font-size: 14px; font-weight: 900;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.hero-alert-title { font-size: 11px; font-weight: 700; color: #ff9c9c; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 5px; }
+.hero-alert-body { font-size: 13px; color: rgba(255,255,255,.72); line-height: 1.55; }
+
+/* ── HERO TRUST PILLS (inside left col on dark bg) ── */
+.hero-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+.hero-pill {
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+  border-radius: 999px; padding: 5px 12px;
+  font-size: 12px; font-weight: 700; color: rgba(255,255,255,.82); letter-spacing: .2px;
 }
 
-/* ── FORM CARD ── */
+/* ── HERO CTA ROW (inside left col) ── */
+.hero-cta-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.hero-cta-btn {
+  background: var(--green-mid); color: #fff; border: none; border-radius: 7px;
+  padding: 13px 22px; font-size: 14px; font-weight: 700; letter-spacing: .3px;
+  cursor: pointer; text-transform: uppercase; transition: background .15s;
+  white-space: nowrap; text-decoration: none; display: inline-block;
+  font-family: var(--font);
+}
+.hero-cta-btn:hover { background: var(--green-light); }
+.hero-cta-call { font-size: 14px; color: rgba(255,255,255,.55); }
+.hero-cta-call a { color: rgba(255,255,255,.8); font-weight: 700; }
+
+/* ── FORM CARD (white, in sticky col) ── */
 .offer-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0,0,0,.35);
-  margin-bottom: 12px;
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.35); margin-bottom: 12px;
 }
 .offer-card-head { background: var(--green-mid); padding: 18px 20px 16px; }
 .offer-card-badge {
-  display: inline-block;
-  background: rgba(255,255,255,.18);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 3px 11px;
-  border-radius: 999px;
-  margin-bottom: 8px;
+  display: inline-block; background: rgba(255,255,255,.18); color: #fff;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  padding: 3px 11px; border-radius: 999px; margin-bottom: 8px;
 }
-.offer-card-heading {
-  font-size: 15px;
-  font-weight: 900;
-  color: #fff;
-  line-height: 1.15;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
+.offer-card-heading { font-size: 15px; font-weight: 900; color: #fff; line-height: 1.15; text-transform: uppercase; margin-bottom: 6px; }
 .offer-card-subtext { font-size: 12px; color: rgba(255,255,255,.7); line-height: 1.5; }
 .offer-card-body { padding: 15px 18px 17px; }
 
@@ -198,30 +177,16 @@ nav {
 .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 9px; }
 .cf-group { margin-bottom: 9px; }
 .cf-group label {
-  display: block;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .7px;
-  text-transform: uppercase;
-  color: #999;
-  margin-bottom: 4px;
+  display: block; font-size: 9px; font-weight: 700; letter-spacing: .7px;
+  text-transform: uppercase; color: #999; margin-bottom: 4px;
 }
 .cf-group input,
 .cf-group select,
 .cf-group textarea {
-  width: 100%;
-  background: #f7f6f3;
-  border: 1.5px solid #e0dbd2;
-  border-radius: 5px;
-  padding: 8px 10px;
-  font-size: 13px;
-  color: #1a1a1a;
-  outline: none;
-  transition: border-color .15s;
-  min-height: 36px;
-  -webkit-appearance: none;
-  appearance: none;
-  font-family: var(--font);
+  width: 100%; background: #f7f6f3; border: 1.5px solid #e0dbd2; border-radius: 5px;
+  padding: 8px 10px; font-size: 13px; color: #1a1a1a; outline: none;
+  transition: border-color .15s; min-height: 36px;
+  -webkit-appearance: none; appearance: none; font-family: var(--font);
 }
 .cf-group input::placeholder,
 .cf-group textarea::placeholder { color: #bbb; }
@@ -230,257 +195,115 @@ nav {
 .cf-group textarea:focus { border-color: var(--green-mid); }
 .cf-group select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath fill='%23999' d='M5 7L0 0h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-color: #f7f6f3;
-  padding-right: 28px;
-  cursor: pointer;
+  background-repeat: no-repeat; background-position: right 10px center;
+  background-color: #f7f6f3; padding-right: 28px; cursor: pointer;
 }
 .cf-group textarea { min-height: 66px; resize: vertical; line-height: 1.5; }
-
-/* ── CONFIRMATION CHECKBOXES ── */
-.cf-check-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 7px;
-  margin-top: 5px;
-}
+.cf-check-row { display: flex; align-items: flex-start; gap: 7px; margin-top: 5px; }
 .cf-check-row input[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-  min-width: 14px;
-  margin-top: 2px;
-  accent-color: var(--green-mid);
-  cursor: pointer;
-  flex-shrink: 0;
+  width: 14px; height: 14px; min-width: 14px; margin-top: 2px;
+  accent-color: var(--green-mid); cursor: pointer; flex-shrink: 0;
 }
 .cf-check-row label { font-size: 11px; color: #666; line-height: 1.4; cursor: pointer; }
 
-/* ── FIRST-TIME BUYER SELECTION ── */
-.buyer-label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .7px;
-  text-transform: uppercase;
-  color: #999;
-  display: block;
-  margin-bottom: 6px;
-}
+/* ── BUYER EXPERIENCE ── */
+.buyer-label { font-size: 9px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: #999; display: block; margin-bottom: 6px; }
 .buyer-opts { display: flex; flex-direction: column; gap: 5px; }
 .buyer-opt {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  padding: 7px 9px;
-  border: 1.5px solid #e0dbd2;
-  border-radius: 5px;
-  transition: border-color .15s, background .15s;
-  user-select: none;
+  display: flex; align-items: center; gap: 8px; cursor: pointer;
+  padding: 7px 9px; border: 1.5px solid #e0dbd2; border-radius: 5px;
+  transition: border-color .15s, background .15s; user-select: none;
 }
 .buyer-opt:hover { border-color: #aaa; }
 .buyer-opt.selected { border-color: var(--green-mid); background: #f0f7f2; }
 .buyer-opt input { display: none; }
 .buyer-opt-box {
-  width: 14px;
-  height: 14px;
-  min-width: 14px;
-  border: 1.5px solid #ccc;
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all .15s;
-  flex-shrink: 0;
+  width: 14px; height: 14px; min-width: 14px; border: 1.5px solid #ccc;
+  border-radius: 3px; display: flex; align-items: center; justify-content: center;
+  transition: all .15s; flex-shrink: 0;
 }
-.buyer-opt.selected .buyer-opt-box {
-  border-color: var(--green-mid);
-  background: var(--green-mid);
-}
-.buyer-opt.selected .buyer-opt-box::after {
-  content: '✓';
-  color: #fff;
-  font-size: 9px;
-  font-weight: 900;
-  line-height: 1;
-}
+.buyer-opt.selected .buyer-opt-box { border-color: var(--green-mid); background: var(--green-mid); }
+.buyer-opt.selected .buyer-opt-box::after { content: '✓'; color: #fff; font-size: 9px; font-weight: 900; line-height: 1; }
 .buyer-opt-text { font-size: 12.5px; color: #1a1a1a; line-height: 1.3; }
 
-/* ── FORM ERROR, CONSENT, SUBMIT ── */
+/* ── FORM ERROR / CONSENT / SUBMIT ── */
 .cf-error {
-  display: none;
-  background: rgba(192,54,44,.1);
-  color: #c0362c;
-  font-size: 11.5px;
-  font-weight: 600;
-  padding: 8px 10px;
-  border-radius: 5px;
-  margin-bottom: 9px;
-  border: 1px solid rgba(192,54,44,.22);
-  line-height: 1.45;
+  display: none; background: rgba(192,54,44,.1); color: #c0362c;
+  font-size: 11.5px; font-weight: 600; padding: 8px 10px; border-radius: 5px;
+  margin-bottom: 9px; border: 1px solid rgba(192,54,44,.22); line-height: 1.45;
 }
-.cf-consent {
-  font-size: 10.5px;
-  color: #aaa;
-  line-height: 1.5;
-  text-align: center;
-  margin-bottom: 10px;
-}
+.cf-consent { font-size: 10.5px; color: #aaa; line-height: 1.5; text-align: center; margin-bottom: 10px; }
 .cf-submit {
-  width: 100%;
-  background: var(--green-mid);
-  color: #fff;
-  border: none;
-  border-radius: 7px;
-  padding: 12px;
-  font-size: 13.5px;
-  font-weight: 700;
-  cursor: pointer;
-  letter-spacing: .3px;
-  transition: background .15s, opacity .15s;
-  margin-bottom: 10px;
-  font-family: var(--font);
+  width: 100%; background: var(--green-mid); color: #fff; border: none;
+  border-radius: 7px; padding: 12px; font-size: 13.5px; font-weight: 700;
+  cursor: pointer; letter-spacing: .3px; transition: background .15s, opacity .15s;
+  margin-bottom: 10px; font-family: var(--font);
 }
 .cf-submit:hover:not(:disabled) { background: var(--green-light); }
 .cf-submit:disabled { opacity: .4; cursor: not-allowed; }
-.cf-trust {
-  display: flex;
-  justify-content: center;
-  gap: 7px;
-  font-size: 10.5px;
-  color: #bbb;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .4px;
-}
+.cf-trust { display: flex; justify-content: center; gap: 7px; font-size: 10.5px; color: #bbb; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; }
 
 /* ── CALL CARD ── */
-.call-card {
-  background: #1a1a1a;
-  border-radius: 10px;
-  padding: 15px 18px;
-  text-align: center;
-}
-.call-card-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.4);
-  margin-bottom: 5px;
-}
-.call-card-number {
-  font-size: 20px;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: -.3px;
-  margin-bottom: 10px;
-}
+.call-card { background: #1a1a1a; border-radius: 10px; padding: 15px 18px; text-align: center; }
+.call-card-label { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 5px; }
+.call-card-number { font-size: 20px; font-weight: 900; color: #fff; letter-spacing: -.3px; margin-bottom: 10px; }
 .call-card-btn {
-  display: block;
-  width: 100%;
-  background: #fff;
-  color: #1a1a1a;
-  border: none;
-  border-radius: 6px;
-  padding: 10px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background .15s;
-  font-family: var(--font);
+  display: block; width: 100%; background: #fff; color: #1a1a1a; border: none;
+  border-radius: 6px; padding: 10px; font-size: 13px; font-weight: 700;
+  letter-spacing: .5px; text-transform: uppercase; cursor: pointer;
+  text-decoration: none; transition: background .15s; font-family: var(--font);
 }
 .call-card-btn:hover { background: #e8e8e8; }
 
+/* ── TRUST STRIP ── */
+.trust-strip {
+  background: var(--green-mid); padding: 16px var(--page-pad);
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 6px 18px;
+}
+.trust-strip span { font-size: 12px; font-weight: 700; color: #fff; letter-spacing: .6px; text-transform: uppercase; white-space: nowrap; }
+
 /* ── SECTION HELPERS ── */
-.page-section {
-  max-width: var(--page-max);
-  margin: 0 auto;
-  padding: 0 var(--page-pad);
-}
-.section-label {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--green-light);
-  margin-bottom: 6px;
-}
+.page-section { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-pad); }
+.section-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--green-light); margin-bottom: 6px; }
 .section-heading {
-  display: inline-block;
-  font-size: clamp(18px, 2.1vw, 24px);
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--green-dark);
-  letter-spacing: -.3px;
-  padding-bottom: 9px;
-  border-bottom: 3px solid var(--green-mid);
-  margin-bottom: 20px;
+  display: inline-block; font-size: clamp(18px, 2.1vw, 24px); font-weight: 900;
+  text-transform: uppercase; color: var(--green-dark); letter-spacing: -.3px;
+  padding-bottom: 9px; border-bottom: 3px solid var(--green-mid); margin-bottom: 20px;
 }
 
 /* ── GALLERY ── */
 .gallery-outer { padding: 52px 0 0; }
 .gallery-main-wrap {
-  border-radius: 8px;
-  overflow: hidden;
-  aspect-ratio: 16/9;
-  background: #e0dbd2;
-  cursor: pointer;
-  position: relative;
-  margin-bottom: 10px;
+  border-radius: 8px; overflow: hidden; aspect-ratio: 16/9;
+  background: #e0dbd2; cursor: pointer; position: relative; margin-bottom: 10px;
 }
 .gallery-main-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gallery-expand-hint {
-  position: absolute;
-  bottom: 10px; right: 12px;
-  background: rgba(0,0,0,.5);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .4px;
-  padding: 4px 9px;
-  border-radius: 4px;
-  pointer-events: none;
+  position: absolute; bottom: 10px; right: 12px;
+  background: rgba(0,0,0,.5); color: #fff; font-size: 11px; font-weight: 700;
+  letter-spacing: .4px; padding: 4px 9px; border-radius: 4px; pointer-events: none;
 }
-.gallery-thumbs {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 7px;
-}
+.gallery-thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 7px; }
 .gallery-thumb {
-  border-radius: 5px;
-  overflow: hidden;
-  aspect-ratio: 16/10;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: border-color .15s;
+  border-radius: 5px; overflow: hidden; aspect-ratio: 16/10;
+  cursor: pointer; border: 2px solid transparent; transition: border-color .15s;
 }
 .gallery-thumb:hover, .gallery-thumb.active { border-color: var(--green-mid); }
 .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ── LIGHTBOX ── */
 .lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 900;
-  background: rgba(0,0,0,.96);
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  display: none; position: fixed; inset: 0; z-index: 900;
+  background: rgba(0,0,0,.96); align-items: center; justify-content: center; padding: 20px;
 }
 .lightbox.open { display: flex; }
 .lightbox-img { max-width: 100%; max-height: 90vh; border-radius: 6px; object-fit: contain; }
 .lb-close {
-  position: absolute; top: 16px; right: 16px;
-  background: rgba(255,255,255,.12); border: none; color: #fff;
-  font-size: 20px; width: 38px; height: 38px; border-radius: 50%;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  transition: background .15s; z-index: 1;
+  position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,.12);
+  border: none; color: #fff; font-size: 20px; width: 38px; height: 38px;
+  border-radius: 50%; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; transition: background .15s; z-index: 1;
 }
 .lb-close:hover { background: rgba(255,255,255,.22); }
 .lb-nav {
@@ -493,105 +316,24 @@ nav {
 .lb-nav:hover { background: rgba(255,255,255,.22); }
 .lb-prev { left: 16px; }
 .lb-next { right: 16px; }
-.lb-counter {
-  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
-  font-size: 12px; color: rgba(255,255,255,.4); font-weight: 700; letter-spacing: .5px;
-}
-
-/* ── OFFER SECTION ── */
-.offer-section { padding: 56px 0; background: #fff; border-top: 1px solid #eee; }
-.body-text { font-size: 15px; color: #555; line-height: 1.75; margin-bottom: 20px; }
-.check-list { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
-.check-list li {
-  font-size: 15px; color: #1a1a1a;
-  padding-left: 26px; position: relative; line-height: 1.5;
-}
-.check-list li::before {
-  content: '✓'; position: absolute; left: 0; top: 0;
-  color: var(--green-mid); font-weight: 700;
-}
-
-/* ── ALERT BLOCK ── */
-.alert-block {
-  background: #FFF0F0;
-  border-top: 3px solid #C0362C;
-  border-bottom: 3px solid #C0362C;
-  padding: 20px 0;
-}
-.alert-inner {
-  max-width: var(--page-max);
-  margin: 0 auto;
-  padding: 0 var(--page-pad);
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-.alert-icon {
-  flex-shrink: 0; width: 32px; height: 32px;
-  background: #C0362C; color: #fff; font-size: 15px; font-weight: 900;
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  margin-top: 2px;
-}
-.alert-title {
-  font-size: 12.5px; font-weight: 700; color: #7b1a14;
-  text-transform: uppercase; letter-spacing: .5px; margin-bottom: 5px;
-}
-.alert-body { font-size: 14px; color: #555; line-height: 1.6; }
-
-/* ── TRUST PILLS + CTA ── */
-.trust-pills-outer { padding: 24px 0 36px; }
-.trust-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-.trust-pill {
-  background: #f7f6f3; border: 1.5px solid #ddd; border-radius: 999px;
-  padding: 5px 14px; font-size: 12px; font-weight: 700; color: #555; letter-spacing: .2px;
-}
-.inline-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.inline-cta-btn {
-  background: var(--green-mid); color: #fff; border: none; border-radius: 7px;
-  padding: 13px 22px; font-size: 14px; font-weight: 700; letter-spacing: .3px;
-  cursor: pointer; text-transform: uppercase; transition: background .15s;
-  white-space: nowrap; text-decoration: none; display: inline-block;
-  font-family: var(--font);
-}
-.inline-cta-btn:hover { background: var(--green-light); }
-.inline-cta-call { font-size: 14px; color: #555; }
-
-/* ── GREEN TRUST STRIP ── */
-.trust-strip {
-  background: var(--green-mid);
-  padding: 16px var(--page-pad);
-  display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 6px 18px;
-}
-.trust-strip span {
-  font-size: 12px; font-weight: 700; color: #fff;
-  letter-spacing: .6px; text-transform: uppercase; white-space: nowrap;
-}
+.lb-counter { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); font-size: 12px; color: rgba(255,255,255,.4); font-weight: 700; letter-spacing: .5px; }
 
 /* ── ABOUT SECTION ── */
 .about-section { padding: 52px 0; background: #f9f8f5; border-top: 1px solid #eee; }
+.body-text { font-size: 15px; color: #555; line-height: 1.75; margin-bottom: 20px; }
 .nearby-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
-.nearby-item {
-  background: #fff; border: 1px solid #e0dbd2; border-radius: 7px;
-  padding: 12px 14px; font-size: 14px; color: #1a1a1a; line-height: 1.45;
-}
+.nearby-item { background: #fff; border: 1px solid #e0dbd2; border-radius: 7px; padding: 12px 14px; font-size: 14px; color: #1a1a1a; line-height: 1.45; }
 
 /* ── PROPERTY SPECS ── */
-.specs-section {
-  background: #fff; border-top: 1px solid #eee; border-bottom: 1px solid #eee;
-  padding: 40px 0;
-}
+.specs-section { background: #fff; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 40px 0; }
 .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 10px; }
 .spec-chip { background: #f7f6f3; border: 1px solid #e0dbd2; border-radius: 7px; padding: 13px 14px; }
-.spec-chip .slabel {
-  display: block; font-size: 10px; font-weight: 700; letter-spacing: 1px;
-  text-transform: uppercase; color: #999; margin-bottom: 4px;
-}
+.spec-chip .slabel { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-bottom: 4px; }
 .spec-chip .sval { font-size: 14px; font-weight: 700; color: #1a1a1a; line-height: 1.35; }
 .spec-chip .sval.avail { color: var(--green-mid); }
 
-/* ── MAP SECTION ── */
-.map-outer { padding: 52px 0 56px; }
+/* ── MAP ── */
+.map-outer { padding: 52px 0 60px; }
 .map-disclaimer { font-size: 12px; color: #999; font-style: italic; margin-bottom: 10px; line-height: 1.5; }
 #property-map { width: 100%; height: 420px; border-radius: 8px; overflow: hidden; border: 1px solid #e0dbd2; }
 .map-coords {
@@ -603,51 +345,35 @@ nav {
 /* ── FOOTER ── */
 footer { background: var(--green-dark); color: rgba(255,255,255,.55); padding: 44px 0 24px; }
 .footer-inner { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-pad); }
-.footer-top {
-  display: flex; justify-content: space-between; align-items: flex-start;
-  gap: 24px; flex-wrap: wrap; margin-bottom: 26px;
-}
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; margin-bottom: 26px; }
 .footer-logo img { height: 26px; width: auto; margin-bottom: 12px; filter: brightness(0) invert(1); }
 .footer-tagline { font-size: 12.5px; color: rgba(255,255,255,.4); max-width: 360px; line-height: 1.6; }
-.footer-legal-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 1.4px;
-  text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 10px;
-}
+.footer-legal-label { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 10px; }
 .footer-legal a { font-size: 13px; color: rgba(255,255,255,.6); }
 .footer-legal a:hover { color: #fff; }
-.fb-disclaimer {
-  font-size: 11.5px; color: rgba(255,255,255,.3); line-height: 1.6;
-  padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); margin-bottom: 16px;
-}
-.footer-bottom {
-  display: flex; justify-content: space-between; align-items: center;
-  gap: 14px; flex-wrap: wrap; font-size: 11.5px; color: rgba(255,255,255,.38);
-}
+.fb-disclaimer { font-size: 11.5px; color: rgba(255,255,255,.3); line-height: 1.6; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); margin-bottom: 16px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 11.5px; color: rgba(255,255,255,.38); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-sticky-col {
-    grid-column: 1;
-    grid-row: 2;
-    position: static;
-    margin-top: 36px;
-  }
+  .hero-sticky-col { grid-column: 1; grid-row: 2; position: static; margin-top: 36px; }
   .nearby-grid { grid-template-columns: 1fr; }
+  .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 680px) {
-  .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
   .cf-row { grid-template-columns: 1fr; }
+  .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+  .hero-cta-row { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 520px) {
   nav { padding: 0 4%; }
   .nav-logo img { height: 22px; }
   .nav-phone { font-size: 12.5px; padding: 9px 14px; }
-  .hero-dark { padding: 36px 0 40px; }
-  .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+  .hero-dark { padding: 36px 0 48px; }
   .trust-strip { gap: 5px 10px; }
   .footer-top { flex-direction: column; }
-  .inline-cta { flex-direction: column; align-items: flex-start; }
+  .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
 }
 </style>
 </head>
@@ -670,30 +396,64 @@ footer { background: var(--green-dark); color: rgba(255,255,255,.55); padding: 4
   <a class="nav-phone" href="tel:18005200534">1 (800) 520-0534</a>
 </nav>
 
-<!-- ═══════════════════════════════════════════════════════════
-     HERO — single grid container, closed here before gallery
-     ═══════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════════════════════
+     HERO — single grid container
+     Left col: eyebrow, H1, address, price, offer card, alert, pills, CTA
+     Right col: sticky form card + call card
+     Container closes here; all sections below are normal flow.
+     ══════════════════════════════════════════════════════════════════ -->
 <section class="hero-dark" id="hero">
   <div class="hero-grid">
 
-    <!-- LEFT: hero copy — grid-column 1, grid-row 1 -->
+    <!-- ── LEFT COLUMN ── -->
     <div class="hero-left">
+
       <span class="hero-eyebrow">CORNER OF PECAN VALLEY DR &amp; LINCOLNSHIRE DR &nbsp;&middot;&nbsp; NEAR US HIGHWAY 90</span>
       <h1 class="hero-headline">Prime Corner Lot For Sale, San Antonio, Bexar County TX</h1>
       <p class="hero-address">Corner of Pecan Valley Drive, Lincolnshire Drive and Dorie Street, San Antonio TX 78220</p>
       <p class="hero-price">$45,000</p>
-      <ul class="hero-bullets">
-        <li>0.17 acre corner lot, paved road access</li>
-        <li>Minutes from US Highway 90</li>
-        <li>Owner financing available, $13,500 down (30%), then $875/month for 36 months</li>
-        <li>No bank. No credit check.</li>
-      </ul>
-    </div>
 
-    <!-- STICKY COL: form card + call card — grid-column 2, grid-row 1 -->
+      <!-- OFFER CARD — inside hero left, dark card style -->
+      <div class="hero-offer-card">
+        <span class="hero-offer-eyebrow">THE OFFER</span>
+        <h2 class="hero-offer-heading">Corner Lot With Paved Access, Minutes From US Highway 90</h2>
+        <p class="hero-offer-body">This 0.17 acre corner parcel sits at the intersection of Pecan Valley Drive, Lincolnshire Drive and Dorie Street in Bexar County, San Antonio. Paved road access on a corner lot puts this ahead of typical off grid parcels, making it more practical for building or resale. The location sits minutes from US Highway 90 with strong visibility and an established street grid around it. Owner financing available. $500 reserves your spot. $45,000 total.</p>
+        <ul class="hero-bullets">
+          <li>Corner lot with paved road frontage on three connecting streets</li>
+          <li>Minutes from US Highway 90</li>
+          <li>Owner financing available, $13,500 down (30%), then $875/month for 36 months</li>
+          <li>No bank. No credit check. $500 reserves your spot.</li>
+        </ul>
+      </div>
+
+      <!-- HIGH INTEREST ALERT — inside hero left -->
+      <div class="hero-alert">
+        <div class="hero-alert-icon">!</div>
+        <div>
+          <p class="hero-alert-title">HIGH INTEREST ALERT</p>
+          <p class="hero-alert-body">This property is currently receiving a high level of interest. Skip the queue, reserve this property today and secure your place. If you move forward, your reservation goes directly toward your closing costs. If you decide not to proceed, you get a full refund. No questions asked.</p>
+        </div>
+      </div>
+
+      <!-- TRUST PILLS — inside hero left -->
+      <div class="hero-pills">
+        <span class="hero-pill">&#10003; Reservation &rarr; Closing Costs</span>
+        <span class="hero-pill">&#10003; Full Refund If You Cancel</span>
+        <span class="hero-pill">&#10003; Close in 2&ndash;4 Weeks</span>
+      </div>
+
+      <!-- CTA ROW — inside hero left -->
+      <div class="hero-cta-row">
+        <a class="hero-cta-btn" href="#hero">RESERVE THIS LOT</a>
+        <span class="hero-cta-call">or call <a href="tel:18005200534">1 (800) 520-0534</a></span>
+      </div>
+
+    </div><!-- /.hero-left -->
+
+    <!-- ── RIGHT COLUMN: sticky form + call card ── -->
     <div class="hero-sticky-col">
 
-      <!-- FORM CARD — all fields directly embedded, no external link -->
+      <!-- FORM CARD — all fields directly embedded -->
       <div class="offer-card">
         <div class="offer-card-head">
           <span class="offer-card-badge">CLAIM THIS OFFER</span>
@@ -704,7 +464,7 @@ footer { background: var(--green-dark); color: rgba(255,255,255,.55); padding: 4
 
           <div class="cf-error" id="cf-error"></div>
 
-          <!-- First name + Last name — same row on desktop -->
+          <!-- First Name + Last Name — same row on desktop -->
           <div class="cf-row">
             <div class="cf-group">
               <label for="cf-fname">First Name <span style="color:#c0362c;">*</span></label>
@@ -806,15 +566,25 @@ footer { background: var(--green-dark); color: rgba(255,255,255,.55); padding: 4
       </div>
 
     </div><!-- /.hero-sticky-col -->
-  </div><!-- /.hero-grid — CLOSED HERE, gallery and all sections below are outside this grid -->
+  </div><!-- /.hero-grid  ← CLOSED. Gallery and all below are normal flow. -->
 </section><!-- /.hero-dark -->
 
 <!-- ═══════════════════════════════════════════════════════════════════
-     Everything below this line is outside the hero grid — normal flow.
-     The sticky card releases here and scrolls away with the page.
+     Sections below are outside the hero grid — sticky card has released.
      ═══════════════════════════════════════════════════════════════════ -->
 
-<!-- SECTION 3: PHOTO GALLERY -->
+<!-- SECTION 3: TRUST STRIP -->
+<div class="trust-strip">
+  <span>&#10003; BBB A+</span>
+  <span>&middot;</span>
+  <span>NO CREDIT CHECK</span>
+  <span>&middot;</span>
+  <span>DEED IN 2&ndash;4 WEEKS</span>
+  <span>&middot;</span>
+  <span>OWNER FINANCING AVAILABLE</span>
+</div>
+
+<!-- SECTION 4: PHOTO GALLERY -->
 <div class="gallery-outer">
   <div class="page-section">
     <span class="section-label">Property Photos</span>
@@ -824,93 +594,19 @@ footer { background: var(--green-dark); color: rgba(255,255,255,.55); padding: 4
       <span class="gallery-expand-hint">Click to enlarge</span>
     </div>
     <div class="gallery-thumbs">
-      <div class="gallery-thumb active" onclick="swapGallery(0,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_25_855decf370.png" alt="" />
-      </div>
-      <div class="gallery-thumb" onclick="swapGallery(1,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_29_31c41d9844.png" alt="" />
-      </div>
-      <div class="gallery-thumb" onclick="swapGallery(2,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_46_b226392666.png" alt="" />
-      </div>
-      <div class="gallery-thumb" onclick="swapGallery(3,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_40_54_620ed5083f.png" alt="" />
-      </div>
-      <div class="gallery-thumb" onclick="swapGallery(4,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_13_75f76a7e1d.png" alt="" />
-      </div>
-      <div class="gallery-thumb" onclick="swapGallery(5,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_18_c8cfa75903.png" alt="" />
-      </div>
-      <div class="gallery-thumb" onclick="swapGallery(6,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_37_041c074aed.png" alt="" />
-      </div>
-      <div class="gallery-thumb" onclick="swapGallery(7,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_06_0b649c5c09.png" alt="" />
-      </div>
-      <div class="gallery-thumb" onclick="swapGallery(8,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_01_cc4b5ce293.png" alt="" />
-      </div>
-      <div class="gallery-thumb" onclick="swapGallery(9,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_40_a8bb4ddfd8.png" alt="" />
-      </div>
-      <div class="gallery-thumb" onclick="swapGallery(10,this)">
-        <img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_40_02_ba7974a438.png" alt="" />
-      </div>
+      <div class="gallery-thumb active" onclick="swapGallery(0,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_25_855decf370.png" alt="" /></div>
+      <div class="gallery-thumb" onclick="swapGallery(1,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_29_31c41d9844.png" alt="" /></div>
+      <div class="gallery-thumb" onclick="swapGallery(2,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_46_b226392666.png" alt="" /></div>
+      <div class="gallery-thumb" onclick="swapGallery(3,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_40_54_620ed5083f.png" alt="" /></div>
+      <div class="gallery-thumb" onclick="swapGallery(4,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_13_75f76a7e1d.png" alt="" /></div>
+      <div class="gallery-thumb" onclick="swapGallery(5,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_18_c8cfa75903.png" alt="" /></div>
+      <div class="gallery-thumb" onclick="swapGallery(6,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_37_041c074aed.png" alt="" /></div>
+      <div class="gallery-thumb" onclick="swapGallery(7,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_06_0b649c5c09.png" alt="" /></div>
+      <div class="gallery-thumb" onclick="swapGallery(8,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_38_01_cc4b5ce293.png" alt="" /></div>
+      <div class="gallery-thumb" onclick="swapGallery(9,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_39_40_a8bb4ddfd8.png" alt="" /></div>
+      <div class="gallery-thumb" onclick="swapGallery(10,this)"><img src="https://d1sr9ngwehj2gk.cloudfront.net/Screenshot_2026_07_10_at_01_40_02_ba7974a438.png" alt="" /></div>
     </div>
   </div>
-</div>
-
-<!-- SECTION 4: THE OFFER -->
-<section class="offer-section">
-  <div class="page-section">
-    <span class="section-label">Why This Lot</span>
-    <h2 class="section-heading">Corner Lot With Paved Access, Minutes From US Highway 90</h2>
-    <p class="body-text">This 0.17 acre corner parcel sits at the intersection of Pecan Valley Drive, Lincolnshire Drive and Dorie Street in Bexar County, San Antonio. Paved road access on a corner lot puts this ahead of typical off grid parcels, making it more practical for building or resale. The location sits minutes from US Highway 90 with strong visibility and an established street grid around it.</p>
-    <ul class="check-list">
-      <li>Corner lot with paved road frontage on three connecting streets</li>
-      <li>Minutes from US Highway 90</li>
-      <li>Owner financing available, no bank, no credit check, $500 reserves your spot</li>
-      <li>Established residential grid with visible development nearby</li>
-    </ul>
-  </div>
-</section>
-
-<!-- HIGH INTEREST ALERT -->
-<div class="alert-block">
-  <div class="alert-inner">
-    <div class="alert-icon">!</div>
-    <div>
-      <p class="alert-title">HIGH INTEREST ALERT</p>
-      <p class="alert-body">This property is currently receiving a high level of interest. Skip the queue, reserve this property today and secure your place.<br><br>If you move forward, your reservation goes directly toward your closing costs. If you decide not to proceed, you get a full refund. No questions asked.</p>
-    </div>
-  </div>
-</div>
-
-<!-- TRUST PILLS + INLINE CTA -->
-<div class="trust-pills-outer">
-  <div class="page-section">
-    <div class="trust-pills">
-      <span class="trust-pill">Reservation &rarr; Closing Costs</span>
-      <span class="trust-pill">Full Refund If You Cancel</span>
-      <span class="trust-pill">Close in 2&ndash;4 Weeks</span>
-    </div>
-    <div class="inline-cta">
-      <a class="inline-cta-btn" href="#hero">RESERVE THIS LOT</a>
-      <span class="inline-cta-call">or call <a href="tel:18005200534" style="font-weight:700;color:#1a1a1a;">1 (800) 520-0534</a></span>
-    </div>
-  </div>
-</div>
-
-<!-- GREEN TRUST STRIP -->
-<div class="trust-strip">
-  <span>&#10003; BBB A+</span>
-  <span>&middot;</span>
-  <span>NO CREDIT CHECK</span>
-  <span>&middot;</span>
-  <span>DEED IN 2&ndash;4 WEEKS</span>
-  <span>&middot;</span>
-  <span>OWNER FINANCING AVAILABLE</span>
 </div>
 
 <!-- SECTION 5: ABOUT THE PROPERTY -->
@@ -1027,9 +723,7 @@ function lbStep(dir) {
   document.getElementById('lb-img').src = galleryImages[lbIndex];
   document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + galleryImages.length;
 }
-function lbClickOutside(e) {
-  if (e.target === document.getElementById('lightbox')) closeLightbox();
-}
+function lbClickOutside(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
 document.addEventListener('keydown', function(e) {
   var lb = document.getElementById('lightbox');
   if (!lb.classList.contains('open')) return;
@@ -1038,7 +732,7 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'ArrowRight') lbStep(1);
 });
 
-/* ── BUYER EXPERIENCE SELECTION ── */
+/* ── BUYER EXPERIENCE ── */
 var buyerValue = '';
 function selectBuyer(val, el) {
   buyerValue = val;
@@ -1061,45 +755,21 @@ async function handleSubmit() {
   var errEl     = document.getElementById('cf-error');
   errEl.style.display = 'none';
 
-  if (!fname || !lname) {
-    errEl.textContent = 'Please enter your first and last name.';
-    errEl.style.display = 'block'; return;
-  }
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errEl.textContent = 'Please enter a valid email address.';
-    errEl.style.display = 'block'; return;
-  }
-  if (!emailConf) {
-    errEl.textContent = 'Please confirm your email address is correct.';
-    errEl.style.display = 'block'; return;
-  }
-  if (!phone || phone.replace(/\D/g, '').length < 7) {
-    errEl.textContent = 'Please enter a valid phone number.';
-    errEl.style.display = 'block'; return;
-  }
-  if (!phoneConf) {
-    errEl.textContent = 'Please confirm this is the best number to reach you.';
-    errEl.style.display = 'block'; return;
-  }
-  if (!landUse) {
-    errEl.textContent = 'Please select how you plan to use the land.';
-    errEl.style.display = 'block'; return;
-  }
-  if (!buyerValue) {
-    errEl.textContent = 'Please tell us if this is your first time buying land.';
-    errEl.style.display = 'block'; return;
-  }
-  if (!budget) {
-    errEl.textContent = 'Please select your budget range.';
-    errEl.style.display = 'block'; return;
-  }
+  if (!fname || !lname) { errEl.textContent = 'Please enter your first and last name.'; errEl.style.display = 'block'; return; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
+  if (!emailConf) { errEl.textContent = 'Please confirm your email address is correct.'; errEl.style.display = 'block'; return; }
+  if (!phone || phone.replace(/\D/g, '').length < 7) { errEl.textContent = 'Please enter a valid phone number.'; errEl.style.display = 'block'; return; }
+  if (!phoneConf) { errEl.textContent = 'Please confirm this is the best number to reach you.'; errEl.style.display = 'block'; return; }
+  if (!landUse) { errEl.textContent = 'Please select how you plan to use the land.'; errEl.style.display = 'block'; return; }
+  if (!buyerValue) { errEl.textContent = 'Please tell us if this is your first time buying land.'; errEl.style.display = 'block'; return; }
+  if (!budget) { errEl.textContent = 'Please select your budget range.'; errEl.style.display = 'block'; return; }
 
   /* eventId generated BEFORE payload is built */
   var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 
   var payload = {
     event_id:         eventId,
-    property_interest:'San Antonio Corner Lot — Pecan Valley Dr, Lincolnshire Dr & Dorie St, 78220',
+    property_interest: 'San Antonio Corner Lot — Pecan Valley Dr, Lincolnshire Dr & Dorie St, 78220',
     first_name:       fname,
     last_name:        lname,
     email:            email,
@@ -1111,43 +781,27 @@ async function handleSubmit() {
   };
 
   var btn = document.getElementById('cf-submit');
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
+  btn.disabled = true; btn.textContent = 'Sending…';
 
   try {
     var res = await fetch(WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
     });
     if (res.ok) {
-      fbq('track', 'Lead', {
-        content_name: 'San Antonio Corner Lot',
-        content_category: 'Land',
-        value: 45000,
-        currency: 'USD'
-      });
+      fbq('track', 'Lead', { content_name: 'San Antonio Corner Lot', content_category: 'Land', value: 45000, currency: 'USD' });
       window.location.href = THANK_YOU + '?eid=' + eventId;
     } else {
-      btn.disabled = false;
-      btn.textContent = 'SUBMIT YOUR DETAILS →';
-      errEl.textContent = 'Something went wrong. Please call us at 1 (800) 520-0534.';
-      errEl.style.display = 'block';
+      btn.disabled = false; btn.textContent = 'SUBMIT YOUR DETAILS →';
+      errEl.textContent = 'Something went wrong. Please call us at 1 (800) 520-0534.'; errEl.style.display = 'block';
     }
   } catch (err) {
-    btn.disabled = false;
-    btn.textContent = 'SUBMIT YOUR DETAILS →';
-    errEl.textContent = 'Something went wrong. Please call us at 1 (800) 520-0534.';
-    errEl.style.display = 'block';
+    btn.disabled = false; btn.textContent = 'SUBMIT YOUR DETAILS →';
+    errEl.textContent = 'Something went wrong. Please call us at 1 (800) 520-0534.'; errEl.style.display = 'block';
   }
 }
 
 /* ── MAP ── */
-var map = L.map('property-map', {
-  center: [29.3885, -98.4058],
-  zoom: 17,
-  scrollWheelZoom: false
-});
+var map = L.map('property-map', { center: [29.3885, -98.4058], zoom: 17, scrollWheelZoom: false });
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Tiles &copy; Esri', maxZoom: 19
 }).addTo(map);
