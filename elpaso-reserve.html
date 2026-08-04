@@ -188,6 +188,16 @@ nav {
   background: rgba(0,0,0,.5); color: #fff; font-size: 11px; font-weight: 700;
   letter-spacing: .4px; padding: 4px 9px; border-radius: 4px; pointer-events: none;
 }
+.gallery-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,.45); border: none; color: #fff;
+  font-size: 26px; width: 40px; height: 40px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background .15s; z-index: 2;
+}
+.gallery-nav:hover { background: rgba(0,0,0,.72); }
+.gallery-nav-prev { left: 10px; }
+.gallery-nav-next { right: 10px; }
 .gallery-thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
 .gallery-thumb {
   border-radius: 5px; overflow: hidden; aspect-ratio: 16/10;
@@ -694,6 +704,7 @@ var PROPERTIES = [
 
 /* ── STATE ── */
 var currentPropIdx = -1;
+var currentGalleryImgIdx = 0;
 var lbImages = [];
 var lbIndex = 0;
 var propMap = null;
@@ -785,8 +796,10 @@ function renderFullProperty(p, idx) {
 
   /* Gallery */
   html += '<div class="gallery-outer">';
-  html += '<div class="gallery-main-wrap" onclick="openLightbox(' + idx + ', 0)">';
+  html += '<div class="gallery-main-wrap" onclick="openLightbox(' + idx + ', currentGalleryImgIdx)">';
   html += '<img id="gm-' + idx + '" src="' + p.images[0] + '" alt="' + p.address + '" />';
+  html += '<button class="gallery-nav gallery-nav-prev" onclick="event.stopPropagation();galleryStep(' + idx + ',-1)">&#8249;</button>';
+  html += '<button class="gallery-nav gallery-nav-next" onclick="event.stopPropagation();galleryStep(' + idx + ',1)">&#8250;</button>';
   html += '<span class="gallery-expand-hint">Click to enlarge</span>';
   html += '</div>';
   html += '<div class="gallery-thumbs">' + thumbsHtml + '</div>';
@@ -838,7 +851,19 @@ function renderFullProperty(p, idx) {
 
   document.getElementById('prop-detail').innerHTML = html;
 
+  currentGalleryImgIdx = 0;
   lbImages = p.images;
+
+  var galleryWrap = document.querySelector('.gallery-main-wrap');
+  if (galleryWrap) {
+    var _tsX = 0;
+    galleryWrap.addEventListener('touchstart', function(e){ _tsX = e.touches[0].clientX; }, { passive: true });
+    galleryWrap.addEventListener('touchend', function(e){
+      var diff = _tsX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) galleryStep(idx, diff > 0 ? 1 : -1);
+    }, { passive: true });
+  }
+
   initPropMap(p.lat, p.lng, '<strong>' + p.address + '</strong><br>' + p.city + '<br>' + p.price);
 }
 
@@ -940,6 +965,14 @@ function swapGallery(propIdx, imgIdx, el) {
   document.querySelectorAll('.gallery-thumb').forEach(function(t){ t.classList.remove('active'); });
   if (el) el.classList.add('active');
   lbImages = p.images;
+  currentGalleryImgIdx = imgIdx;
+}
+
+function galleryStep(propIdx, dir) {
+  var p = PROPERTIES[propIdx];
+  var newIdx = (currentGalleryImgIdx + dir + p.images.length) % p.images.length;
+  var thumbs = document.querySelectorAll('.gallery-thumb');
+  swapGallery(propIdx, newIdx, thumbs[newIdx] || null);
 }
 
 /* ── LIGHTBOX ── */
