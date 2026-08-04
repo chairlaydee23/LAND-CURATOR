@@ -483,6 +483,7 @@ var GHL_COUNT_ENDPOINT  = '';         /* Fill in GHL endpoint returning {"reserv
 var MANUAL_RESERVED_COUNT = 0;        /* Manual fallback if endpoint is empty           */
 var GHL_WEBHOOK_URL     = 'https://services.leadconnectorhq.com/hooks/dfFlPq6tV5mw6ZqBtzW0/webhook-trigger/c3WtSNfz6ibqqlaJjtJo';
 var MOONCLERK_URL       = 'https://app.moonclerk.com/pay/5te0cm2n9ivb';
+var THANK_YOU           = 'https://web.landcurator.com/14-lots';
 
 /* ── PROPERTY DATA ── */
 var CF = 'https://d1sr9ngwehj2gk.cloudfront.net/';
@@ -955,7 +956,7 @@ async function handleReserve() {
     currency:         'USD'
   });
 
-  window.location.href = MOONCLERK_URL + '?eid=' + eventId + '&prop=' + encodeURIComponent(p.address);
+  window.location.href = MOONCLERK_URL + '?redirect_url=' + encodeURIComponent(THANK_YOU) + '&eid=' + eventId + '&prop=' + encodeURIComponent(p.address);
 }
 </script>
 </body>
