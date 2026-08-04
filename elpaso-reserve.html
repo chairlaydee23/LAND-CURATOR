@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>14 El Paso Lots — Reserve Any One for $19.99 | LandCurator</title>
+<meta name="description" content="14 El Paso County lots available. Reserve any one for $19.99 today. Send your contract for review, close the same week, deed in 2 weeks." />
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','713056944975093');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=713056944975093&ev=PageView&noscript=1"/></noscript>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<style>
+:root {
+  --font: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+  --green-dark:  #0D1710;
+  --green-mid:   #1B4332;
+  --green-light: #2D6A4F;
+  --page-max:  1200px;
+  --page-pad:  5%;
+}
+*, *::before, *::after {
+  box-sizing: border-box; margin: 0; padding: 0;
+  font-family: var(--font); overflow-wrap: break-word;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: #fff; color: #1a1a1a; font-size: 16px;
+  line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  background: var(--green-dark); padding: 0 var(--page-pad);
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; position: sticky; top: 0; z-index: 300;
+}
+.nav-logo img { height: 28px; width: auto; }
+.nav-phone {
+  display: flex; align-items: center; font-size: 14px; font-weight: 700;
+  color: #fff; background: var(--green-mid); padding: 10px 18px;
+  border-radius: 6px; white-space: nowrap; min-height: 44px;
+  letter-spacing: .2px; transition: background .2s;
+}
+.nav-phone:hover { background: var(--green-light); }
+
+/* HERO */
+.hero-dark {
+  background: var(--green-dark);
+  padding: 64px 0 72px;
+  text-align: center;
+}
+.hero-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 var(--page-pad);
+}
+.hero-eyebrow {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--green-light); margin-bottom: 16px;
+}
+.hero-h1 {
+  font-size: clamp(26px, 4vw, 52px); font-weight: 900; line-height: 1.08;
+  letter-spacing: -.5px; color: #fff; text-transform: uppercase; margin-bottom: 18px;
+}
+.hero-h1 span { color: #7dd3a8; }
+.hero-sub {
+  font-size: clamp(15px, 1.6vw, 18px); color: rgba(255,255,255,.72);
+  line-height: 1.6; margin-bottom: 36px; max-width: 640px; margin-left: auto; margin-right: auto;
+}
+
+/* PROGRESS BAR */
+.pb-wrap {
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px; padding: 22px 24px 20px; margin-bottom: 28px; text-align: left;
+}
+.pb-label-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px;
+}
+.pb-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase; color: rgba(255,255,255,.5);
+}
+.pb-pct {
+  font-size: 15px; font-weight: 900; color: #7dd3a8;
+}
+.pb-track {
+  width: 100%; height: 10px; background: rgba(255,255,255,.12);
+  border-radius: 999px; overflow: hidden; margin-bottom: 8px;
+}
+.pb-fill {
+  height: 100%; background: linear-gradient(90deg, var(--green-light), #7dd3a8);
+  border-radius: 999px; transition: width .6s ease;
+  width: 0%;
+}
+.pb-avail {
+  font-size: 12px; color: rgba(255,255,255,.45); font-weight: 700;
+  letter-spacing: .3px;
+}
+
+.hero-cta {
+  display: inline-block; background: var(--green-mid); color: #fff;
+  border: none; border-radius: 8px; padding: 15px 34px;
+  font-size: 15px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase;
+  cursor: pointer; transition: background .15s; font-family: var(--font);
+  text-decoration: none;
+}
+.hero-cta:hover { background: var(--green-light); }
+
+/* HOW IT WORKS */
+.hiw-section { padding: 60px 0; background: #fff; border-top: 1px solid #eee; }
+.section-inner { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-pad); }
+.section-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--green-light); margin-bottom: 6px; }
+.section-heading {
+  display: inline-block; font-size: clamp(18px, 2.1vw, 24px); font-weight: 900;
+  text-transform: uppercase; color: var(--green-dark); letter-spacing: -.3px;
+  padding-bottom: 9px; border-bottom: 3px solid var(--green-mid); margin-bottom: 32px;
+}
+.hiw-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.hiw-card {
+  background: #f7f6f3; border: 1px solid #e0dbd2; border-radius: 10px;
+  padding: 22px 18px;
+}
+.hiw-num {
+  width: 34px; height: 34px; background: var(--green-mid); color: #fff;
+  border-radius: 50%; font-size: 14px; font-weight: 900; display: flex;
+  align-items: center; justify-content: center; margin-bottom: 12px;
+}
+.hiw-title { font-size: 13.5px; font-weight: 900; color: var(--green-dark); line-height: 1.3; text-transform: uppercase; letter-spacing: .2px; }
+
+/* PROPERTY SELECTOR SECTION */
+.selector-section { background: #f9f8f5; border-top: 1px solid #eee; padding: 52px 0 0; }
+.prop-dropdown-wrap { margin-bottom: 32px; }
+.prop-dropdown-wrap label {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: #999; margin-bottom: 8px;
+}
+.prop-select {
+  width: 100%; background: #fff; border: 2px solid var(--green-mid);
+  border-radius: 8px; padding: 12px 40px 12px 14px; font-size: 15px;
+  font-weight: 700; color: #1a1a1a; outline: none; cursor: pointer;
+  -webkit-appearance: none; appearance: none; font-family: var(--font);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231B4332' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+}
+.prop-select:focus { border-color: var(--green-light); }
+
+/* PROPERTY DETAIL PANEL */
+.prop-detail { padding-bottom: 64px; }
+.prop-placeholder {
+  text-align: center; padding: 60px 0;
+  color: #aaa; font-size: 15px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+/* GALLERY */
+.gallery-outer { margin-bottom: 32px; }
+.gallery-main-wrap {
+  border-radius: 8px; overflow: hidden; aspect-ratio: 16/9;
+  background: #e0dbd2; cursor: pointer; position: relative; margin-bottom: 8px;
+}
+.gallery-main-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-expand-hint {
+  position: absolute; bottom: 10px; right: 12px;
+  background: rgba(0,0,0,.5); color: #fff; font-size: 11px; font-weight: 700;
+  letter-spacing: .4px; padding: 4px 9px; border-radius: 4px; pointer-events: none;
+}
+.gallery-thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.gallery-thumb {
+  border-radius: 5px; overflow: hidden; aspect-ratio: 16/10;
+  cursor: pointer; border: 2px solid transparent; transition: border-color .15s;
+}
+.gallery-thumb:hover, .gallery-thumb.active { border-color: var(--green-mid); }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* LIGHTBOX */
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 900;
+  background: rgba(0,0,0,.96); align-items: center; justify-content: center; padding: 20px;
+}
+.lightbox.open { display: flex; }
+.lightbox-img { max-width: 100%; max-height: 90vh; border-radius: 6px; object-fit: contain; }
+.lb-close {
+  position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,.12);
+  border: none; color: #fff; font-size: 20px; width: 38px; height: 38px;
+  border-radius: 50%; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; transition: background .15s; z-index: 1;
+}
+.lb-close:hover { background: rgba(255,255,255,.22); }
+.lb-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,.12); border: none; color: #fff;
+  font-size: 26px; width: 46px; height: 46px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background .15s;
+}
+.lb-nav:hover { background: rgba(255,255,255,.22); }
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+.lb-counter { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); font-size: 12px; color: rgba(255,255,255,.4); font-weight: 700; letter-spacing: .5px; }
+
+/* PROP DETAIL GRID */
+.prop-detail-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 0 40px; align-items: start;
+}
+.prop-detail-left { min-width: 0; }
+.prop-detail-right { }
+
+.prop-header { margin-bottom: 20px; }
+.prop-eyebrow {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--green-light); margin-bottom: 6px;
+}
+.prop-name { font-size: clamp(20px, 2.5vw, 30px); font-weight: 900; color: var(--green-dark); text-transform: uppercase; letter-spacing: -.3px; line-height: 1.1; margin-bottom: 6px; }
+.prop-meta { font-size: 13px; color: #888; font-weight: 700; margin-bottom: 4px; }
+
+/* SPECS GRID */
+.specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; margin-bottom: 24px; }
+.spec-chip { background: #fff; border: 1px solid #e0dbd2; border-radius: 7px; padding: 11px 13px; }
+.spec-chip .slabel { display: block; font-size: 9.5px; font-weight: 700; letter-spacing: .9px; text-transform: uppercase; color: #aaa; margin-bottom: 3px; }
+.spec-chip .sval { font-size: 13px; font-weight: 700; color: #1a1a1a; line-height: 1.3; }
+
+/* ABOUT */
+.prop-about { margin-bottom: 24px; }
+.body-text { font-size: 14.5px; color: #555; line-height: 1.75; margin-bottom: 12px; }
+.nearby-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.nearby-item { background: #fff; border: 1px solid #e0dbd2; border-radius: 7px; padding: 10px 13px; font-size: 13.5px; color: #1a1a1a; line-height: 1.4; }
+
+/* MAP */
+.prop-map-wrap { margin-bottom: 24px; }
+.map-disclaimer { font-size: 11.5px; color: #bbb; font-style: italic; margin-bottom: 8px; line-height: 1.5; }
+#prop-map { width: 100%; height: 320px; border-radius: 8px; overflow: hidden; border: 1px solid #e0dbd2; }
+
+/* RESERVE CARD */
+.reserve-card {
+  background: var(--green-dark); border-radius: 12px; padding: 22px 20px;
+  position: sticky; top: 84px;
+}
+.reserve-card-badge {
+  display: inline-block; background: rgba(255,255,255,.12); color: rgba(255,255,255,.8);
+  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  padding: 3px 11px; border-radius: 999px; margin-bottom: 10px;
+}
+.reserve-price {
+  font-size: 46px; font-weight: 900; color: #fff; letter-spacing: -.5px; line-height: 1;
+  margin-bottom: 4px;
+}
+.reserve-price-label { font-size: 12px; color: rgba(255,255,255,.45); font-weight: 700; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 16px; }
+.reserve-prop-selected {
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px; padding: 12px 14px; margin-bottom: 16px;
+}
+.reserve-prop-label { font-size: 9px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 4px; }
+.reserve-prop-name { font-size: 13.5px; font-weight: 700; color: #fff; line-height: 1.35; }
+.reserve-bullets { list-style: none; margin-bottom: 16px; display: flex; flex-direction: column; gap: 7px; }
+.reserve-bullets li {
+  font-size: 13px; color: rgba(255,255,255,.72); padding-left: 20px; position: relative; line-height: 1.4;
+}
+.reserve-bullets li::before { content: '✓'; position: absolute; left: 0; color: #7dd3a8; font-weight: 700; }
+.reserve-btn {
+  width: 100%; background: var(--green-mid); color: #fff; border: none; border-radius: 8px;
+  padding: 14px; font-size: 15px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase;
+  cursor: pointer; transition: background .15s; font-family: var(--font); margin-bottom: 10px;
+}
+.reserve-btn:hover:not(:disabled) { background: var(--green-light); }
+.reserve-btn:disabled { opacity: .4; cursor: not-allowed; }
+.reserve-nonrefund { font-size: 10.5px; color: rgba(255,255,255,.35); line-height: 1.5; text-align: center; }
+.reserve-trust { display: flex; justify-content: center; gap: 8px; font-size: 10px; color: rgba(255,255,255,.35); font-weight: 700; text-transform: uppercase; letter-spacing: .4px; margin-top: 8px; }
+
+/* BASIC INFO BLOCK (properties 10-14) */
+.basic-info-wrap { background: #fff; border: 1px solid #e0dbd2; border-radius: 10px; padding: 22px; margin-bottom: 24px; }
+.basic-flag {
+  display: inline-block; background: rgba(192,54,44,.1); color: #c0362c; border: 1px solid rgba(192,54,44,.25);
+  border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+  padding: 2px 8px; margin-bottom: 12px;
+}
+
+/* CONFLICT FLAG */
+.conflict-note {
+  background: rgba(241,196,15,.1); border-left: 3px solid #f1c40f; border-radius: 0 6px 6px 0;
+  padding: 10px 13px; font-size: 12px; color: #7a6000; line-height: 1.55; margin-bottom: 16px;
+}
+
+/* TRUST STRIP */
+.trust-strip {
+  background: var(--green-mid); padding: 14px var(--page-pad);
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 5px 16px;
+}
+.trust-strip span { font-size: 11.5px; font-weight: 700; color: #fff; letter-spacing: .6px; text-transform: uppercase; white-space: nowrap; }
+
+/* FOOTER */
+footer { background: var(--green-dark); color: rgba(255,255,255,.55); padding: 44px 0 24px; }
+.footer-inner { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-pad); }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; margin-bottom: 26px; }
+.footer-logo img { height: 26px; width: auto; margin-bottom: 12px; filter: brightness(0) invert(1); }
+.footer-tagline { font-size: 12.5px; color: rgba(255,255,255,.4); max-width: 360px; line-height: 1.6; }
+.footer-legal-label { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 10px; }
+.footer-legal a { font-size: 13px; color: rgba(255,255,255,.6); }
+.footer-legal a:hover { color: #fff; }
+.fb-disclaimer { font-size: 11.5px; color: rgba(255,255,255,.3); line-height: 1.6; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); margin-bottom: 16px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 11.5px; color: rgba(255,255,255,.38); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .prop-detail-grid { grid-template-columns: 1fr; }
+  .reserve-card { position: static; margin-top: 28px; }
+  .hiw-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 580px) {
+  .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+  .nearby-grid { grid-template-columns: 1fr; }
+  .hiw-grid { grid-template-columns: 1fr 1fr; }
+  .hero-h1 { font-size: clamp(22px, 7vw, 34px); }
+}
+@media (max-width: 420px) {
+  .hiw-grid { grid-template-columns: 1fr; }
+  nav { padding: 0 4%; }
+  .nav-logo img { height: 22px; }
+  .nav-phone { font-size: 12.5px; padding: 9px 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="lbClickOutside(event)">
+  <button class="lb-close" onclick="closeLightbox()">&#10005;</button>
+  <button class="lb-nav lb-prev" onclick="lbStep(-1)">&#8249;</button>
+  <img class="lightbox-img" id="lb-img" alt="Property photo" />
+  <button class="lb-nav lb-next" onclick="lbStep(1)">&#8250;</button>
+  <span class="lb-counter" id="lb-counter"></span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="https://assets.cdn.filesafe.space/dfFlPq6tV5mw6ZqBtzW0/media/69cd5f61bb06f5e1249e3781.png" alt="LandCurator" />
+  </a>
+  <a class="nav-phone" href="tel:18005200534">1 (800) 520-0534</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero-dark" id="top">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">El Paso County, Texas &nbsp;&middot;&nbsp; 14 Lots Available</span>
+    <h1 class="hero-h1">14 El Paso Lots.<br><span>$19.99</span> Reserves Any One<br>Of Them Today.</h1>
+    <p class="hero-sub">Pick a lot, reserve it for $19.99, and we'll send your contract for review. Close the same week. Deed transfers in 2 weeks.</p>
+
+    <div class="pb-wrap" id="pb-wrap">
+      <div class="pb-label-row">
+        <span class="pb-label">Reservation Status</span>
+        <span class="pb-pct" id="pb-pct">0%</span>
+      </div>
+      <div class="pb-track">
+        <div class="pb-fill" id="pb-fill"></div>
+      </div>
+      <span class="pb-avail" id="pb-avail">14 of 14 still available</span>
+    </div>
+
+    <a class="hero-cta" href="#selector">Choose Your Property &#8595;</a>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <span>&#10003; Reserve for $19.99</span>
+  <span>&middot;</span>
+  <span>Contract Sent Same Day</span>
+  <span>&middot;</span>
+  <span>Close in 1 Week</span>
+  <span>&middot;</span>
+  <span>Deed in 2 Weeks</span>
+  <span>&middot;</span>
+  <span>BBB A+</span>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="hiw-section">
+  <div class="section-inner">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-heading">Four Simple Steps</h2>
+    <div class="hiw-grid">
+      <div class="hiw-card">
+        <div class="hiw-num">1</div>
+        <p class="hiw-title">Choose a property from the dropdown below</p>
+      </div>
+      <div class="hiw-card">
+        <div class="hiw-num">2</div>
+        <p class="hiw-title">Reserve for $19.99 &mdash; we send your contract for review</p>
+      </div>
+      <div class="hiw-card">
+        <div class="hiw-num">3</div>
+        <p class="hiw-title">Close in a week. No bank. No credit check.</p>
+      </div>
+      <div class="hiw-card">
+        <div class="hiw-num">4</div>
+        <p class="hiw-title">Deed transfers in 2 weeks. Land is yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY SELECTOR -->
+<section class="selector-section" id="selector">
+  <div class="section-inner">
+    <span class="section-label">Choose Your Property</span>
+    <h2 class="section-heading">14 Available Lots</h2>
+
+    <div class="prop-dropdown-wrap">
+      <label for="prop-select">Select a property to see full details</label>
+      <select id="prop-select" class="prop-select" onchange="switchProperty(this.value)">
+        <option value="">— Pick a lot to see details —</option>
+        <option value="0">10 Driver Rd, 0.26 Acres, $7,995</option>
+        <option value="1">7 Faxton, 0.24 Acres, $10,950</option>
+        <option value="2">0 Atlantis Dr, 0.26 Acres, $9,995</option>
+        <option value="3">1 Atlantis Dr, 0.23 Acres, $9,795</option>
+        <option value="4">1 Torontomire, 0.34 Acres, $19,950 &#9888;</option>
+        <option value="5">22 Roscoe Dr, 0.23 Acres, $8,750 &#9888;</option>
+        <option value="6">1 La Joya Dr, 0.23 Acres, $10,950 &#9888;</option>
+        <option value="7">2 La Joya, 0.23 Acres, $7,500</option>
+        <option value="8">0 Drunamvilla Pl, 0.72 Acres, $7,950 &#9888;</option>
+        <option value="9">9 Triumph St, 0.67 Acres, $13,250</option>
+        <option value="10">3 Torontomire, 0.37 Acres, $20,150</option>
+        <option value="11">3 Tim Floyd St, 0.26 Acres, $39,850</option>
+        <option value="12">0 Hattieville, 0.24 Acres, $11,250</option>
+        <option value="13">0 Jeddo Ave, 0.90 Acres, $33,850 &#9888;</option>
+      </select>
+    </div>
+
+    <div class="prop-detail" id="prop-detail">
+      <div class="prop-placeholder">&#8593; Select a property above to view details</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <img src="https://assets.cdn.filesafe.space/dfFlPq6tV5mw6ZqBtzW0/media/69cd5f61bb06f5e1249e3781.png" alt="LandCurator" />
+        </div>
+        <p class="footer-tagline">Landcurator and Landxperte are wholly owned subsidiaries of UNOI Partners LLC.</p>
+      </div>
+      <div class="footer-legal">
+        <div class="footer-legal-label">Legal</div>
+        <a href="https://web.landcurator.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+      </div>
+    </div>
+    <p class="fb-disclaimer">This site is not part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+    <div class="footer-bottom">
+      <span>&copy; 2026 LandCurator / UNOI Partners LLC</span>
+      <span>BBB A+ Accredited &nbsp;&middot;&nbsp; No agents &nbsp;&middot;&nbsp; No hidden fees</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── CONFIG ── */
+var GHL_COUNT_ENDPOINT  = '';         /* Fill in GHL endpoint returning {"reserved": N} */
+var MANUAL_RESERVED_COUNT = 0;        /* Manual fallback if endpoint is empty           */
+var GHL_WEBHOOK_URL     = 'https://services.leadconnectorhq.com/hooks/dfFlPq6tV5mw6ZqBtzW0/webhook-trigger/c3WtSNfz6ibqqlaJjtJo';
+var MOONCLERK_URL       = 'https://app.moonclerk.com/pay/5te0cm2n9ivb';
+
+/* ── PROPERTY DATA ── */
+var CF = 'https://d1sr9ngwehj2gk.cloudfront.net/';
+
+var PROPERTIES = [
+  /* 0 — 10 Driver Rd */
+  {
+    address: '10 Driver Rd', city: 'El Paso County, TX 79928',
+    parcel: 'H784-008-0160-0210', size: '0.26 Acres', price: '$7,995',
+    type: 'full',
+    desc: 'This 0.26 acre parcel sits on Driver Rd in Horizon City, El Paso County, TX. Dirt road access, no HOA, no build timeline. Elevation approximately 4,025 ft. El Paso County permits manufactured homes and RVs. Approximately 30 minutes from Downtown El Paso via I-10 West.',
+    nearby: ['Horizon City', 'Horizon Blvd access route', 'Hueco Tanks State Park', 'Downtown El Paso (~30 min)'],
+    images: [
+      CF+'Screenshot_2025_09_23_at_11_56_45_c9ba42da67.png',
+      CF+'Screenshot_2025_09_23_at_11_56_34_b64eb85078.png',
+      CF+'Screenshot_2025_09_23_at_11_57_00_3c0b6aa87b.png',
+      CF+'Screenshot_2025_09_23_at_11_57_48_3638de797f.png',
+      CF+'Screenshot_2025_09_23_at_11_58_05_47a28fe253.png',
+      CF+'Screenshot_2025_09_23_at_11_57_57_1c58992dea.png',
+      CF+'Screenshot_2025_09_23_at_11_57_13_97212ab933.png',
+      CF+'Screenshot_2025_09_23_at_11_57_25_fadd77caa0.png',
+      CF+'Screenshot_2025_09_23_at_11_58_13_5bb9f9330f.png'
+    ],
+    lat: 31.721, lng: -106.200
+  },
+  /* 1 — 7 Faxton */
+  {
+    address: '7 Faxton', city: 'El Paso County, TX 79928',
+    parcel: 'H784-045-0030-0160', size: '0.24 Acres', price: '$10,950',
+    type: 'full',
+    desc: 'This 0.24 acre parcel on Faxton in Horizon City, El Paso County offers dirt road frontage in a growing market. Minutes from groceries, schools, and dining in Horizon City. Suitable for building a starter home, recreational camping or RV use, or long-term investment.',
+    nearby: ['Horizon City (minutes away)', 'Grocery stores and dining nearby', 'Hueco Tanks State Park', 'Downtown El Paso (~30 min)'],
+    images: [
+      CF+'Screenshot_2025_09_23_at_13_19_48_9de7691422.png',
+      CF+'Screenshot_2025_09_23_at_13_19_56_6e2aab24a1.png',
+      CF+'Screenshot_2025_09_23_at_13_21_03_25f25a3d1e.png',
+      CF+'Screenshot_2025_09_23_at_13_21_11_3b4d72fa38.png',
+      CF+'Screenshot_2025_09_23_at_13_20_46_c7b599afa9.png',
+      CF+'Screenshot_2025_09_23_at_13_21_22_716ea8a770.png',
+      CF+'Screenshot_2025_09_23_at_13_20_41_48b431e67c.png',
+      CF+'Screenshot_2025_09_23_at_13_20_18_d7a97eb6d4.png',
+      CF+'Screenshot_2025_09_23_at_13_20_54_1566480cc5.png'
+    ],
+    lat: 31.722, lng: -106.243
+  },
+  /* 2 — 0 Atlantis Dr */
+  {
+    address: '0 Atlantis Dr', city: 'Horizon City, El Paso County TX',
+    parcel: 'H784-043-0120-0010', size: '0.26 Acres', price: '$9,995',
+    type: 'full',
+    desc: 'This 0.26 acre parcel sits along Atlantis Dr in Horizon City, El Paso County. Dirt road access, no HOA, no build timeline. El Paso County permits manufactured homes and RVs.',
+    nearby: ['Horizon City (minutes away)', 'Horizon Blvd nearby', 'Hueco Tanks State Park (short drive)', 'Downtown El Paso (~30 min)'],
+    images: [
+      CF+'Screenshot_2026_03_20_at_09_16_27_249a3198fa.png',
+      CF+'Screenshot_2026_03_20_at_09_18_35_de570d678c.png',
+      CF+'Screenshot_2026_03_20_at_09_17_50_e68349f022.png',
+      CF+'Screenshot_2026_03_20_at_09_16_40_43c5e0e5bc.png',
+      CF+'Screenshot_2026_03_20_at_09_18_10_7b23cf3d89.png',
+      CF+'Screenshot_2026_03_20_at_09_17_10_4b1b7f0284.png',
+      CF+'Screenshot_2026_03_20_at_09_18_00_d1595da3b5.png',
+      CF+'Screenshot_2026_03_20_at_09_17_25_24eca3d72f.png',
+      CF+'Screenshot_2025_10_02_at_22_57_42_f2b38a0ee9.png'
+    ],
+    lat: 31.718, lng: -106.265
+  },
+  /* 3 — 1 Atlantis Dr */
+  {
+    address: '1 Atlantis Dr', city: 'Horizon City, El Paso County TX',
+    parcel: 'H784-043-0120-0020', size: '0.23 Acres', price: '$9,795',
+    type: 'full',
+    desc: 'This 0.23 acre parcel sits on the same stretch of Atlantis Dr in Horizon City, El Paso County. Dirt road frontage with nearby paved connections, no HOA, no credit check.',
+    nearby: ['Horizon City (minutes away)', 'Horizon Blvd nearby', 'Hueco Tanks State Park (short drive)', 'Downtown El Paso (~30 min)'],
+    images: [
+      CF+'Screenshot_2025_10_02_at_23_27_24_4b7870e9a8.png',
+      CF+'Screenshot_2025_10_02_at_23_27_38_29b02ec9a0.png',
+      CF+'Screenshot_2025_10_02_at_23_28_23_10c1ac2d79.png',
+      CF+'Screenshot_2025_10_02_at_23_27_52_9644684888.png',
+      CF+'Screenshot_2025_10_02_at_23_31_09_516b649ba4.png',
+      CF+'Screenshot_2025_10_02_at_23_30_43_e016b0385d.png',
+      CF+'Screenshot_2025_10_02_at_23_25_53_9b979c873b.png',
+      CF+'Screenshot_2025_10_02_at_23_27_14_8022c3397c.png',
+      CF+'Screenshot_2025_10_02_at_23_26_58_c1410bb91f.png'
+    ],
+    lat: 31.718, lng: -106.264
+  },
+  /* 4 — 1 Torontomire (⚠️ listing URL slug shows $32,750; proposed price = $19,950) */
+  {
+    address: '1 Torontomire', city: 'Horizon City, El Paso County TX',
+    parcel: 'H784-064-0200-0040', size: '0.34 Acres', price: '$19,950',
+    conflict: 'Verify: listing page URL references an older price. Proposed price is $19,950 — confirm before publishing.',
+    type: 'full',
+    desc: 'This 0.34 acre parcel sits in the rapidly developing east El Paso / Horizon City corridor. No HOA fees. Suitable for homebuilding, investment, or recreational use. Horizon High School 8 minutes, Walmart Supercenter 10 minutes, hospital 12 minutes.',
+    nearby: ['Horizon High School (8 min)', 'Walmart Supercenter (10 min)', 'Hospital of Providence Horizon City (12 min)', 'Hueco Tanks State Park (25 min)', 'Downtown El Paso (~30 min)'],
+    images: [
+      CF+'Screenshot_2025_10_29_at_14_03_39_9fc0da7e68.png',
+      CF+'Screenshot_2025_10_29_at_14_06_42_0fc3b9030b.png',
+      CF+'Screenshot_2025_10_29_at_14_06_35_a5968709c2.png',
+      CF+'Screenshot_2025_10_29_at_14_06_08_c8c67f5947.png',
+      CF+'Screenshot_2025_10_29_at_14_06_00_1d7b4694cb.png',
+      CF+'Screenshot_2025_10_29_at_14_05_42_cfbdb8269c.png',
+      CF+'Screenshot_2025_10_29_at_14_05_25_6fb1a1e419.png',
+      CF+'Screenshot_2025_10_29_at_14_05_11_5f3edbdb7f.png',
+      CF+'Screenshot_2025_10_29_at_14_04_51_4d40ac5acd.png'
+    ],
+    lat: 31.715, lng: -106.233
+  },
+  /* 5 — 22 Roscoe Dr (⚠️ listing URL slug shows $9,250; proposed price = $8,750) */
+  {
+    address: '22 Roscoe Dr', city: 'Horizon City, El Paso County TX',
+    parcel: 'H784-044-0020-0290', size: '0.23 Acres', price: '$8,750',
+    conflict: 'Verify: listing page URL references $9,250. Proposed price is $8,750 — confirm before publishing.',
+    type: 'full',
+    desc: 'This 0.23 acre property on Roscoe Dr presents an affordable opportunity in the fast-developing Horizon City area of El Paso County. Dirt road access, approximately 10 minutes from North Ascension Rd.',
+    nearby: ['Horizon City (nearby)', 'North Ascension Rd (~10 min)', 'Hueco Tanks State Park', 'Downtown El Paso (~30 min)'],
+    images: [
+      CF+'Screenshot_2025_11_17_at_09_59_52_5c067dbb18.png',
+      CF+'Screenshot_2025_11_17_at_10_01_53_d2aabf4a70.png',
+      CF+'Screenshot_2025_11_17_at_10_01_40_726516d5b5.png',
+      CF+'Screenshot_2025_11_17_at_10_00_13_b8963f0362.png',
+      CF+'Screenshot_2025_11_17_at_10_04_05_1da9bdf0de.png',
+      CF+'Screenshot_2025_11_17_at_09_59_39_ed5d7509b8.png',
+      CF+'Screenshot_2025_11_17_at_10_01_26_28dc9042b4.png',
+      CF+'Screenshot_2025_11_17_at_10_05_26_106f540718.png',
+      CF+'Screenshot_2025_11_17_at_10_05_55_086b2485e3.png'
+    ],
+    lat: 31.720, lng: -106.290
+  },
+  /* 6 — 1 La Joya Dr (⚠️ standalone La Joya funnel page shows $15,750; proposed = $10,950) */
+  {
+    address: '1 La Joya Dr', city: 'Horizon City, El Paso County TX',
+    parcel: 'H784-065-0150-0170', size: '0.23 Acres', price: '$10,950',
+    conflict: 'Verify: standalone La Joya page shows $15,750. Proposed price here is $10,950 — the two pages must not show conflicting prices simultaneously.',
+    type: 'full',
+    desc: 'This 0.23 acre lot sits on La Joya Dr in Horizon City, El Paso County, about 10 minutes from N Ascension Rd. Dirt road access, no HOA, no credit check.',
+    nearby: ['N Ascension Rd (~10 min)', 'Horizon City', 'Hueco Tanks State Park', 'Downtown El Paso (~30 min)'],
+    images: [
+      CF+'Screenshot_2025_11_16_at_19_19_27_b4ada9999b.png',
+      CF+'Screenshot_2025_11_16_at_19_19_14_1859531c96.png',
+      CF+'Screenshot_2025_11_16_at_19_18_09_236e0a12ab.png',
+      CF+'Screenshot_2025_11_16_at_19_18_39_faeb57c5b1.png',
+      CF+'Screenshot_2025_11_16_at_19_18_23_1cf04b4af4.png',
+      CF+'Screenshot_2025_11_16_at_19_18_02_e762f00588.png',
+      CF+'Screenshot_2025_11_16_at_19_18_58_d1c80dbb10.png',
+      CF+'Screenshot_2025_11_16_at_19_17_51_33044b8537.png',
+      CF+'Screenshot_2025_11_16_at_19_16_23_bec7cd2664.png'
+    ],
+    lat: 31.711, lng: -106.248
+  },
+  /* 7 — 2 La Joya */
+  {
+    address: '2 La Joya', city: 'Horizon City, El Paso County TX',
+    parcel: 'H78406300500120', size: '0.23 Acres', price: '$7,500',
+    type: 'full',
+    desc: 'This 0.23 acre lot sits on the same stretch of La Joya Dr in Horizon City, El Paso County. Affordable entry point with dirt road access and no HOA.',
+    nearby: ['Horizon City', 'N Ascension Rd', 'Hueco Tanks State Park', 'Downtown El Paso (~30 min)'],
+    images: [
+      CF+'Screenshot_2025_12_16_at_14_30_23_d4295e2861.png',
+      CF+'Screenshot_2025_12_16_at_14_32_55_613fed7d8b.png',
+      CF+'Screenshot_2025_12_16_at_14_30_15_96107e29c4.png',
+      CF+'Screenshot_2025_12_16_at_14_30_31_1ec75c3370.png',
+      CF+'Screenshot_2025_12_16_at_14_31_04_a43ee908b8.png',
+      CF+'Screenshot_2025_12_16_at_14_32_27_90585892e8.png',
+      CF+'Screenshot_2025_12_16_at_14_30_49_c3fbed837f.png',
+      CF+'Screenshot_2025_12_16_at_14_31_22_2e8828ef86.png',
+      CF+'Screenshot_2025_12_16_at_14_31_38_f4612da6db.png'
+    ],
+    lat: 31.712, lng: -106.247
+  },
+  /* 8 — 0 Drunamvilla Pl (⚠️ listing URL slug shows 0.24 acres / $2,250; CSV = 0.72 acres / $7,950) */
+  {
+    address: '0 Drunamvilla Pl', city: 'Horizon City, El Paso County TX',
+    parcel: 'H784-087-0060-0340', size: '0.72 Acres', price: '$7,950',
+    conflict: 'Verify: listing URL slug references 0.24 acres and $2,250. This is the largest data conflict in the list — confirm current size (0.72 acres) and price ($7,950) before publishing.',
+    type: 'full',
+    desc: 'This large parcel on Drunamvilla Pl in Horizon City, El Paso County, TX offers an economical entry point at well under $20,000. Dirt road access, elevation approximately 4,025 ft. Horizon City minutes away for groceries and schools.',
+    nearby: ['Horizon City (minutes away)', 'Horizon Blvd (convenient access)', 'Hueco Tanks State Park', 'Downtown El Paso (~30 min)'],
+    images: [
+      CF+'Screenshot_2025_10_17_at_17_11_33_8d69a24636.png',
+      CF+'Screenshot_2025_10_17_at_17_11_45_5dc85a4154.png',
+      CF+'Screenshot_2025_10_17_at_17_12_17_1428afaa7f.png',
+      CF+'Screenshot_2025_10_17_at_17_12_03_b34238b98d.png',
+      CF+'Screenshot_2025_10_17_at_17_11_56_9a20968951.png',
+      CF+'Screenshot_2025_10_17_at_17_11_12_ba877c51d3.png',
+      CF+'Screenshot_2025_10_17_at_17_11_28_1954c6cc59.png',
+      CF+'Screenshot_2025_10_17_at_17_10_55_0aad6ba50d.png',
+      CF+'Screenshot_2025_10_17_at_17_11_05_a306cff2fc.png'
+    ],
+    lat: 31.730, lng: -106.183
+  },
+  /* 9 — 9 Triumph St (basic) */
+  { address: '9 Triumph St', city: 'El Paso County, TX', parcel: 'H779-033-2570-0220', size: '0.67 Acres', price: '$13,250', type: 'basic', lat: 31.682, lng: -106.121 },
+  /* 10 — 3 Torontomire (basic) */
+  { address: '3 Torontomire', city: 'Horizon City, El Paso County TX', parcel: 'H784-064-0200-0100', size: '0.37 Acres', price: '$20,150', type: 'basic', lat: 31.714, lng: -106.234 },
+  /* 11 — 3 Tim Floyd St (basic) */
+  { address: '3 Tim Floyd St', city: 'El Paso County, TX', parcel: 'H784-050-0120-0190', size: '0.26 Acres', price: '$39,850', type: 'basic', lat: 31.731, lng: -106.373 },
+  /* 12 — 0 Hattieville (basic) */
+  { address: '0 Hattieville', city: 'El Paso County, TX', parcel: 'H784-048-0040-0270', size: '0.24 Acres', price: '$11,250', type: 'basic', lat: 31.691, lng: -106.301 },
+  /* 13 — 0 Jeddo Ave (basic, ⚠️ possible DC) */
+  { address: '0 Jeddo Ave', city: 'El Paso County, TX', parcel: 'H779-070-5480-0040', size: '0.90 Acres', price: '$33,850', type: 'basic',
+    conflict: 'Verify: CSV flags this as "Possible DC" — confirm property is available before running paid reservation traffic. Also confirm price matches the standalone 1-acre page at web.landcurator.com/1-acre.',
+    lat: 31.898, lng: -106.531 }
+];
+
+/* ── STATE ── */
+var currentPropIdx = -1;
+var lbImages = [];
+var lbIndex = 0;
+var propMap = null;
+var propMarker = null;
+
+var redIcon = L.icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+  iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+});
+
+/* ── PROGRESS BAR ── */
+function updateProgressBar(count) {
+  var total = 14;
+  count = Math.min(count, total);
+  var pct = Math.round((count / total) * 100);
+  document.getElementById('pb-fill').style.width = pct + '%';
+  document.getElementById('pb-pct').textContent = pct + '% Reserved';
+  document.getElementById('pb-avail').textContent = (total - count) + ' of ' + total + ' still available';
+}
+
+if (GHL_COUNT_ENDPOINT) {
+  fetch(GHL_COUNT_ENDPOINT)
+    .then(function(r){ return r.json(); })
+    .then(function(d){ updateProgressBar(d.reserved || 0); })
+    .catch(function(){ updateProgressBar(MANUAL_RESERVED_COUNT); });
+} else {
+  updateProgressBar(MANUAL_RESERVED_COUNT);
+}
+
+/* ── SWITCH PROPERTY ── */
+function switchProperty(val) {
+  if (val === '') {
+    document.getElementById('prop-detail').innerHTML = '<div class="prop-placeholder">&#8593; Select a property above to view details</div>';
+    currentPropIdx = -1;
+    return;
+  }
+  var idx = parseInt(val, 10);
+  currentPropIdx = idx;
+  var p = PROPERTIES[idx];
+
+  if (p.type === 'full') {
+    renderFullProperty(p, idx);
+  } else {
+    renderBasicProperty(p, idx);
+  }
+
+  /* Scroll detail panel into view */
+  setTimeout(function(){
+    document.getElementById('prop-detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+}
+
+/* ── RENDER FULL PROPERTY ── */
+function renderFullProperty(p, idx) {
+  var conflict = p.conflict ? '<div class="conflict-note">&#9888; ' + p.conflict + '</div>' : '';
+
+  var thumbsHtml = '';
+  p.images.forEach(function(src, i){
+    thumbsHtml += '<div class="gallery-thumb' + (i===0?' active':'') + '" onclick="swapGallery(' + idx + ',' + i + ',this)"><img src="' + src + '" alt="" loading="lazy" /></div>';
+  });
+
+  var nearbyHtml = '';
+  p.nearby.forEach(function(n){
+    nearbyHtml += '<div class="nearby-item">' + n + '</div>';
+  });
+
+  var html = '<div class="prop-detail-grid">';
+
+  /* LEFT */
+  html += '<div class="prop-detail-left">';
+
+  /* Gallery */
+  html += '<div class="gallery-outer">';
+  html += '<div class="gallery-main-wrap" onclick="openLightbox(' + idx + ', 0)">';
+  html += '<img id="gm-' + idx + '" src="' + p.images[0] + '" alt="' + p.address + '" />';
+  html += '<span class="gallery-expand-hint">Click to enlarge</span>';
+  html += '</div>';
+  html += '<div class="gallery-thumbs">' + thumbsHtml + '</div>';
+  html += '</div>';
+
+  /* Header */
+  html += '<div class="prop-header">';
+  html += '<span class="prop-eyebrow">El Paso County, TX &nbsp;&middot;&nbsp; ' + p.size + '</span>';
+  html += '<h3 class="prop-name">' + p.address + '</h3>';
+  html += '<p class="prop-meta">' + p.city + '</p>';
+  html += '</div>';
+
+  /* Conflict */
+  html += conflict;
+
+  /* Specs */
+  html += '<div class="specs-grid">';
+  html += '<div class="spec-chip"><span class="slabel">Address</span><span class="sval">' + p.address + ', ' + p.city + '</span></div>';
+  html += '<div class="spec-chip"><span class="slabel">Size</span><span class="sval">' + p.size + '</span></div>';
+  html += '<div class="spec-chip"><span class="slabel">Price</span><span class="sval">' + p.price + '</span></div>';
+  html += '<div class="spec-chip"><span class="slabel">Parcel #</span><span class="sval">' + p.parcel + '</span></div>';
+  html += '<div class="spec-chip"><span class="slabel">Road Access</span><span class="sval">Dirt Road</span></div>';
+  html += '<div class="spec-chip"><span class="slabel">Status</span><span class="sval" style="color:var(--green-mid)">Available</span></div>';
+  html += '</div>';
+
+  /* Description */
+  html += '<div class="prop-about">';
+  html += '<span class="section-label">About</span>';
+  html += '<p class="body-text">' + p.desc + '</p>';
+  html += '<span class="section-label" style="margin-top:16px;display:block;">What\'s Nearby</span>';
+  html += '<div class="nearby-grid">' + nearbyHtml + '</div>';
+  html += '</div>';
+
+  /* Map */
+  html += '<div class="prop-map-wrap">';
+  html += '<span class="section-label">Location</span>';
+  html += '<p class="map-disclaimer">Pin location is approximate &mdash; ' + p.address + ', El Paso County TX.</p>';
+  html += '<div id="prop-map"></div>';
+  html += '</div>';
+
+  html += '</div>'; /* end left */
+
+  /* RIGHT — reserve card */
+  html += '<div class="prop-detail-right">';
+  html += buildReserveCard(p);
+  html += '</div>';
+
+  html += '</div>'; /* end grid */
+
+  document.getElementById('prop-detail').innerHTML = html;
+
+  lbImages = p.images;
+  initPropMap(p.lat, p.lng, '<strong>' + p.address + '</strong><br>' + p.city + '<br>' + p.price);
+}
+
+/* ── RENDER BASIC PROPERTY ── */
+function renderBasicProperty(p, idx) {
+  var conflict = p.conflict ? '<div class="conflict-note">&#9888; ' + p.conflict + '</div>' : '';
+
+  var html = '<div class="prop-detail-grid">';
+
+  /* LEFT */
+  html += '<div class="prop-detail-left">';
+
+  /* Header */
+  html += '<div class="prop-header">';
+  html += '<span class="prop-eyebrow">El Paso County, TX &nbsp;&middot;&nbsp; ' + p.size + '</span>';
+  html += '<h3 class="prop-name">' + p.address + '</h3>';
+  html += '<p class="prop-meta">' + p.city + '</p>';
+  html += '</div>';
+
+  /* Conflict */
+  html += conflict;
+
+  /* Basic info block */
+  html += '<div class="basic-info-wrap">';
+  html += '<span class="basic-flag">Basic Listing</span>';
+  html += '<div class="specs-grid">';
+  html += '<div class="spec-chip"><span class="slabel">Address</span><span class="sval">' + p.address + ', ' + p.city + '</span></div>';
+  html += '<div class="spec-chip"><span class="slabel">Size</span><span class="sval">' + p.size + '</span></div>';
+  html += '<div class="spec-chip"><span class="slabel">Price</span><span class="sval">' + p.price + '</span></div>';
+  html += '<div class="spec-chip"><span class="slabel">Parcel #</span><span class="sval">' + p.parcel + '</span></div>';
+  html += '<div class="spec-chip"><span class="slabel">County</span><span class="sval">El Paso County, TX</span></div>';
+  html += '<div class="spec-chip"><span class="slabel">Status</span><span class="sval" style="color:var(--green-mid)">Available</span></div>';
+  html += '</div>';
+  html += '</div>';
+
+  /* Map */
+  html += '<div class="prop-map-wrap">';
+  html += '<span class="section-label">Location</span>';
+  html += '<p class="map-disclaimer">Pin location is approximate &mdash; ' + p.address + ', El Paso County TX.</p>';
+  html += '<div id="prop-map"></div>';
+  html += '</div>';
+
+  html += '</div>'; /* end left */
+
+  /* RIGHT — reserve card */
+  html += '<div class="prop-detail-right">';
+  html += buildReserveCard(p);
+  html += '</div>';
+
+  html += '</div>'; /* end grid */
+
+  document.getElementById('prop-detail').innerHTML = html;
+
+  initPropMap(p.lat, p.lng, '<strong>' + p.address + '</strong><br>' + p.city + '<br>' + p.price);
+}
+
+function buildReserveCard(p) {
+  var html = '<div class="reserve-card">';
+  html += '<span class="reserve-card-badge">Reserve This Lot</span>';
+  html += '<div class="reserve-price">$19.99</div>';
+  html += '<p class="reserve-price-label">Reservation fee &mdash; non-refundable</p>';
+  html += '<div class="reserve-prop-selected">';
+  html += '<p class="reserve-prop-label">Selected Property</p>';
+  html += '<p class="reserve-prop-name">' + p.address + '<br><span style="font-weight:400;font-size:12px;opacity:.7">' + p.size + ' &nbsp;&middot;&nbsp; ' + p.price + '</span></p>';
+  html += '</div>';
+  html += '<ul class="reserve-bullets">';
+  html += '<li>Reserve your spot today for $19.99</li>';
+  html += '<li>Contract sent same day for review</li>';
+  html += '<li>Close in a week &mdash; no bank, no credit check</li>';
+  html += '<li>Deed transfers in 2 weeks</li>';
+  html += '</ul>';
+  html += '<button class="reserve-btn" id="reserve-btn" onclick="handleReserve()">Reserve Now &rarr;</button>';
+  html += '<p class="reserve-nonrefund">Reservation fee is non-refundable once the contract process starts. Reserve Now redirects to our secure payment page.</p>';
+  html += '<div class="reserve-trust"><span>&#128274; Secure</span><span>&middot;</span><span>BBB A+</span><span>&middot;</span><span>No Hidden Fees</span></div>';
+  html += '</div>';
+  return html;
+}
+
+/* ── MAP ── */
+function initPropMap(lat, lng, popup) {
+  if (propMap) {
+    propMap.off(); propMap.remove(); propMap = null; propMarker = null;
+  }
+  propMap = L.map('prop-map', { center: [lat, lng], zoom: 16, scrollWheelZoom: false });
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri', maxZoom: 19
+  }).addTo(propMap);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; CartoDB', subdomains: 'abcd', maxZoom: 20, opacity: .7
+  }).addTo(propMap);
+  propMarker = L.marker([lat, lng], { icon: redIcon }).addTo(propMap).bindPopup(popup).openPopup();
+}
+
+/* ── GALLERY SWAP ── */
+function swapGallery(propIdx, imgIdx, el) {
+  var p = PROPERTIES[propIdx];
+  var mainImg = document.getElementById('gm-' + propIdx);
+  if (mainImg) mainImg.src = p.images[imgIdx];
+  document.querySelectorAll('.gallery-thumb').forEach(function(t){ t.classList.remove('active'); });
+  if (el) el.classList.add('active');
+  lbImages = p.images;
+}
+
+/* ── LIGHTBOX ── */
+function openLightbox(propIdx, idx) {
+  lbImages = PROPERTIES[propIdx].images;
+  lbIndex = idx || 0;
+  document.getElementById('lb-img').src = lbImages[lbIndex];
+  document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lbStep(dir) {
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+  document.getElementById('lb-img').src = lbImages[lbIndex];
+  document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+}
+function lbClickOutside(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
+document.addEventListener('keydown', function(e){
+  var lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lbStep(-1);
+  if (e.key === 'ArrowRight') lbStep(1);
+});
+
+/* ── RESERVE NOW ── */
+async function handleReserve() {
+  if (currentPropIdx < 0) return;
+  var p = PROPERTIES[currentPropIdx];
+  var btn = document.getElementById('reserve-btn');
+  if (!btn) return;
+  btn.disabled = true;
+  btn.textContent = 'Processing…';
+
+  var eventId = 'reserve_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+  var payload = {
+    event_id:          eventId,
+    property_reserved: p.address + ', ' + p.city,
+    property_price:    p.price,
+    property_size:     p.size,
+    property_parcel:   p.parcel
+  };
+
+  try {
+    await fetch(GHL_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch(e) { /* proceed regardless */ }
+
+  fbq('track', 'Lead', {
+    content_name:     p.address + ' Reserve',
+    content_category: 'Land Reserve',
+    value:            19.99,
+    currency:         'USD'
+  });
+
+  window.location.href = MOONCLERK_URL + '?eid=' + eventId + '&prop=' + encodeURIComponent(p.address);
+}
+</script>
+</body>
+</html>
