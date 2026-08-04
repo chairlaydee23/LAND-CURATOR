@@ -37,10 +37,10 @@ src="https://www.facebook.com/tr?id=713056944975093&ev=PageView&noscript=1"/></n
   box-sizing: border-box; margin: 0; padding: 0;
   font-family: var(--font); overflow-wrap: break-word;
 }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; margin: 0; padding: 0; }
 body {
   background: #fff; color: #1a1a1a; font-size: 16px;
-  line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; margin: 0; padding: 0;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -82,37 +82,41 @@ nav {
 .hero-h1 span { color: #7dd3a8; }
 .hero-sub {
   font-size: clamp(15px, 1.6vw, 18px); color: rgba(255,255,255,.72);
-  line-height: 1.6; margin-bottom: 36px; max-width: 640px; margin-left: auto; margin-right: auto;
+  line-height: 1.6; margin-bottom: 28px; max-width: 640px; margin-left: auto; margin-right: auto;
 }
 
-/* PROGRESS BAR */
+/* COUNTDOWN */
+.countdown-wrap {
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px; padding: 18px 20px 14px; margin-bottom: 24px; text-align: center;
+}
+.cd-label {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px;
+  text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 8px;
+}
+.cd-digits {
+  font-size: clamp(38px, 6vw, 58px); font-weight: 900; color: #fff;
+  letter-spacing: 3px; line-height: 1; font-variant-numeric: tabular-nums;
+}
+
+/* PROGRESS BAR — BOTB style */
 .pb-wrap {
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-  border-radius: 12px; padding: 22px 24px 20px; margin-bottom: 28px; text-align: left;
-}
-.pb-label-row {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 10px;
-}
-.pb-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
-  text-transform: uppercase; color: rgba(255,255,255,.5);
+  margin-bottom: 28px; text-align: left;
 }
 .pb-pct {
-  font-size: 15px; font-weight: 900; color: #7dd3a8;
+  display: block; font-size: clamp(30px, 5vw, 42px); font-weight: 900; color: #7dd3a8;
+  letter-spacing: -.5px; line-height: 1; margin-bottom: 12px;
 }
 .pb-track {
-  width: 100%; height: 10px; background: rgba(255,255,255,.12);
-  border-radius: 999px; overflow: hidden; margin-bottom: 8px;
+  width: 100%; height: 6px; background: rgba(255,255,255,.15);
+  border-radius: 999px; overflow: hidden; margin-bottom: 10px;
 }
 .pb-fill {
-  height: 100%; background: linear-gradient(90deg, var(--green-light), #7dd3a8);
-  border-radius: 999px; transition: width .6s ease;
-  width: 0%;
+  height: 100%; background: #7dd3a8;
+  border-radius: 999px; transition: width .6s ease; width: 0%;
 }
 .pb-avail {
-  font-size: 12px; color: rgba(255,255,255,.45); font-weight: 700;
-  letter-spacing: .3px;
+  font-size: 12px; color: rgba(255,255,255,.4); font-weight: 700; letter-spacing: .3px;
 }
 
 .hero-cta {
@@ -367,15 +371,17 @@ footer { background: var(--green-dark); color: rgba(255,255,255,.55); padding: 4
     <h1 class="hero-h1">14 El Paso Lots.<br><span>$19.99</span> Reserves Any One<br>Of Them Today.</h1>
     <p class="hero-sub">Pick a lot, reserve it for $19.99, and we'll send your contract for review. Close the same week. Deed transfers in 2 weeks.</p>
 
+    <div class="countdown-wrap">
+      <span class="cd-label">Reserved Pricing Ends In</span>
+      <div class="cd-digits"><span id="cd-h">07</span>:<span id="cd-m">00</span>:<span id="cd-s">00</span></div>
+    </div>
+
     <div class="pb-wrap" id="pb-wrap">
-      <div class="pb-label-row">
-        <span class="pb-label">Reservation Status</span>
-        <span class="pb-pct" id="pb-pct">0%</span>
-      </div>
+      <span class="pb-pct" id="pb-pct">0% Reserved</span>
       <div class="pb-track">
         <div class="pb-fill" id="pb-fill"></div>
       </div>
-      <span class="pb-avail" id="pb-avail">14 of 14 still available</span>
+      <span class="pb-avail" id="pb-avail">&#128274; 0 / 14 Reserved</span>
     </div>
 
     <a class="hero-cta" href="#selector">Choose Your Property &#8595;</a>
@@ -682,7 +688,7 @@ function updateProgressBar(count) {
   var pct = Math.round((count / total) * 100);
   document.getElementById('pb-fill').style.width = pct + '%';
   document.getElementById('pb-pct').textContent = pct + '% Reserved';
-  document.getElementById('pb-avail').textContent = (total - count) + ' of ' + total + ' still available';
+  document.getElementById('pb-avail').textContent = '🔒 ' + count + ' / ' + total + ' Reserved';
 }
 
 if (GHL_COUNT_ENDPOINT) {
@@ -693,6 +699,23 @@ if (GHL_COUNT_ENDPOINT) {
 } else {
   updateProgressBar(MANUAL_RESERVED_COUNT);
 }
+
+/* ── COUNTDOWN ── */
+(function(){
+  var end = Date.now() + 7 * 60 * 60 * 1000;
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function tick(){
+    var rem = Math.max(0, end - Date.now());
+    var h = Math.floor(rem / 3600000);
+    var m = Math.floor((rem % 3600000) / 60000);
+    var s = Math.floor((rem % 60000) / 1000);
+    document.getElementById('cd-h').textContent = pad(h);
+    document.getElementById('cd-m').textContent = pad(m);
+    document.getElementById('cd-s').textContent = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
 
 /* ── SWITCH PROPERTY ── */
 function switchProperty(val) {
@@ -921,6 +944,13 @@ document.addEventListener('keydown', function(e){
   if (e.key === 'ArrowLeft') lbStep(-1);
   if (e.key === 'ArrowRight') lbStep(1);
 });
+
+/* ── DEFAULT PROPERTY: 1 La Joya Dr (index 6) ── */
+(function(){
+  document.getElementById('prop-select').value = '6';
+  currentPropIdx = 6;
+  renderFullProperty(PROPERTIES[6], 6);
+})();
 
 /* ── RESERVE NOW ── */
 async function handleReserve() {
